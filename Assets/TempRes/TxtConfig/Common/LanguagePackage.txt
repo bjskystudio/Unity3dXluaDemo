@@ -1,0 +1,20 @@
+string	string
+字段	语言描述
+Key	CN
+GameName	全明星觉醒
+	
+//公共相关	
+Common_System	系统
+Common_SystemNotice	系统公告
+Common_Sure	确定
+Common_Sure_1	确认
+Common_Sure_2	同意
+Common_Cancel	取消
+Common_Cancel_1	撤销
+Common_Cancel_2	不同意
+Common_Cancel_3	再想想
+Common_Open	打开
+Common_Close	关闭
+Common_Close_Any	点击空白区域继续游戏
+Common_Any_Close	点击任意空白区域关闭
+	

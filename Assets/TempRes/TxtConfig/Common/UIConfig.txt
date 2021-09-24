@@ -1,0 +1,9 @@
+string	black	string	lua	string	int	bool	bool	bool	int[]	string[]
+界面名称	窗口说明	预设路径	界面类型	固定Order参考窗口(不填代表不启用相对Order)	固定相对Order	是否全屏	模糊背景	聊天按钮	货币信息	帮助信息
+Name	Readme	ResPath	UIType	RelativeViewName	ConstOrder	IsFullScreen	IsBlur	IsShowChat	ResList	HelpKey
+LoadingView	loading界面	UI/Loading/LoadingView	EUIType.ConstUI		15000	true				
+MaskView	遮罩界面	UI/Common/MaskView	EUIType.ConstUI		18000					
+SystemDialogView	系统对话框	UI/Common/Popup/SystemDialogView	EUIType.ConstUI		20000					
+LoginView	登录	UI/Login/LoginView	EUIType.NormalUI			true		true		
+CreateRoleView	创建角色	UI/Login/CreateRoleView	EUIType.NormalUI			true		true		
+MainView	主界面	UI/Main/MainView	EUIType.NormalUI			true		true		

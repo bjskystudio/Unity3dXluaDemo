@@ -1,0 +1,6 @@
+string	string
+字段	语言描述
+Key	CN
+no_config	没有配置
+config_err	配置异常
+arg_err	参数错误
