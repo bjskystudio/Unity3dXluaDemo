@@ -27,7 +27,8 @@ end
 function GameMain:StartLuaLogic()
     self:StartUps()
     self:InitUI()
-    StoryManager.TryPlayStory()
+    --StoryManager.TryPlayStory()
+    Logger.Info("!gameMain startup")
 end
 
 ---单例类触发初始化的地方(主要用于部分一开始就需要启动监听的单例类)

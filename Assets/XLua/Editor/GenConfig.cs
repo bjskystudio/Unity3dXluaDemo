@@ -333,8 +333,7 @@ public static class GenConfig
         typeof(MathEx),
         typeof(ShaderBridge),
         typeof(ResUtils),
-        //报错注掉 by xin.liu
-        //typeof(UIUtils),
+        typeof(UIUtils),
         #endregion
 
         #region DoTween

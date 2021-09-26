@@ -157,6 +157,7 @@
     <Compile Include="Assets\Scripts\Engine\Unity\Utils\MathEx.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Utils\ResUtils.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Utils\ShaderBridge.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Utils\UIUtils.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\CSCallLuaHelp.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\CSEventToLuaHelp.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\CSTimerManager.cs" />
