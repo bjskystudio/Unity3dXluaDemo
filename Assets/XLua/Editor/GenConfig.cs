@@ -1,10 +1,12 @@
 ﻿using DG.Tweening;
+using Framework;
 using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using XLua;
+using YoukiaCore;
 
 public static class GenConfig
 {
@@ -258,40 +260,42 @@ public static class GenConfig
         typeof(Animator),
         typeof(AudioRolloffMode),
         #region 自定义类
-        //typeof(YoukiaCore.Log.Log),
-        //typeof(YoukiaCore.IO.ByteBuffer),
-        //typeof(YoukiaCore.Event.BaseEvent),
-        //typeof(YoukiaCore.Event.GlobalEvent),
-        //typeof(YoukiaCore.Utils.TextUtils),
-        //typeof(YoukiaCore.Utils.EventNumberUtils),
-        //typeof(YoukiaCore.Utils.TimeUtil),
-        //typeof(YoukiaCore.Net.TcpConnect),
-        //typeof(YoukiaCore.Net.ErlTcpConnect),
-        //typeof(YoukiaCore.Net.TcpConnectFactory),
-        //typeof(YoukiaCore.Net.ErlTcpConnectFactory),
-        //typeof(YoukiaCore.Timer.TimerManager),
+        typeof(YoukiaCore.Log.Log),
+        typeof(YoukiaCore.IO.ByteBuffer),
+        typeof(YoukiaCore.Event.BaseEvent),
+        typeof(YoukiaCore.Event.GlobalEvent),
+        typeof(YoukiaCore.Utils.TextUtils),
+        typeof(YoukiaCore.Utils.EventNumberUtils),
+        typeof(YoukiaCore.Utils.TimeUtil),
+        typeof(YoukiaCore.Net.TcpConnect),
+        typeof(YoukiaCore.Net.ErlTcpConnect),
+        typeof(YoukiaCore.Net.TcpConnectFactory),
+        typeof(YoukiaCore.Net.ErlTcpConnectFactory),
+        typeof(YoukiaCore.Timer.TimerManager),
+        //报错注掉 by xin.liu
         //typeof(SDKInterface),
         //typeof(GameManager),
-        //typeof(Launcher),
+        typeof(Launcher),
         typeof(XLuaManager),
         typeof(UIModel),
-        //typeof(AorLongPressButton),
-        //typeof(AorButton),
-        //typeof(AorDrag),
-        //typeof(AorImage),
-        //typeof(AorInputField),
-        //typeof(AorRawImage),
-        //typeof(AorRefExtends),
-        //typeof(AorText),
-        //typeof(AorTMP),
-        //typeof(AorTMP3D),
-        //typeof(AorTMP_InputField),
-        //typeof(AorTMPExtends),
-        //typeof(AorGraphicRaycaster),
-        //typeof(AorGraphicText),
-        //typeof(EventTriggerListener),
-        //typeof(SuperScrollView.LoopListView),
-        //typeof(SuperScrollView.LoopGridView),
+        typeof(AorLongPressButton),
+        typeof(AorButton),
+        typeof(AorDrag),
+        typeof(AorImage),
+        typeof(AorInputField),
+        typeof(AorRawImage),
+        typeof(AorRefExtends),
+        typeof(AorText),
+        typeof(AorTMP),
+        typeof(AorTMP3D),
+        typeof(AorTMP_InputField),
+        typeof(AorTMPExtends),
+        typeof(AorGraphicRaycaster),
+        typeof(AorGraphicText),
+        typeof(EventTriggerListener),
+        typeof(SuperScrollView.LoopListView),
+        typeof(SuperScrollView.LoopGridView),
+        //报错注掉 by xin.liu
         //typeof(WorldSetting),
         //typeof(RoleControler),
         //typeof(RoleControlerManager),
@@ -301,31 +305,35 @@ public static class GenConfig
         //typeof(BeHitInfo),
         //typeof(AfterImageCreator),
         //typeof(Framework.TimelineExtend.TimelineExtend),
-        //typeof(CSTimerManager),
+        typeof(CSTimerManager),
+        //报错注掉 by xin.liu
         //typeof(BattleTimerManager),
 	    #endregion
         #region 扩展、工具
          //Extends
-        //typeof(AnimationExtends),
-        //typeof(AnimatorExtends),
-        //typeof(AorRefExtends),
-        //typeof(AorTMPExtends),
-        //typeof(GameObjectExtends),
-        //typeof(GlobalExtends),
-        //typeof(ListEntends),
-        //typeof(QuaternionExtends),
-        //typeof(TransformExtends),
-        //typeof(UnityObjectExtends),
+        typeof(AnimationExtends),
+        typeof(AnimatorExtends),
+        typeof(AorRefExtends),
+        typeof(AorTMPExtends),
+        typeof(GameObjectExtends),
+        typeof(GlobalExtends),
+        typeof(ListEntends),
+        typeof(QuaternionExtends),
+        typeof(TransformExtends),
+        typeof(UnityObjectExtends),
+        //报错注掉 by xin.liu
         //typeof(BattleObjectExtends),
-        //typeof(GraphicExtends),
+        typeof(GraphicExtends),
         //Utils
+        //报错注掉 by xin.liu
         //typeof(LuaAudioUtils),
         //typeof(LuaVideoUtils),
         //typeof(LuaCinemachineUtils),
         //typeof(DownloadUtils),
-        //typeof(MathEx),
-        //typeof(ShaderBridge),
-        //typeof(ResUtils),
+        typeof(MathEx),
+        typeof(ShaderBridge),
+        typeof(ResUtils),
+        //报错注掉 by xin.liu
         //typeof(UIUtils),
         #endregion
 
@@ -344,7 +352,7 @@ public static class GenConfig
         typeof(DOTweenModuleUI),
         //typeof(DOTweenEx),
         //typeof(DialogueRoleEx),
-        ////typeof(AnimationExtends),
+        typeof(AnimationExtends),
         // typeof(Vector2Wrapper),
         // typeof(Vector3Wrapper),
         #endregion
@@ -437,20 +445,20 @@ public static class GenConfig
         typeof(Func<string, LuaTable>),
         typeof(UnityEngine.Events.UnityAction<float>),
         typeof(UnityEngine.Events.UnityAction<int>),
-        //typeof(YoukiaCore.Utils.CallBack),
-        //typeof(YoukiaCore.Utils.CallBack<float>),
-        //typeof(YoukiaCore.Utils.CallBack<int, YoukiaCore.Utils.CallBack>),
-        //typeof(YoukiaCore.Utils.CallBack<LuaTable, YoukiaCore.Utils.CallBack>),
-        //typeof(YoukiaCore.Event.EventHandle),
-        //typeof(YoukiaCore.Event.EventHandleSingle),
+        typeof(YoukiaCore.Utils.CallBack),
+        typeof(YoukiaCore.Utils.CallBack<float>),
+        typeof(YoukiaCore.Utils.CallBack<int, YoukiaCore.Utils.CallBack>),
+        typeof(YoukiaCore.Utils.CallBack<LuaTable, YoukiaCore.Utils.CallBack>),
+        typeof(YoukiaCore.Event.EventHandle),
+        typeof(YoukiaCore.Event.EventHandleSingle),
         typeof(Application.LogCallback),
-        //typeof(UIGoTable.LuaOnClickBtnAction),
-        //typeof(UIGoTable.LuaOnClickToggleAction),
-        //typeof(EventTriggerListener.VoidDelegate),
-        //typeof(EventTriggerListener.PointerEventDataDelegate),
-        //typeof(EventTriggerListener.BaseEventDataDelegate),
-        //typeof(EventTriggerListener.AxisEventDataDelegate),
-        //typeof(System.Action<EventTriggerListener>),
+        typeof(UIGoTable.LuaOnClickBtnAction),
+        typeof(UIGoTable.LuaOnClickToggleAction),
+        typeof(EventTriggerListener.VoidDelegate),
+        typeof(EventTriggerListener.PointerEventDataDelegate),
+        typeof(EventTriggerListener.BaseEventDataDelegate),
+        typeof(EventTriggerListener.AxisEventDataDelegate),
+        typeof(System.Action<EventTriggerListener>),
         typeof(DG.Tweening.Core.DOGetter<float>),
         typeof(DG.Tweening.Core.DOSetter<float>),
     };
@@ -463,6 +471,7 @@ public static class GenConfig
 #if UNITY_WEBGL
         new List<string>(){ "UnityEngine.WWW", "threadPriority"},
 #endif
+        new List<string>(){ "UnityEngine.Texture", "imageContentsHash"},
         new List<string>(){ "UnityEngine.Texture2D", "alphaIsTransparency"},
         new List<string>(){ "UnityEngine.Security", "GetChainOfTrustValue"},
         new List<string>(){ "UnityEngine.CanvasRenderer", "onRequestRebuild"},
@@ -471,6 +480,13 @@ public static class GenConfig
         new List<string>(){ "UnityEngine.WWW", "MovieTexture"},
         new List<string>(){ "UnityEngine.WWW", "GetMovieTexture"},
         new List<string>(){ "UnityEngine.AnimatorOverrideController", "PerformOverrideClipListCleanup"},
+#if UNITY_2019_1_OR_NEWER
+        new List<string>(){ "UnityEngine.MeshRenderer", "scaleInLightmap"},
+        new List<string>(){ "UnityEngine.MeshRenderer", "receiveGI"},
+        new List<string>(){ "UnityEngine.MeshRenderer", "stitchLightmapSeams"},
+        new List<string>(){ "UnityEngine.ParticleSystemRenderer", "supportsMeshInstancing"},
+#endif
+       
 #if !UNITY_WEBPLAYER
         new List<string>(){ "UnityEngine.Application", "ExternalEval"},
 #endif
@@ -487,11 +503,14 @@ public static class GenConfig
         new List<string>(){ "System.Type", "IsSZArray"},
         new List<string>(){ "UnityEngine.Input", "IsJoystickPreconfigured", "System.String"},
         #region Aor组件
-        //new List<string>(){ "AorImage", "SetGrayEffect", "System.Boolean"},
-        //new List<string>(){ "AorButton", "SetGrayEffect", "System.Boolean"},
-        //new List<string>(){ "AorRawImage", "SetGrayEffect", "System.Boolean"},
-        //new List<string>(){ "AorText", "SetGrayEffect", "System.Boolean"},
-        //new List<string>(){ "Gradient", "SetGrayEffect", "System.Boolean"},
+        new List<string>(){ "AorImage", "SetGrayEffect", "System.Boolean"},
+        new List<string>(){ "AorButton", "SetGrayEffect", "System.Boolean"},
+        new List<string>(){ "AorRawImage", "SetGrayEffect", "System.Boolean"},
+        new List<string>(){ "AorText", "SetGrayEffect", "System.Boolean"},
+        new List<string>(){ "Gradient", "SetGrayEffect", "System.Boolean"},
+	    #endregion
+        #region 自定义
+        //new List<string>(){ "YoukiaCore.Utils.StringUtils", "QueryToCollection", "System.String"},
 	    #endregion
     };
 }
