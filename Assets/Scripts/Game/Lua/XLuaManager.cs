@@ -13,7 +13,7 @@ public class XLuaManager : MonoSingleton<XLuaManager>
     /// <summary>
     /// Lua脚本相对目录路径
     /// </summary>
-    private const string luaScriptsRelativeFolderPath = "/Res/LuaScript";
+    private const string luaScriptsRelativeFolderPath = "/Res/LuaScripts";
 
     /// <summary>
     /// Lua PB相对目录路径

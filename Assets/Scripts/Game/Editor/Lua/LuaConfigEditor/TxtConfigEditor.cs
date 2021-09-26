@@ -48,7 +48,7 @@ public class TxtConfigEditor : EditorWindow
     {
         string scriptPath = string.Empty;
         filepath = filepath.Replace(".", "/") + ".lua";
-        scriptPath = Path.Combine(Application.dataPath, "Res/LuaScript");
+        scriptPath = Path.Combine(Application.dataPath, "Res/LuaScripts");
         scriptPath = Path.Combine(scriptPath, filepath);
         return FileUtils.ReadAllBytes(scriptPath);
     }

@@ -10,8 +10,8 @@ public class LuaConfigUtils
 {
     public static readonly string InputConfigPath = Application.dataPath + "/TempRes/TxtConfig";
     public static readonly string InputConfigAssetPath = "Assets/TempRes/TxtConfig";
-    public static readonly string OutConfigPath = Application.dataPath + "Res/LuaScript/LuaConfig/Auto";
-    public static readonly string OutEditorConfigPath = Application.dataPath + "Res/LuaScript/Editor/ConfigTips";
+    public static readonly string OutConfigPath = Application.dataPath + "Res/LuaScripts/LuaConfig/Auto";
+    public static readonly string OutEditorConfigPath = Application.dataPath + "Res/LuaScripts/Editor/ConfigTips";
 
     /// <summary>
     /// 把Txt配置转换为Lua配置
@@ -51,7 +51,7 @@ public class LuaConfigUtils
     {
         string scriptPath = string.Empty;
         filepath = filepath.Replace(".", "/") + ".lua";
-        scriptPath = Path.Combine(Application.dataPath, "Res/LuaScript");
+        scriptPath = Path.Combine(Application.dataPath, "Res/LuaScripts");
         scriptPath = Path.Combine(scriptPath, filepath);
         return FileUtils.ReadAllBytes(scriptPath);
     }

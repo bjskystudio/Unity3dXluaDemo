@@ -42,7 +42,7 @@ public class LangPackGetUtils
                 filepath = "Framework.Debug.Logger";
             }
             filepath = filepath.Replace(".", "/") + ".lua";
-            scriptPath = Path.Combine(Application.dataPath, "Res/LuaScript");
+            scriptPath = Path.Combine(Application.dataPath, "Res/LuaScripts");
             scriptPath = Path.Combine(scriptPath, filepath);
             return FileUtils.ReadAllBytes(scriptPath);
         });

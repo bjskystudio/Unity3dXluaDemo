@@ -16,7 +16,7 @@ public class LuaToolsWindow : EditorWindow
     /// <summary>
     /// CS的Lua API生成目录
     /// </summary>
-    private const string LuaAPIOutputFolderPath = "Res/LuaScript/Editor/CSLuaAPI/";
+    private const string LuaAPIOutputFolderPath = "Res/LuaScripts/Editor/CSLuaAPI/";
 
     //[MenuItem("Tools/Lua/Lua工具箱", priority = 300)]
     //static void Init()
