@@ -1,0 +1,14 @@
+---@class LoginView_GoTable
+---@field public transform UnityEngine.Transform
+---@field public gameObject UnityEngine.GameObject
+---@field public aorbtn_close AorButton
+---@field public aorbtn_help AorButton
+---@field public aorbtn_home AorButton
+---@field public aorbtn_Login AorButton
+---@field public aorbtn_more AorButton
+---@field public aorbtn_server AorButton
+---@field public aorinputfield_name AorInputField
+---@field public aortext_inputName AorText
+---@field public aortext_serverName AorText
+---@field public aortext_title AorText
+

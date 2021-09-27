@@ -165,6 +165,7 @@
     <Compile Include="Assets\Scripts\Game\Lua\XLuaManager.cs" />
     <Compile Include="Assets\Scripts\Game\System\AssetLoadManager.cs" />
     <Compile Include="Assets\Scripts\Game\System\EventDef.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\StartSetActive.cs" />
     <Compile Include="Assets\Scripts\Game\UI\BackgroundScaler.cs" />
     <Compile Include="Assets\Scripts\Game\UI\NotchScreenAdapter.cs" />
     <Compile Include="Assets\Scripts\Game\UI\UIModel.cs" />

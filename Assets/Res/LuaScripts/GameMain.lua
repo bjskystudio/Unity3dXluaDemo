@@ -45,9 +45,9 @@ end
 
 --- 初始化UI
 function GameMain:InitUI()
-    --Logger.Info("GameMain:InitUI()")
+    Logger.Info("GameMain:InitUI()")
     UIManager:GetInstance():OpenWindow(ConfigManager.UIConfig.MaskView.Name)
-    --UIManager:GetInstance():OpenWindow(ConfigManager.UIConfig.LoginView.Name)
+    UIManager:GetInstance():OpenWindow(ConfigManager.UIConfig.LoginView.Name)
 end
 
 function GameMain:Stop()

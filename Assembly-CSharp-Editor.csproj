@@ -67,6 +67,10 @@
     <Compile Include="Assets\Editor\AssetBundle\BuildAssetBundles.cs" />
     <Compile Include="Assets\Engine\AssetBundleBuilder\Editor\AssetBundleBuilder.cs" />
     <Compile Include="Assets\Engine\AssetBundleBuilder\Editor\AssetBundleBuilder_SNK.cs" />
+    <Compile Include="Assets\Engine\GraphicsExtSystem\DynamicShaderSystem\Editor\FXStandardInspector.cs" />
+    <Compile Include="Assets\Engine\GraphicsExtSystem\DynamicShaderSystem\Editor\MaterialInspectorBase.cs" />
+    <Compile Include="Assets\Engine\GraphicsExtSystem\DynamicShaderSystem\Editor\RGBScaleMaterialPropertyDrawer.cs" />
+    <Compile Include="Assets\Engine\GraphicsExtSystem\DynamicShaderSystem\Editor\ShaderDetailInspector.cs" />
     <Compile Include="Assets\Engine\ResourceLoad\Editor\ResourceLoadConfigEditor.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\ComponetBind\Editor\ReNameWindow.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\ComponetBind\Editor\UIGoTableEditor.cs" />
@@ -96,6 +100,9 @@
     <Compile Include="Assets\Scripts\Game\Editor\Lua\GenerateLuaApi\LuaToolsWindow.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Lua\LuaConfigEditor\LuaConfigUtils.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Lua\LuaConfigEditor\TxtConfigEditor.cs" />
+    <Compile Include="Assets\Scripts\Game\Editor\Postprocessor\BitmapFontImagePostprocessor.cs" />
+    <Compile Include="Assets\Scripts\Game\Editor\Postprocessor\CustomAssetPostprocessor.cs" />
+    <Compile Include="Assets\Scripts\Game\Editor\Postprocessor\IdeaTemplatesPostprocessor.cs" />
     <Compile Include="Assets\XLua\Editor\ExampleConfig.cs" />
     <Compile Include="Assets\XLua\Editor\GenConfig.cs" />
     <Compile Include="Assets\XLua\Src\Editor\Generator.cs" />
