@@ -940,8 +940,6 @@ namespace CSObjectWrapEditor
                     .Where(method => !ignoreCompilerGenerated || !isDefined(method, typeof(CompilerGeneratedAttribute)))
                     .Where(method => !ignoreNotPublic || method.IsPublic)
                     .Where(method => !ignoreProperty || !method.IsSpecialName || (!method.Name.StartsWith("get_") && !method.Name.StartsWith("set_")))
-                    .Where(method => !method.GetParameters().Any(pInfo => pInfo.ParameterType.IsPointer))
-                    .Where(method => !method.ReturnType.IsPointer)
                     .Cast<MethodBase>()
                     .Concat(kv.Key.GetConstructors(bindingAttrOfConstructor).Cast<MethodBase>())
                     .Where(method => !injectByGeneric(method, kv.Value))

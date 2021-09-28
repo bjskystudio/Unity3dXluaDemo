@@ -100,7 +100,7 @@ function Slider:SetDirection(direction,includeRectLayouts) end
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Slider:DOValue(endValue,duration,snapping) end
 
 return Slider

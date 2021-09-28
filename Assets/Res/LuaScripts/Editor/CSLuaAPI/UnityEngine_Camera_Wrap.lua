@@ -264,42 +264,42 @@ function Camera:TryGetCullingParameters(stereoAware) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Camera:DOAspect(endValue,duration) end
 
 ---@param endValue UnityEngine.Color
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Camera:DOColor(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Camera:DOFarClipPlane(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Camera:DOFieldOfView(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Camera:DONearClipPlane(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Camera:DOOrthoSize(endValue,duration) end
 
 ---@param endValue UnityEngine.Rect
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Camera:DOPixelRect(endValue,duration) end
 
 ---@param endValue UnityEngine.Rect
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Camera:DORect(endValue,duration) end
 
 ---@param duration number

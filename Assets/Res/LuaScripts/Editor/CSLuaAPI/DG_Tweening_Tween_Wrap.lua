@@ -4,7 +4,6 @@
 ---@field public isRelative System.Boolean
 ---@field public active System.Boolean
 ---@field public fullPosition number
----@field public hasLoops System.Boolean
 ---@field public playedOnce System.Boolean
 ---@field public position number
 ---@field public timeScale number
@@ -23,12 +22,11 @@
 ---@field public onWaypointChange DG.Tweening.TweenCallback
 ---@field public easeOvershootOrAmplitude number
 ---@field public easePeriod number
----@field public debugTargetId string
 local Tween = {}
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Tween:DOTimeScale(endValue,duration) end
 
 function Tween:Complete() end
@@ -44,16 +42,8 @@ function Tween:ForceInit() end
 ---@param andPlay System.Boolean
 function Tween:Goto(to,andPlay) end
 
----@param to number
----@param andPlay System.Boolean
-function Tween:GotoWithCallbacks(to,andPlay) end
-
 ---@param complete System.Boolean
 function Tween:Kill(complete) end
-
----@param deltaTime number
----@param unscaledDeltaTime number
-function Tween:ManualUpdate(deltaTime,unscaledDeltaTime) end
 
 function Tween:PlayBackwards() end
 
@@ -99,9 +89,6 @@ function Tween:CompletedLoops() end
 
 ---@return number
 function Tween:Delay() end
-
----@return number
-function Tween:ElapsedDelay() end
 
 ---@param includeLoops System.Boolean
 ---@return number

@@ -1,0 +1,7 @@
+string	string[]	string[]	string[]	string	string	black
+模块名称，同文件名	发消息函数名，不能用冒号方法，且必须带一个回调参数	重登函数，可不填	等待模块名称列表，没有就不填	数据初始化函数名，发消息完成后执行，可不填	清理函数，可不填	描述
+Sid	SendFunc	ReLoginFunc	WaitList	InitFunc	ClearFunc	Desc
+LoginManager	InitLoginData					游戏管理器需要提前启动的都在这里Startup
+ShopNet	GetAllShop	GetAllShop	LoginManager			获取商店数据
+TaskNet	GetTaskData	GetTaskData	LoginManager			获取任务信息
+PlayerNet	GetPlayerEquip	GetPlayerEquip	LoginManager			获取主角装备信息

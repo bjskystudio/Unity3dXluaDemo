@@ -2,18 +2,13 @@
 
 ---@class DG.Tweening.DOTween
 ---@field static logBehaviour DG.Tweening.LogBehaviour
----@field static debugStoreTargetId System.Boolean
 ---@field static Version string
 ---@field static useSafeMode System.Boolean
----@field static safeModeLogBehaviour DG.Tweening.Core.Enums.SafeModeLogBehaviour
----@field static nestedTweenFailureBehaviour DG.Tweening.Core.Enums.NestedTweenFailureBehaviour
 ---@field static showUnityEditorReport System.Boolean
 ---@field static timeScale number
 ---@field static useSmoothDeltaTime System.Boolean
 ---@field static maxSmoothUnscaledTime number
----@field static onWillLog System.Func
 ---@field static drawGizmos System.Boolean
----@field static debugMode System.Boolean
 ---@field static defaultUpdateType DG.Tweening.UpdateType
 ---@field static defaultTimeScaleIndependent System.Boolean
 ---@field static defaultAutoPlay DG.Tweening.AutoPlay
@@ -66,28 +61,28 @@ function DOTween.To(getter,setter,endValue,duration) end
 ---@param setter DG.Tweening.Core.DOSetter
 ---@param endValue int32
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function DOTween.To(getter,setter,endValue,duration) end
 
 ---@param getter DG.Tweening.Core.DOGetter
 ---@param setter DG.Tweening.Core.DOSetter
 ---@param endValue uint32
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function DOTween.To(getter,setter,endValue,duration) end
 
 ---@param getter DG.Tweening.Core.DOGetter
 ---@param setter DG.Tweening.Core.DOSetter
 ---@param endValue int64
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function DOTween.To(getter,setter,endValue,duration) end
 
 ---@param getter DG.Tweening.Core.DOGetter
 ---@param setter DG.Tweening.Core.DOSetter
 ---@param endValue uint64
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function DOTween.To(getter,setter,endValue,duration) end
 
 ---@param getter DG.Tweening.Core.DOGetter
@@ -158,7 +153,7 @@ function DOTween.ToAxis(getter,setter,endValue,duration,axisConstraint) end
 ---@param setter DG.Tweening.Core.DOSetter
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function DOTween.ToAlpha(getter,setter,endValue,duration) end
 
 ---@param setter DG.Tweening.Core.DOSetter
@@ -208,10 +203,6 @@ function DOTween.ToArray(getter,setter,endValues,durations) end
 ---@return DG.Tweening.Sequence
 function DOTween.Sequence() end
 
----@param target System.Object
----@return DG.Tweening.Sequence
-function DOTween.Sequence(target) end
-
 ---@param withCallbacks System.Boolean
 ---@return int32
 function DOTween.CompleteAll(withCallbacks) end
@@ -252,12 +243,6 @@ function DOTween.KillAll(complete,idsOrTargetsToExclude) end
 ---@param complete System.Boolean
 ---@return int32
 function DOTween.Kill(targetOrId,complete) end
-
----@param target System.Object
----@param id System.Object
----@param complete System.Boolean
----@return int32
-function DOTween.Kill(target,id,complete) end
 
 ---@return int32
 function DOTween.PauseAll() end
@@ -346,9 +331,6 @@ function DOTween.TogglePause(targetOrId) end
 ---@param alsoCheckIfIsPlaying System.Boolean
 ---@return System.Boolean
 function DOTween.IsTweening(targetOrId,alsoCheckIfIsPlaying) end
-
----@return int32
-function DOTween.TotalActiveTweens() end
 
 ---@return int32
 function DOTween.TotalPlayingTweens() end

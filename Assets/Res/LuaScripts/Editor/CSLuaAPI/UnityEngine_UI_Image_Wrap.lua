@@ -46,17 +46,17 @@ function Image:IsRaycastLocationValid(screenPoint,eventCamera) end
 
 ---@param endValue UnityEngine.Color
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Image:DOColor(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Image:DOFade(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Image:DOFillAmount(endValue,duration) end
 
 ---@param gradient UnityEngine.Gradient

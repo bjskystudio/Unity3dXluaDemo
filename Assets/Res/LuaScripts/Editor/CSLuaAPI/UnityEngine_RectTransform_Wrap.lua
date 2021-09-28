@@ -53,76 +53,76 @@ function RectTransform:UIObjectFollow3DObject(refTarget,uiOffsetX,uiOffsetY) end
 ---@param endValue UnityEngine.Vector2
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorPos(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorPosX(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorPosY(endValue,duration,snapping) end
 
 ---@param endValue UnityEngine.Vector3
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorPos3D(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorPos3DX(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorPos3DY(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorPos3DZ(endValue,duration,snapping) end
 
 ---@param endValue UnityEngine.Vector2
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorMax(endValue,duration,snapping) end
 
 ---@param endValue UnityEngine.Vector2
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOAnchorMin(endValue,duration,snapping) end
 
 ---@param endValue UnityEngine.Vector2
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOPivot(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOPivotX(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOPivotY(endValue,duration) end
 
 ---@param endValue UnityEngine.Vector2
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function RectTransform:DOSizeDelta(endValue,duration,snapping) end
 
 ---@param punch UnityEngine.Vector2
@@ -158,13 +158,5 @@ function RectTransform:DOShakeAnchorPos(duration,strength,vibrato,randomness,sna
 ---@param snapping System.Boolean
 ---@return DG.Tweening.Sequence
 function RectTransform:DOJumpAnchorPos(endValue,jumpPower,numJumps,duration,snapping) end
-
----@param center UnityEngine.Vector2
----@param endValueDegrees number
----@param duration number
----@param relativeCenter System.Boolean
----@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
-function RectTransform:DOShapeCircle(center,endValueDegrees,duration,relativeCenter,snapping) end
 
 return RectTransform

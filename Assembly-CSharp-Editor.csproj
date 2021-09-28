@@ -71,7 +71,27 @@
     <Compile Include="Assets\Engine\GraphicsExtSystem\DynamicShaderSystem\Editor\MaterialInspectorBase.cs" />
     <Compile Include="Assets\Engine\GraphicsExtSystem\DynamicShaderSystem\Editor\RGBScaleMaterialPropertyDrawer.cs" />
     <Compile Include="Assets\Engine\GraphicsExtSystem\DynamicShaderSystem\Editor\ShaderDetailInspector.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\2D\CLight2DEditorUtility.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\2D\CRenderer2DMenus.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\CEditorUtils.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\CNPRPipelineCameraEditor.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\CNPRPipelineLightEditor.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\CSavedParameter.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\CShadowCascadeSplitGUI.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\Data\CAdditionalCameraDataEditor.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\Data\CNPRPipelineAssetEditor.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\Data\CNPRRendererDataEditor.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\Data\CScriptableRendererDataEditor.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\RendererFeatures\CNewRendererFeatureDropdownItem.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Editor\RendererFeatures\CRenderObjectsSettingsEditor.cs" />
     <Compile Include="Assets\Engine\ResourceLoad\Editor\ResourceLoadConfigEditor.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\Editor\AnimationParticlePreviewAssetEditor.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\Editor\MecanimControlTrackEditor.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\Editor\MecanimPlayableClipEditor.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleSystemControl\Editor\ParticleSystemControlClipEditor.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleSystemControl\Editor\ParticleSystemControlTrackEditor.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\Editor\MirrorDataEditor.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorAnimation\Editor\MirrorAnimationPlayableClipEditor.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\ComponetBind\Editor\ReNameWindow.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\ComponetBind\Editor\UIGoTableEditor.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Editor\AssetBundle\AssetBundleEditor.cs" />
@@ -111,6 +131,7 @@
     <Compile Include="Assets\XLua\Src\Editor\LuaImporter.cs" />
     <Compile Include="Assets\XLua\Src\Editor\TemplateRef.cs" />
     <None Include="Assets\XLua\Src\Editor\Template\LuaInterfaceBridge.tpl.txt" />
+    <None Include="Assets\Engine\NPR Pipeline\Editor\RendererFeatures\CNewRendererFeature.cs.txt" />
     <None Include="Assets\XLua\Src\Editor\Template\LuaWrapPusher.tpl.txt" />
     <None Include="Assets\XLua\Src\Editor\Template\LuaDelegateWrap.tpl.txt" />
     <None Include="Assets\XLua\Src\Editor\Template\LuaRegister.tpl.txt" />
@@ -329,6 +350,21 @@
     </Reference>
     <Reference Include="zlib.net">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Youkia/zlib.net.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenProEditor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiEditor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -720,6 +756,39 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
@@ -729,6 +798,26 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{2C486C94-B48C-2BFB-70D5-E50B2417D944}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{7D13D105-46F8-B937-0D45-B56F943ED1F2}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-examples.csproj">
+      <Project>{60DC320C-7FB3-4C1E-DBF0-4DEC97207CCE}</Project>
+      <Name>spine-unity-examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{760E467B-3271-A0FB-9AC4-9E194EEC620E}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-examples-editor.csproj">
+      <Project>{68604CD9-BEAF-4131-F980-F59477757368}</Project>
+      <Name>spine-unity-examples-editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{53D59669-73EB-9924-849F-FCDF76034B25}</Project>
+      <Name>spine-unity-editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

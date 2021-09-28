@@ -580,6 +580,17 @@ namespace XLua.LuaDLL
         [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr xlua_gl(IntPtr L);
 
+        #region Protobuf
+        [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int luaopen_pb(System.IntPtr L);
+
+        [MonoPInvokeCallback(typeof(LuaDLL.lua_CSFunction))]
+        public static int LoadLuaProfobuf(System.IntPtr L)
+        {
+            return luaopen_pb(L);
+        }
+        #endregion
+
 #if GEN_CODE_MINIMIZE
         [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
         public static extern void xlua_set_csharp_wrapper_caller(IntPtr wrapper);

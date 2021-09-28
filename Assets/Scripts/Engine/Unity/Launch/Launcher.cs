@@ -97,11 +97,11 @@ public class Launcher : MonoSingleton<Launcher>
         {
             luaHandle.Finish();
         });
-        //AsyncCombiner.AsyncHandle pbHandle = combiner.CreateAsyncHandle();
-        //XLuaManager.Instance.LoadLuaPBRes(() =>
-        //{
-        //    pbHandle.Finish();
-        //});
+        AsyncCombiner.AsyncHandle pbHandle = combiner.CreateAsyncHandle();
+        XLuaManager.Instance.LoadLuaPBRes(() =>
+        {
+            pbHandle.Finish();
+        });
         AsyncCombiner.AsyncHandle uimodelHandle = combiner.CreateAsyncHandle();
         this.InitUIModel(() =>
         {

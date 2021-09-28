@@ -19,12 +19,12 @@ function Graphic:SetColorByHexadecimal(hexadecimal) end
 
 ---@param endValue UnityEngine.Color
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Graphic:DOColor(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Graphic:DOFade(endValue,duration) end
 
 ---@param endValue UnityEngine.Color

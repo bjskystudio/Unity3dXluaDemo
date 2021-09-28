@@ -39,6 +39,14 @@ public class XLuaManager : MonoSingleton<XLuaManager>
         get;
         private set;
     }
+    /// <summary>
+    /// Lua OB二进制缓存
+    /// </summary>
+    public Dictionary<string, byte[]> LuaPBBytesCaching
+    {
+        get;
+        private set;
+    }
 
     /// <summary>
     /// Lua文件相对路径
@@ -65,7 +73,7 @@ public class XLuaManager : MonoSingleton<XLuaManager>
     protected override void Init()
     {
         LuaScriptsBytesCaching = new Dictionary<string, byte[]>();
-        //LuaPBBytesCaching = new Dictionary<string, byte[]>();
+        LuaPBBytesCaching = new Dictionary<string, byte[]>();
         LuaFileRelativePathDic = new Dictionary<string, string>();
         //用于处理编辑器模式下虚拟器卸载问题
 #if UNITY_EDITOR
@@ -95,7 +103,7 @@ public class XLuaManager : MonoSingleton<XLuaManager>
         }
         Debug.Log($"初始化Lua环境!");
         luaEnv = new LuaEnv();
-        //luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
+        luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
         HasGameStart = false;
         //HasHotfix = false;
         if (luaEnv != null)
@@ -170,6 +178,47 @@ public class XLuaManager : MonoSingleton<XLuaManager>
             }
         }
         loadcompletedcb?.Invoke();
+    }
+
+
+    /// <summary>
+    /// 加载Lua PB资源
+    /// </summary>
+    /// <param name="loadcompletedcb">加载完成回调</param>
+    public void LoadLuaPBRes(Action loadcompletedcb = null)
+    {
+        LuaPBBytesCaching.Clear();
+        if (Launcher.Instance.UsedAssetBundle && Launcher.Instance.UsedLuaAssetBundle)
+        {
+            ResourceLoad.ResourceManager.Instance.LoadABTextAll("pbdata/pbdata_bundle", (list, res) =>
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    LuaPBBytesCaching.Add(list[i].name, list[i].bytes);
+                }
+                res.Release();
+                loadcompletedcb?.Invoke();
+            }, false);
+        }
+        else
+        {
+            string luapbfolderfullpath = Application.dataPath + luaPBRelativeFolderPath;
+            string[] files = Directory.GetFiles(luapbfolderfullpath, "*.bytes", SearchOption.AllDirectories);
+            for (int i = 0; i < files.Length; i++)
+            {
+                string pbname = Path.GetFileNameWithoutExtension(files[i]);
+                var bytes = File.ReadAllBytes(files[i]);
+                if (!LuaPBBytesCaching.ContainsKey(pbname))
+                {
+                    LuaPBBytesCaching.Add(pbname, bytes);
+                }
+                else
+                {
+                    Debug.LogError($"有重名的PB文件:{pbname}!");
+                }
+            }
+            loadcompletedcb?.Invoke();
+        }
     }
 
     /// <summary>

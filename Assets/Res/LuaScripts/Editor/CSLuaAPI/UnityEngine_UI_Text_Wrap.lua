@@ -41,20 +41,12 @@ function Text:OnRebuildRequested() end
 
 ---@param endValue UnityEngine.Color
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Text:DOColor(endValue,duration) end
-
----@param fromValue int32
----@param endValue int32
----@param duration number
----@param addThousandsSeparator System.Boolean
----@param culture System.Globalization.CultureInfo
----@return DG.Tweening.Core.TweenerCore
-function Text:DOCounter(fromValue,endValue,duration,addThousandsSeparator,culture) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Text:DOFade(endValue,duration) end
 
 ---@param endValue string
@@ -62,7 +54,7 @@ function Text:DOFade(endValue,duration) end
 ---@param richTextEnabled System.Boolean
 ---@param scrambleMode DG.Tweening.ScrambleMode
 ---@param scrambleChars string
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Text:DOText(endValue,duration,richTextEnabled,scrambleMode,scrambleChars) end
 
 ---@param endValue UnityEngine.Color

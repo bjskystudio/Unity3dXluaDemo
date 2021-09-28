@@ -272,8 +272,8 @@ public static class GenConfig
         typeof(YoukiaCore.Net.TcpConnectFactory),
         typeof(YoukiaCore.Net.ErlTcpConnectFactory),
         typeof(YoukiaCore.Timer.TimerManager),
+        typeof(SDKInterface),
         //报错注掉 by xin.liu
-        //typeof(SDKInterface),
         //typeof(GameManager),
         typeof(Launcher),
         typeof(XLuaManager),

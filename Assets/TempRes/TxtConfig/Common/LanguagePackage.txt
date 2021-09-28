@@ -17,4 +17,48 @@ Common_Open	打开
 Common_Close	关闭
 Common_Close_Any	点击空白区域继续游戏
 Common_Any_Close	点击任意空白区域关闭
+Common_Title	提示
+Common_Title_1	温馨提示
+Common_Title_2	系统提示
+Common_Title_3	放弃确认
+Common_Title_4	替换确认
 	
+
+//登录相关	
+Login_HaveRole	已有伙伴
+Login_BestServer	推荐服务器
+Login_UnSelectServer	请选择服务器
+Login_NameCantNil	用户名不能为空
+Login_BtnLogin	登录游戏
+Login_ServerArea	[%s区] %s
+Login_ServerArea_1	%s-%s区
+Login_CurServer	%s区
+Login_BtnNotice	公告
+Login_NoticeNull	暂无公告
+NoticeDesc	1~欢迎~欢迎您来到《%s》，祝您游戏愉快！~1~1474387200~0
+	
+//服务器	
+ServerState_Hot	爆满
+ServerState_Busy	繁忙
+ServerState_Open	流畅
+ServerState_Close	维护
+ServerState_New	新服
+//防沉迷	
+RealNameRegister_00	根据国家新闻出版署发布的《关于防止未成年人沉迷网络游戏的通知》您需要进行实名制方可继续进行游戏。点击“确定”前往实名制认证。
+RealNameRegister_01	游戏实名登记
+RealNameRegister_02	亲爱的玩家，根据国家相关法规规定，请尽快完成实名登记，拥有完整游戏体验。
+RealNameRegister_03	姓名
+RealNameRegister_04	国家/地区
+RealNameRegister_05	中国大陆
+RealNameRegister_06	证件号
+RealNameRegister_07	请填写真实姓名
+RealNameRegister_08	请填写真实有效身份证号
+RealNameRegister_09	确认登记
+
+//基础功能	
+System_ExitGame_Desc	未来的航海王，您要提前结束您的新世界航路之旅吗？
+System_Net_BreakOff	网络连接断开，是否重新连接?
+System_Net_Timeout	通讯超时，请确认网络通畅后重试！
+System_Error_Version	游戏版本已更新，请下载后再试.
+System_Warning	抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益脑 沉迷游戏伤身 合理安排时间 享受健康生活
+System_Maintenance	服务器正在维护中，请关注游戏公告并稍后再试

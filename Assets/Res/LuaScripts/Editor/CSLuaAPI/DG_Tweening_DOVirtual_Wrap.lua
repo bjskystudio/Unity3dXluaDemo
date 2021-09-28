@@ -10,27 +10,6 @@ local DOVirtual = {}
 ---@return DG.Tweening.Tweener
 function DOVirtual.Float(from,to,duration,onVirtualUpdate) end
 
----@param from int32
----@param to int32
----@param duration number
----@param onVirtualUpdate DG.Tweening.TweenCallback
----@return DG.Tweening.Tweener
-function DOVirtual.Int(from,to,duration,onVirtualUpdate) end
-
----@param from UnityEngine.Vector3
----@param to UnityEngine.Vector3
----@param duration number
----@param onVirtualUpdate DG.Tweening.TweenCallback
----@return DG.Tweening.Tweener
-function DOVirtual.Vector3(from,to,duration,onVirtualUpdate) end
-
----@param from UnityEngine.Color
----@param to UnityEngine.Color
----@param duration number
----@param onVirtualUpdate DG.Tweening.TweenCallback
----@return DG.Tweening.Tweener
-function DOVirtual.Color(from,to,duration,onVirtualUpdate) end
-
 ---@param from number
 ---@param to number
 ---@param lifetimePercentage number

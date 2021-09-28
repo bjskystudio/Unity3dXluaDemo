@@ -21,6 +21,7 @@ namespace XLua
 {
     using System;
     using System.Collections.Generic;
+    using UnityEngine;
 
     public class LuaEnv : IDisposable
     {
@@ -357,7 +358,7 @@ namespace XLua
 #endif
         }
 
-        //¼æÈÝAPI
+        //ï¿½ï¿½ï¿½ï¿½API
         public void GC()
         {
             Tick();
@@ -434,11 +435,18 @@ namespace XLua
 
                 // A pre-wrapped exception - just rethrow it (stack trace of InnerException will be preserved)
                 Exception ex = err as Exception;
-                if (ex != null) throw ex;
+                if (ex != null)
+                    if (!UnityEngine.Application.isPlaying)
+                        throw ex;
+                    else
+                        Debug.LogError(ex.Message);
 
                 // A non-wrapped Lua error (best interpreted as a string) - wrap it and throw it
                 if (err == null) err = "Unknown Lua Error";
-                throw new LuaException(err.ToString());
+                    if (!UnityEngine.Application.isPlaying)
+                        throw new LuaException(err.ToString());
+                    else
+                        Debug.LogError(err.ToString());
 #if THREAD_SAFE || HOTFIX_ENABLE
             }
 #endif
@@ -598,8 +606,8 @@ namespace XLua
 
         internal List<CustomLoader> customLoaders = new List<CustomLoader>();
 
-        //loader : CustomLoader£¬ filepath²ÎÊý£º£¨refÀàÐÍ£©ÊäÈëÊÇrequireµÄ²ÎÊý£¬Èç¹ûÐèÒªÖ§³Öµ÷ÊÔ£¬ÐèÒªÊä³öÕæÊµÂ·¾¶¡£
-        //                        ·µ»ØÖµ£ºÈç¹û·µ»Ønull£¬´ú±í¼ÓÔØ¸ÃÔ´ÏÂÎÞºÏÊÊµÄÎÄ¼þ£¬·ñÔò·µ»ØUTF8±àÂëµÄbyte[]
+        //loader : CustomLoaderï¿½ï¿½ filepathï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½refï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½requireï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÖ§ï¿½Öµï¿½ï¿½Ô£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ÊµÂ·ï¿½ï¿½ï¿½ï¿½
+        //                        ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nullï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½Ô´ï¿½ï¿½ï¿½Þºï¿½ï¿½Êµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½UTF8ï¿½ï¿½ï¿½ï¿½ï¿½byte[]
         public void AddLoader(CustomLoader loader)
         {
             customLoaders.Add(loader);

@@ -1,0 +1,29 @@
+---@class NetMap_Item
+---@field public Sid string @协议名称
+---@field public ConnectType number @连接类型（默认1，游戏连接为1，聊天连接为2）
+---@field public IsPush boolean @是不是推送消息(只有收没有发)
+---@field public Parallel boolean @是否并行发送
+---@field public Cmd string @协议头
+---@field public ClientPB string @发送PB
+---@field public ServerPB string @接收PB
+
+
+---@class NetMap
+---@field public mail  NetMap_Item
+---@field public mail_port_delete  NetMap_Item
+---@field public mail_port_delete_all  NetMap_Item
+---@field public mail_port_get_mail_red  NetMap_Item
+---@field public mail_port_get_mails  NetMap_Item
+---@field public mail_port_read  NetMap_Item
+---@field public mail_port_take  NetMap_Item
+---@field public mail_port_take_all  NetMap_Item
+---@field public role_port_check_name  NetMap_Item
+---@field public role_port_create_role  NetMap_Item
+---@field public role_port_get_random_name  NetMap_Item
+---@field public role_port_get_user  NetMap_Item
+---@field public scene_port_get_all_info  NetMap_Item
+---@field public scene_port_move  NetMap_Item
+---@field public scene_port_out  NetMap_Item
+---@field public scene_port_switch_scene  NetMap_Item
+---@field public scene_change  NetMap_Item
+---@field public scene_events  NetMap_Item

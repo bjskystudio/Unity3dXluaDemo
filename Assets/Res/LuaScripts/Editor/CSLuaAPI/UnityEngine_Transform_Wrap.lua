@@ -586,96 +586,96 @@ function Transform:PlayCurvePath(points,offsetY,segmentNum,duration,endCall,aabb
 ---@param endValue UnityEngine.Vector3
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOMove(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOMoveX(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOMoveY(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOMoveZ(endValue,duration,snapping) end
 
 ---@param endValue UnityEngine.Vector3
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOLocalMove(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOLocalMoveX(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOLocalMoveY(endValue,duration,snapping) end
 
 ---@param endValue number
 ---@param duration number
 ---@param snapping System.Boolean
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOLocalMoveZ(endValue,duration,snapping) end
 
 ---@param endValue UnityEngine.Vector3
 ---@param duration number
 ---@param mode DG.Tweening.RotateMode
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DORotate(endValue,duration,mode) end
 
 ---@param endValue UnityEngine.Quaternion
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DORotateQuaternion(endValue,duration) end
 
 ---@param endValue UnityEngine.Vector3
 ---@param duration number
 ---@param mode DG.Tweening.RotateMode
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOLocalRotate(endValue,duration,mode) end
 
 ---@param endValue UnityEngine.Quaternion
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOLocalRotateQuaternion(endValue,duration) end
 
 ---@param endValue UnityEngine.Vector3
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOScale(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOScale(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOScaleX(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOScaleY(endValue,duration) end
 
 ---@param endValue number
 ---@param duration number
----@return DG.Tweening.Core.TweenerCore
+---@return DG.Tweening.Tweener
 function Transform:DOScaleZ(endValue,duration) end
 
 ---@param towards UnityEngine.Vector3
@@ -684,13 +684,6 @@ function Transform:DOScaleZ(endValue,duration) end
 ---@param up UnityEngine.Vector3
 ---@return DG.Tweening.Tweener
 function Transform:DOLookAt(towards,duration,axisConstraint,up) end
-
----@param towards UnityEngine.Vector3
----@param duration number
----@param axisConstraint DG.Tweening.AxisConstraint
----@param up UnityEngine.Vector3
----@return DG.Tweening.Tweener
-function Transform:DODynamicLookAt(towards,duration,axisConstraint,up) end
 
 ---@param punch UnityEngine.Vector3
 ---@param duration number

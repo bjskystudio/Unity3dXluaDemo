@@ -64,7 +64,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Engine\AfterImage\Scripts\AfterImageCreator.cs" />
+    <Compile Include="Assets\Engine\AfterImage\Scripts\AfterImageObj.cs" />
     <Compile Include="Assets\Engine\AorIO.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\AScriptableRenderer.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\AScriptableRendererFeature.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\CLights.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\CNPRPipeline.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\CNPRPipelineCore.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\CNPRRenderer.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\CSceneViewDrawMode.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\CUtils.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Data\AScriptableRendererData.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Data\CAdditionalCameraData.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Data\CNPRPipelineAsset.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Data\CNPRRendererData.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Data\CShaderData.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\AScriptableRenderPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CAdditionalLightsShadowCasterPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CCameraBlurProcessPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CCapturePass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CColorGradingLutPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CCopyColorPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CCopyDepthPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CDepthOnlyPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CDrawObjectsPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CDrawSkyboxPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CFinalBlitPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CInvokeOnRenderObjectCallbackPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CMainLightShadowCasterPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CPostProcessPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CRenderObjectsPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CSceneViewDepthCopy.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\Passes\CTransparentSettingsPass.cs" />
+    <Compile Include="Assets\Engine\NPR Pipeline\Runtime\RendererFeatures\CRenderObjectsFeature.cs" />
     <Compile Include="Assets\Engine\ResourceLoad\ABRequest.cs" />
     <Compile Include="Assets\Engine\ResourceLoad\AssetRequest.cs" />
     <Compile Include="Assets\Engine\ResourceLoad\AsyncRequest.cs" />
@@ -92,6 +125,38 @@
     <Compile Include="Assets\Engine\ResourceLoad\ResourceLoadConfigRef.cs" />
     <Compile Include="Assets\Engine\ResourceLoad\ResourceManager.cs" />
     <Compile Include="Assets\Engine\ResourceLoad\ResourceManagerUpdate.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\AnimationParticlePreviewAsset.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\AnimationParticlePreviewTrack.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\MecanimControlTrack.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\MecanimPlayableBehaviour.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\MecanimPlayableClip.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\MecanimPlayableMixBehaviour.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleControlPlayable.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleControlPlayableAsset.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleControlTrack.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleSystemControl\Runtime\ParticleSystemControlClip.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleSystemControl\Runtime\ParticleSystemControlMixer.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleSystemControl\Runtime\ParticleSystemControlPlayable.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\ParticleSystemControl\Runtime\ParticleSystemControlTrack.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineExtend.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorAnimation\MirrorAnimationPlayableBehaviour.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorAnimation\MirrorAnimationPlayableClip.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorAnimation\MirrorAnimationTrack.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorControl\MirrorPlayableBehaviour.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorControl\MirrorPlayableClip.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorControl\MirrorTrack.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorControl\MirrorTrackBehaviour.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorData.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorType\BaseMirror.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorType\CameraSymmetryMirror.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorType\EffectSymmetryMirror.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorType\LightSymmetryMirror.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorType\ModelSymmetryMirror.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorType\ScaleMirror.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorType\SymmetryMirror.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorType\VertexScaleMirror.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\MirrorUtility.cs" />
+    <Compile Include="Assets\Engine\TimelineExtend\TimelineMirror\TimelineMirror.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Audio\BaseAudio.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Audio\BgMusic.cs" />
@@ -142,6 +207,8 @@
     <Compile Include="Assets\Scripts\Engine\Unity\GUI\UI\UIEffects\TextMeshProUGUIVertexController.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\GUI\UI\UITextSpacing.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Launch\Launcher.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Log\LuaLog\Scripts\LuaLog.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Log\LuaLog\Scripts\LuaLogHandle.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Singleton\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Utils\GlobalExtends\AnimationExtends.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\Utils\GlobalExtends\AnimatorExtends.cs" />
@@ -160,12 +227,18 @@
     <Compile Include="Assets\Scripts\Engine\Unity\Utils\UIUtils.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\CSCallLuaHelp.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\CSEventToLuaHelp.cs" />
+    <Compile Include="Assets\Scripts\Game\Lua\Bind\CSGoHelp.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\CSTimerManager.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\UnityObjectExtends.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\XLuaManager.cs" />
+    <Compile Include="Assets\Scripts\Game\SDK\SDKInterface.cs" />
+    <Compile Include="Assets\Scripts\Game\SDK\SDKInterfaceDefault.cs" />
+    <Compile Include="Assets\Scripts\Game\SDK\SDKManager.cs" />
     <Compile Include="Assets\Scripts\Game\System\AssetLoadManager.cs" />
     <Compile Include="Assets\Scripts\Game\System\EventDef.cs" />
-    <Compile Include="Assets\Scripts\Game\Tools\StartSetActive.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\Misc\StartSetActive.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\Spine\SpineCtrl.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\Spine\SpineData.cs" />
     <Compile Include="Assets\Scripts\Game\UI\BackgroundScaler.cs" />
     <Compile Include="Assets\Scripts\Game\UI\NotchScreenAdapter.cs" />
     <Compile Include="Assets\Scripts\Game\UI\UIModel.cs" />
@@ -199,7 +272,9 @@
     <Compile Include="Assets\XLua\Src\TypeExtensions.cs" />
     <Compile Include="Assets\XLua\Src\Utils.cs" />
     <Compile Include="Assets\XLua\util\Xxtea.cs" />
+    <None Include="Assets\Spine\version.txt" />
     <None Include="Assets\XLua\Gen\link.xml" />
+    <None Include="Assets\Engine\NPR Pipeline\Resources\Shader\Utility\StdLib.hlsl" />
     <None Include="Assets\TempRes\TxtConfig\Common\LanguagePackage.txt" />
     <None Include="Assets\TempRes\TxtConfig\Common\Language.txt" />
     <None Include="Assets\Res\Shader\UI\SNKDefaultUI.shader" />
@@ -208,8 +283,14 @@
     <None Include="Assets\TempRes\TxtConfig\Common\UIConfig.txt" />
     <None Include="Assets\XLua\Resources\perf\profiler.lua.txt" />
     <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />
+    <None Include="Assets\Engine\NPR Pipeline\Readme.txt" />
+    <None Include="Assets\Engine\AfterImage\Resources\Shaders\AfterImage.shader" />
+    <None Include="Assets\TempRes\TxtConfig\Common\NetMap.txt" />
+    <None Include="Assets\TempRes\TxtConfig\Common\ServerListConfig.txt" />
     <None Include="Assets\XLua\Resources\tdr\tdr.lua.txt" />
     <None Include="Assets\XLua\CHANGELOG.txt" />
+    <None Include="Assets\Engine\NPR Pipeline\Resources\Shader\Utility\Blur.shader" />
+    <None Include="Assets\TempRes\TxtConfig\Common\ModuleStartupConfig.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -401,6 +482,12 @@
     </Reference>
     <Reference Include="zlib.net">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Youkia/zlib.net.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -783,11 +870,60 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{4CA37E47-5316-5261-35AA-4D3B866539CA}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-examples.csproj">
+      <Project>{60DC320C-7FB3-4C1E-DBF0-4DEC97207CCE}</Project>
+      <Name>spine-unity-examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{760E467B-3271-A0FB-9AC4-9E194EEC620E}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-examples-editor.csproj">
+      <Project>{68604CD9-BEAF-4131-F980-F59477757368}</Project>
+      <Name>spine-unity-examples-editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{53D59669-73EB-9924-849F-FCDF76034B25}</Project>
+      <Name>spine-unity-editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

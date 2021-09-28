@@ -49,11 +49,11 @@ require "EventID"
 
 --region -------------Updater-------------
 --require "Coroutine"
---require "Timer"
---require "TimerManager"
+require "Timer"
+require "TimerManager"
 --require "UpdateManager"
 --require "Updatable"
---require "TimeUtil"
+require "TimeUtil"
 --endregion
 
 --region -------------Debug-------------
