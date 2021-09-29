@@ -45,7 +45,8 @@ end
 
 ---窗口显示
 function LoginView:ShowView()
-    local info = ServerManager:GetInstance():GetLastServer()
+    --local info = ServerManager:GetInstance():GetLastServer()
+    local info = ServerManager:GetInstance():GetServerBySid(7)  --罗志刚
     self.LastServerInfo = info
     self:SelectServer(info)
     self.go_table.aorinputfield_name.text = self.LastServerInfo.AccountName
