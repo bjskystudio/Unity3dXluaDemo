@@ -242,11 +242,217 @@
     <Compile Include="Assets\Scripts\Game\UI\BackgroundScaler.cs" />
     <Compile Include="Assets\Scripts\Game\UI\NotchScreenAdapter.cs" />
     <Compile Include="Assets\Scripts\Game\UI\UIModel.cs" />
+    <Compile Include="Assets\XLua\Gen\AnimationExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AnimatorExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorButtonWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorDragWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorGraphicRaycasterWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorGraphicTextWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorImageWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorInputFieldWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorLongPressButtonWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorRawImageWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorRefExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorTMP3DWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorTMPExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorTMPWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorTMP_InputFieldWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\AorTextWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\CSGoHelpWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\CSTimerManagerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_DOTweenModuleUIWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_DOTweenWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_DOVirtualWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_SequenceWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_ShortcutExtensionsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_TweenExtensionsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_TweenSettingsExtensionsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_TweenWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\DG_Tweening_TweenerWrap.cs" />
     <Compile Include="Assets\XLua\Gen\DelegatesGensBridge.cs" />
     <Compile Include="Assets\XLua\Gen\EnumWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\EventTriggerListenerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\Framework_MathExWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\Framework_ResUtilsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\Framework_ShaderBridgeWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\GameObjectExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\GlobalExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\GraphicExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\LauncherWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\ListEntendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\LoopGridViewHelpWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\LoopListViewHelpWrap.cs" />
     <Compile Include="Assets\XLua\Gen\PackUnpack.cs" />
+    <Compile Include="Assets\XLua\Gen\QuaternionExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\SDKInterfaceWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\SuperScrollView_LoopGridViewWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\SuperScrollView_LoopListViewWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_ArrayWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_Collections_Generic_List_1_System_Int32_Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_Collections_Generic_List_1_UnityEngine_EventSystems_EventTrigger_Entry_Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_Collections_Generic_List_1_UnityEngine_GameObject_Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_Collections_IEnumeratorBridge.cs" />
+    <Compile Include="Assets\XLua\Gen\System_DateTimeWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_Diagnostics_StopwatchWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_GCWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_ObjectWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_Reflection_MemberInfoWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_Reflection_MissingWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_TimeSpanWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_TypeWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\System_ValueTypeWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TMPro_TMP_DropdownWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TMPro_TMP_TextUtilitiesWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TMPro_TMP_TextWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TMPro_TextMeshProUGUIWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TMPro_TextMeshProWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TransformExtendsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UIModelWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UIUtilsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AI_NavMeshAgentWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AI_NavMeshDataWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AI_NavMeshObstacleWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AI_NavMeshPathWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AI_NavMeshWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AI_OffMeshLinkDataWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AI_OffMeshLinkWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AnimationClipWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AnimationCurveWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AnimationWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AnimatorWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ApplicationWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AudioClipWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AudioListenerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_AudioSourceWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_BehaviourWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_BoundsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_BoxCollider2DWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_BoxColliderWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_CameraWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_CanvasGroupWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_CanvasWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_CapsuleColliderWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ColliderWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ColorWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ComponentWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_DebugWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_AbstractEventDataWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_AxisEventDataWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_BaseEventDataWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_BaseRaycasterWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_EventTriggerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_EventTrigger_EntryWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_EventTrigger_TriggerEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_PointerEventDataWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_EventSystems_UIBehaviourWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Events_UnityEventBaseWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Events_UnityEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Events_UnityEvent_1_System_Boolean_Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Events_UnityEvent_1_System_Single_Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Events_UnityEvent_1_System_String_Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Events_UnityEvent_1_UnityEngine_EventSystems_BaseEventData_Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Events_UnityEvent_2_UnityEngine_GameObject_UnityEngine_EventSystems_PointerEventData_Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_FontWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_GameObjectWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_InputWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_KeyframeWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_LayerMaskWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_MaterialPropertyBlockWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_MaterialWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_MathfWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Matrix4x4Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_MeshRendererWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_MonoBehaviourWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ObjectWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ParticleSystemRendererWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ParticleSystemWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_PhysicsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_PlaneWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Playables_PlayableAssetWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Playables_PlayableDirectorWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_PlayerPrefsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_QuaternionWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RandomWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Random_StateWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Ray2DWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RayWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RaycastHitWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RectOffsetWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RectTransformUtilityWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RectTransformWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RectWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RenderSettingsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RenderTextureWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_RendererWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ResourceRequestWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ResourcesWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Rigidbody2DWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_SceneManagement_SceneManagerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_SceneManagement_SceneWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ScreenWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_ShaderWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_SkinnedMeshRendererWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_SphereColliderWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_SpriteRendererWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_SpriteWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Sprites_DataUtilityWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_TextAssetWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Texture2DWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_TextureWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_TimeWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_TouchWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_TransformWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ButtonWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_Button_ButtonClickedEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_CanvasScalerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ContentSizeFitterWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_DropdownWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_GraphicRaycasterWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_GridLayoutGroupWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_HorizontalLayoutGroupWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ImageWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_InputFieldWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_InputField_OnChangeEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_InputField_SubmitEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_LayoutGroupWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_MaskableGraphicWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_MaskableGraphic_CullStateChangedEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_OutlineWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_RawImageWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ScrollRectWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ScrollRect_ScrollRectEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ScrollbarWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_Scrollbar_ScrollEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_SelectableWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ShadowWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_SliderWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_Slider_SliderEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_TextWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ToggleGroupWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ToggleWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_Toggle_ToggleEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_VerticalLayoutGroupWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Vector2Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Vector3Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Vector4Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Video_VideoClipWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_Video_VideoPlayerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityObjectExtendsWrap.cs" />
     <Compile Include="Assets\XLua\Gen\WrapPusher.cs" />
     <Compile Include="Assets\XLua\Gen\XLuaGenAutoRegister.cs" />
+    <Compile Include="Assets\XLua\Gen\XLuaManagerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Event_BaseEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Event_GlobalEventWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_IO_ByteBufferWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Log_LogWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Net_ErlTcpConnectFactoryWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Net_ErlTcpConnectWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Net_TcpConnectFactoryWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Net_TcpConnectWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Timer_TimerManagerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Utils_EventNumberUtilsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Utils_TextUtilsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\YoukiaCore_Utils_TimeUtilWrap.cs" />
     <Compile Include="Assets\XLua\Src\CodeEmit.cs" />
     <Compile Include="Assets\XLua\Src\CopyByValue.cs" />
     <Compile Include="Assets\XLua\Src\DelegateBridge.cs" />
@@ -474,20 +680,20 @@
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    </Reference>
     <Reference Include="DOTween">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="YoukiaCore">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Youkia/YoukiaCore.dll</HintPath>
     </Reference>
     <Reference Include="zlib.net">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Youkia/zlib.net.dll</HintPath>
-    </Reference>
-    <Reference Include="DemiLib">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenPro">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -843,14 +1049,35 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -864,44 +1091,23 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

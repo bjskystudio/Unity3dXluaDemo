@@ -408,29 +408,29 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenEditor">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="YoukiaCore">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Youkia/YoukiaCore.dll</HintPath>
-    </Reference>
-    <Reference Include="zlib.net">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Youkia/zlib.net.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenProEditor">
-      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
-    </Reference>
     <Reference Include="DemiLib">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenProEditor">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="YoukiaCore">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Youkia/YoukiaCore.dll</HintPath>
+    </Reference>
+    <Reference Include="zlib.net">
+      <HintPath>D:/Professional/project/Unity3dXluaDemo/Assets/Plugins/Youkia/zlib.net.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>D:/Professional/project/Unity3dXluaDemo/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>

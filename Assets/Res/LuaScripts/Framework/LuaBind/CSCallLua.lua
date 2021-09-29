@@ -28,8 +28,7 @@ CSCallLua.Call = function(id)
     end
     CSCallLua.RemoveLuaCall(id)
 end
---xlua问题 xin.liu
---CS.CSCallLuaHelp.LuaAction = CSCallLua.Call
+CS.CSCallLuaHelp.LuaAction = CSCallLua.Call
 
 ---获取新的回调绑定ID
 ---@return number
@@ -80,8 +79,7 @@ function BtnClickCsListener.CsCallLuaToggleClick(go_table, go, isOn, name)
         go_table._onClickToggle(go, isOn ~= 0, name)
     end
 end
---xlua问题 xin.liu
---CS.UIGoTable.luaOnClickToggle = BtnClickCsListener.CsCallLuaToggleClick
+CS.UIGoTable.luaOnClickToggle = BtnClickCsListener.CsCallLuaToggleClick
 
 --endregion
 
@@ -328,11 +326,10 @@ function LoopListViewListener.UnRegisterEndDragListener(loopListView)
     LoopListViewListener.DragFunction[comId] = nil
     CS.LoopListViewHelp.UnRegisterEndDragEvent(loopListView)
 end
---xlua问题 xin.liu
---CS.LoopListViewHelp.onDestroyEvent = function(comId)
---    LoopListViewListener.RefreshFunction[comId] = nil
---    LoopListViewListener.DragFunction[comId] = nil
---end
+CS.LoopListViewHelp.onDestroyEvent = function(comId)
+    LoopListViewListener.RefreshFunction[comId] = nil
+    LoopListViewListener.DragFunction[comId] = nil
+end
 
 ---初测到顶部了
 ---@param loopListView SuperScrollView.LoopListView
@@ -364,20 +361,19 @@ function LoopListViewListener.RegisterToBottomListener(loopListView, callback)
     end)
 end
 
---xlua问题 xin.liu
---CS.LoopListViewHelp.onRefreshEvent = function(comId, index)
---    local callback = LoopListViewListener.RefreshFunction[comId]
---    if (callback ~= nil) then
---        return callback(index)
---    end
---end
---
---CS.LoopListViewHelp.onEndDragEvent = function(comId)
---    local func = LoopListViewListener.DragFunction[comId]
---    if (func ~= nil) then
---        func()
---    end
---end
+CS.LoopListViewHelp.onRefreshEvent = function(comId, index)
+    local callback = LoopListViewListener.RefreshFunction[comId]
+    if (callback ~= nil) then
+        return callback(index)
+    end
+end
+
+CS.LoopListViewHelp.onEndDragEvent = function(comId)
+    local func = LoopListViewListener.DragFunction[comId]
+    if (func ~= nil) then
+        func()
+    end
+end
 --endregion
 
 --region ------------循环网格列表----------------
@@ -447,25 +443,24 @@ function LoopGridViewListener.RegisterToBottomListener(loopGridView, callback)
 end
 
 ---C#view销毁时
---xlua问题 xin.liu
---CS.LoopGridViewHelp.onDestroyEvent = function(comId)
---    LoopGridViewListener.RefreshFunction[comId] = nil
---    LoopGridViewListener.DragFunction[comId] = nil
---end
---
------C#刷新事件回调
---CS.LoopGridViewHelp.onRefreshEvent = function(comId, index)
---    local callback = LoopGridViewListener.RefreshFunction[comId]
---    if (callback) then
---        return callback(index)
---    end
---end
---
------C#拖拽结束事件回调
---CS.LoopGridViewHelp.onEndDragEvent = function(comId)
---    local func = LoopGridViewListener.DragFunction[comId]
---    if (func ~= nil) then
---        func()
---    end
---end
+CS.LoopGridViewHelp.onDestroyEvent = function(comId)
+    LoopGridViewListener.RefreshFunction[comId] = nil
+    LoopGridViewListener.DragFunction[comId] = nil
+end
+
+---C#刷新事件回调
+CS.LoopGridViewHelp.onRefreshEvent = function(comId, index)
+    local callback = LoopGridViewListener.RefreshFunction[comId]
+    if (callback) then
+        return callback(index)
+    end
+end
+
+---C#拖拽结束事件回调
+CS.LoopGridViewHelp.onEndDragEvent = function(comId)
+    local func = LoopGridViewListener.DragFunction[comId]
+    if (func ~= nil) then
+        func()
+    end
+end
 --endregion
