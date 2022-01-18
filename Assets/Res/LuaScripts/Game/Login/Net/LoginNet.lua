@@ -28,8 +28,8 @@ local LoginNet = Class("LoginNet", Singleton)
 ---@param isReConnect boolean 是否重连
 function LoginNet.Login(isReConnect)
     local curServer = ServerManager:GetInstance().CurServer
-
-    ---@type pro_c2s_login msg
+    --
+    -----@type pro_c2s_login msg
     local msg = {}
     --是否重连：0否，1是
     if isReConnect == nil or isReConnect == false then
@@ -53,7 +53,10 @@ function LoginNet.Login(isReConnect)
         msg.platform_id = 1001
         msg.device_id = "0"
     end
-    NetUtil.Send(NetMap.login_port_login, msg)
+    --NetUtil.Send(NetMap.login_port_login, msg)
+    local recvArgs = {}
+    recvArgs.k = "login"
+    LoginNet.LoginBack(recvArgs,msg)
 end
 
 ---登录请求返回
@@ -164,7 +167,22 @@ NetUtil.Register(NetMap.role_port_create_role, LoginNet.CreateRoleBack, LoginNet
 ---获取用户信息
 ---@param callback fun(recvArgs:pro_s2c_get_user, sendArgs:pro_single_str) 完成回调
 function LoginNet.GetUserInfo(callback)
-    NetUtil.Send(NetMap.role_port_get_user, NetUtil.GetEmptyPB(), callback)
+    --NetUtil.Send(NetMap.role_port_get_user, NetUtil.GetEmptyPB(), callback)
+    local recvArgs = {
+        server_time = TimeUtil.GetSecTime(),
+        scene_id = 1,
+        open_time = TimeUtil.GetSecTime(),
+        login_days = 1,
+        server_id = 1,
+        role_uid = "1000000001",
+        sex = 1,
+        name = "测试",
+        style = 1,
+        title = 1,
+        role_exp= 0,
+        recover = 50,
+    }
+    LoginNet.GetUserInfoBack(recvArgs)
 end
 
 ---获取用户信息返回公共处理

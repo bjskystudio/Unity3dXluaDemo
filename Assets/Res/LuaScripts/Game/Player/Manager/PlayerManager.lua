@@ -11,13 +11,13 @@ local SDKManager = require("SDKManager")
 local ServerManager = require("ServerManager")
 local ConfigManager = require("ConfigManager")
 local Logger = require("Logger")
-local PlayerUtils = require("PlayerUtils")
-local VitManager = require("VitManager")
-local StorageManager = require("StorageManager")
-local PopupManager = require("PopupManager")
-local ArrayManager = require("ArrayManager")
-local CardUtil = require("CardUtil")
-local AchievementManager = require("AchievementManager")
+--local PlayerUtils = require("PlayerUtils")
+--local VitManager = require("VitManager")
+--local StorageManager = require("StorageManager")
+--local PopupManager = require("PopupManager")
+--local ArrayManager = require("ArrayManager")
+--local CardUtil = require("CardUtil")
+--local AchievementManager = require("AchievementManager")
 
 local eLevelExp = require("GlobalDefine").eLevelExp
 
@@ -67,7 +67,7 @@ function PlayerManager:ParsePlayerData(message)
     --角色经验等级
     self:UpdateExp(message.role_exp)
     --体力
-    VitManager:GetInstance():DealCDNum(message.recover)
+    --VitManager:GetInstance():DealCDNum(message.recover)
     self.IsInitPlayerData = true
 end
 
@@ -96,31 +96,31 @@ end
 ---@param isShow boolean 是否显示提示
 function PlayerManager:UpdateExp(exp, isShow)
     local nowExp = exp + self.RoleExp
-    local lv, endExp, endMaxExp, isMaxLevel = PlayerUtils.GetLevelByExp(nowExp, eLevelExp.PlayerLevelExp)
-    self.RoleExp = endExp
-    local isUp = false
-    if self.IsInitPlayerData then
-        if self.Lv < lv then
-            Logger.Info("玩家升级了")
-            ---玩家升级更新成就玩家等级数据
-            AchievementManager:GetInstance():UpdateAchievementChange(ConfigManager.ConditionConfig.RoleLevel, self.Lv)
-
-            --TODO,暂时
-            --解析奖励时不显示，这里也就不显示提示 ---by xqs
-            if isShow then
-                require("PopupManager"):GetInstance():PlayTips("玩家升级了，当前等级" .. lv .. "   经验条：" .. nowExp .. "/" .. endMaxExp)
-            end
-            isUp = true
-            self:SendPlayerInfoToSDK(3)
-        end
-    end
-
-    self.Lv = lv
-    self.MaxExp = endMaxExp
-    self.IsMaxLevel = isMaxLevel
-    if isUp then
-        EventManager:GetInstance():Broadcast(EventID.RoleLevelUp)
-    end
+    --local lv, endExp, endMaxExp, isMaxLevel = PlayerUtils.GetLevelByExp(nowExp, eLevelExp.PlayerLevelExp)
+    --self.RoleExp = endExp
+    --local isUp = false
+    --if self.IsInitPlayerData then
+    --    if self.Lv < lv then
+    --        Logger.Info("玩家升级了")
+    --        ---玩家升级更新成就玩家等级数据
+    --        AchievementManager:GetInstance():UpdateAchievementChange(ConfigManager.ConditionConfig.RoleLevel, self.Lv)
+    --
+    --        --TODO,暂时
+    --        --解析奖励时不显示，这里也就不显示提示 ---by xqs
+    --        if isShow then
+    --            require("PopupManager"):GetInstance():PlayTips("玩家升级了，当前等级" .. lv .. "   经验条：" .. nowExp .. "/" .. endMaxExp)
+    --        end
+    --        isUp = true
+    --        self:SendPlayerInfoToSDK(3)
+    --    end
+    --end
+    --
+    --self.Lv = lv
+    --self.MaxExp = endMaxExp
+    --self.IsMaxLevel = isMaxLevel
+    --if isUp then
+    --    EventManager:GetInstance():Broadcast(EventID.RoleLevelUp)
+    --end
 end
 
 ---更新玩家称号
@@ -147,28 +147,28 @@ end
 
 ---@private
 function PlayerManager:GetAttrInfo()
-    if self.BloodLv then
-        if self.BloodLv == 0 then
-            self.AttrInfo = {}
-        else
-            for i = 1, self.BloodLv do
-                local attrList
-                attrList = ConfigManager.BloodDetailConfig[i].Attribute
-                if attrList then
-                    local single = {}
-                    for i = 1, 3 do
-                        single[#single + 1] = attrList[i]
-                    end
-                    local _, type, number = CardUtil.GetAttrValueByCfg(single)
-                    if not self.AttrInfo[type] then
-                        self.AttrInfo[type] = number
-                    else
-                        self.AttrInfo[type] = self.AttrInfo[type] + number
-                    end
-                end
-            end
-        end
-    end
+    --if self.BloodLv then
+    --    if self.BloodLv == 0 then
+    --        self.AttrInfo = {}
+    --    else
+    --        for i = 1, self.BloodLv do
+    --            local attrList
+    --            attrList = ConfigManager.BloodDetailConfig[i].Attribute
+    --            if attrList then
+    --                local single = {}
+    --                for i = 1, 3 do
+    --                    single[#single + 1] = attrList[i]
+    --                end
+    --                local _, type, number = CardUtil.GetAttrValueByCfg(single)
+    --                if not self.AttrInfo[type] then
+    --                    self.AttrInfo[type] = number
+    --                else
+    --                    self.AttrInfo[type] = self.AttrInfo[type] + number
+    --                end
+    --            end
+    --        end
+    --    end
+    --end
     return self.AttrInfo
 end
 
@@ -181,24 +181,24 @@ end
 ---向SDK提交用户数据
 ---@param type number 进入游戏:1|登录完成:2|角色升级:3|创建用户:4
 function PlayerManager:SendPlayerInfoToSDK(type)
-    local uid = tostring(self.RoleUId)
-    local name = self.role_name
-    local level = tostring(self:GetLv())
-    local create_time = tostring(self.create_time)
-    local skin = nil
-    --"skin=" .. PlayerManager:GetInstance().role_style
-    local serverid = tostring(ServerManager:GetInstance().CurServer.Sid)
-    local servername = ServerManager:GetInstance().CurServer.ServerName
-    if type == 1 then
-        SDKManager:GetInstance():SendEnterGame(uid, name, level, serverid, servername, create_time, skin)
-    elseif type == 2 then
-        SDKManager:GetInstance():SendGameRoleInfo(uid, name, level, serverid, servername, create_time, skin)
-    elseif type == 3 then
-        SDKManager:GetInstance():SendLevelUp(self:GetLv())
-        SDKManager:GetInstance():SendGameRoleInfo(uid, name, level, serverid, servername, create_time, skin)
-    elseif type == 4 then
-        SDKManager:GetInstance():SendCreateRole(uid, name, level, serverid, servername, create_time, skin)
-    end
+    --local uid = tostring(self.RoleUId)
+    --local name = self.role_name
+    --local level = tostring(self:GetLv())
+    --local create_time = tostring(self.create_time)
+    --local skin = nil
+    ----"skin=" .. PlayerManager:GetInstance().role_style
+    --local serverid = tostring(ServerManager:GetInstance().CurServer.Sid)
+    --local servername = ServerManager:GetInstance().CurServer.ServerName
+    --if type == 1 then
+    --    SDKManager:GetInstance():SendEnterGame(uid, name, level, serverid, servername, create_time, skin)
+    --elseif type == 2 then
+    --    SDKManager:GetInstance():SendGameRoleInfo(uid, name, level, serverid, servername, create_time, skin)
+    --elseif type == 3 then
+    --    SDKManager:GetInstance():SendLevelUp(self:GetLv())
+    --    SDKManager:GetInstance():SendGameRoleInfo(uid, name, level, serverid, servername, create_time, skin)
+    --elseif type == 4 then
+    --    SDKManager:GetInstance():SendCreateRole(uid, name, level, serverid, servername, create_time, skin)
+    --end
 end
 
 ---获取当前经验段的进度
@@ -252,19 +252,19 @@ end
 
 ---设置总战力数据
 function PlayerManager:SetTotlePowerData()
-    local teamData = ArrayManager:GetInstance():GetTeamDataByType(ArrayManager.eArrayType.COMMON)
-    self.TeamData = DeepCopy(teamData)
-    local dataList = self.TeamData:GetShowData()
-    local powerOld = CardUtil.GetTeamPower(dataList)
-    for k, v in pairs(dataList) do
-        if v[1] ~= 0 then
-            local card = StorageManager:GetInstance():GetItemBySid(v[1])
-            card:AddAttrUpdateSign()
-        end
-    end
-    local power = CardUtil.GetTeamPower(dataList)
-    PopupManager.ShowPower(powerOld, power)
-    EventManager:GetInstance():Broadcast(EventID.PlayerEquipAttrChange)
+    --local teamData = ArrayManager:GetInstance():GetTeamDataByType(ArrayManager.eArrayType.COMMON)
+    --self.TeamData = DeepCopy(teamData)
+    --local dataList = self.TeamData:GetShowData()
+    --local powerOld = CardUtil.GetTeamPower(dataList)
+    --for k, v in pairs(dataList) do
+    --    if v[1] ~= 0 then
+    --        local card = StorageManager:GetInstance():GetItemBySid(v[1])
+    --        card:AddAttrUpdateSign()
+    --    end
+    --end
+    --local power = CardUtil.GetTeamPower(dataList)
+    --PopupManager.ShowPower(powerOld, power)
+    --EventManager:GetInstance():Broadcast(EventID.PlayerEquipAttrChange)
 end
 
 ---销毁对象时,析构函数

@@ -9,21 +9,13 @@
 
 
 ---@class NetMap
----@field public mail  NetMap_Item
----@field public mail_port_delete  NetMap_Item
----@field public mail_port_delete_all  NetMap_Item
----@field public mail_port_get_mail_red  NetMap_Item
----@field public mail_port_get_mails  NetMap_Item
----@field public mail_port_read  NetMap_Item
----@field public mail_port_take  NetMap_Item
----@field public mail_port_take_all  NetMap_Item
+---@field public login_port_login  NetMap_Item
 ---@field public role_port_check_name  NetMap_Item
 ---@field public role_port_create_role  NetMap_Item
+---@field public role_port_get_avatar_border  NetMap_Item
 ---@field public role_port_get_random_name  NetMap_Item
+---@field public role_port_get_update_rolename_times  NetMap_Item
 ---@field public role_port_get_user  NetMap_Item
----@field public scene_port_get_all_info  NetMap_Item
----@field public scene_port_move  NetMap_Item
----@field public scene_port_out  NetMap_Item
----@field public scene_port_switch_scene  NetMap_Item
----@field public scene_change  NetMap_Item
----@field public scene_events  NetMap_Item
+---@field public role_port_role_state  NetMap_Item
+---@field public role_port_update_avatar_border  NetMap_Item
+---@field public role_port_update_rolename  NetMap_Item

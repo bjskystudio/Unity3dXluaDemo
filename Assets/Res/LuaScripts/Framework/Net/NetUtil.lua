@@ -23,6 +23,9 @@ local NetUtil = {}
 ---@param funcMsg fun(recvArgs:string, sendArgs:table) 异常消息回调
 ---@param funcErr fun(recvArgs:string, sendArgs:table) 错误消息回调
 function NetUtil.Register(netMapItem, funRecv, funcMsg, funcErr)
+    if not netMapItem then
+        return
+    end
     NetManager:GetInstance():Register(netMapItem, funRecv, funcMsg, funcErr)
 end
 

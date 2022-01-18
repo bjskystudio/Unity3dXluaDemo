@@ -9,6 +9,3 @@
 
 ---@class ModuleStartupConfig
 ---@field public LoginManager  ModuleStartupConfig_Item
----@field public ShopNet  ModuleStartupConfig_Item
----@field public TaskNet  ModuleStartupConfig_Item
----@field public PlayerNet  ModuleStartupConfig_Item

@@ -22,6 +22,7 @@ local Logger = require("Logger")
 local ConfigManager = require("ConfigManager")
 local eConnectType = require("GlobalDefine").eConnectType
 local eLoginState = require("GlobalDefine").eLoginState
+local LoadingControll = require("LoadingControll")
 
 local GetLangPackValue = GetLangPackValue
 local LanguagePackage = LanguagePackage
@@ -162,11 +163,12 @@ end
 function LoginManager:ConnectServer()
     local curServer = ServerManager:GetInstance().CurServer
     GameLog.Info(LoginModule, curServer, "连接服务器")
-    NetManager:GetInstance():BeginConnect(eConnectType.Game, curServer.IP, curServer.Port,
-            nil,
-            handler(self, self.ConnectCertifySucceed),
-            handler(self, self.ConnectFail),
-            handler(self, self.ConnectClose))
+    --NetManager:GetInstance():BeginConnect(eConnectType.Game, curServer.IP, curServer.Port,
+    --        nil,
+    --        handler(self, self.ConnectCertifySucceed),
+    --        handler(self, self.ConnectFail),
+    --        handler(self, self.ConnectClose))
+    self:ConnectCertifySucceed()
 end
 
 ---连接服务器成功
@@ -193,12 +195,12 @@ end
 ---登入游戏
 ---@param isReLogin boolean 是否重登流程
 function LoginManager:EnterGame(isReLogin)
-    --self.CurLoadingControll = nil
-    --if isReLogin then
-    --    self.CurLoadingControll = LoadingControll.Start(LoadingControll.loadingControllType.ReEnterGame)
-    --else
-    --    self.CurLoadingControll = LoadingControll.Start(LoadingControll.loadingControllType.EnterGame)
-    --end
+    self.CurLoadingControll = nil
+    if isReLogin then
+        self.CurLoadingControll = LoadingControll.Start(LoadingControll.loadingControllType.ReEnterGame)
+    else
+        self.CurLoadingControll = LoadingControll.Start(LoadingControll.loadingControllType.EnterGame)
+    end
 end
 
 --endregion
