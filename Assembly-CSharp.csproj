@@ -230,6 +230,7 @@
     <Compile Include="Assets\Scripts\Game\Lua\Bind\CSGoHelp.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\CSTimerManager.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\Bind\UnityObjectExtends.cs" />
+    <Compile Include="Assets\Scripts\Game\Lua\LuaUpdater.cs" />
     <Compile Include="Assets\Scripts\Game\Lua\XLuaManager.cs" />
     <Compile Include="Assets\Scripts\Game\SDK\SDKInterface.cs" />
     <Compile Include="Assets\Scripts\Game\SDK\SDKInterfaceDefault.cs" />

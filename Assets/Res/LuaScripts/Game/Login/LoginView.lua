@@ -206,7 +206,7 @@ end
 ---数据清理
 ---@protected
 function LoginView:OnDestroy()
-    LoginView.ParentCls.OnDestroy(self)
+    --LoginView.ParentCls.OnDestroy(self)
 end
 
 ---@return LoginView

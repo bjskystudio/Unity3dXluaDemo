@@ -32,6 +32,11 @@ public class XLuaManager : MonoSingleton<XLuaManager>
 
 
     /// <summary>
+    /// Lua更新脚本
+    /// </summary>
+    private LuaUpdater luaUpdater = null;
+
+    /// <summary>
     /// Lua脚本二进制缓存
     /// </summary>
     public Dictionary<string, byte[]> LuaScriptsBytesCaching
@@ -118,12 +123,12 @@ public class XLuaManager : MonoSingleton<XLuaManager>
         //加载LuaMain.lua
         LoadScript(gameMainScriptName);
         StartGame();
-        //luaUpdater = gameObject.GetComponent<LuaUpdater>();
-        //if (luaUpdater == null)
-        //{
-        //    luaUpdater = gameObject.AddComponent<LuaUpdater>();
-        //}
-        //luaUpdater.OnInit(luaEnv);
+        luaUpdater = gameObject.GetComponent<LuaUpdater>();
+        if (luaUpdater == null)
+        {
+            luaUpdater = gameObject.AddComponent<LuaUpdater>();
+        }
+        luaUpdater.OnInit(luaEnv);
     }
 
 
@@ -308,10 +313,10 @@ public class XLuaManager : MonoSingleton<XLuaManager>
         LuaReimport = null;
         //删除委托
         DeleteDelegate();
-        //if (luaUpdater != null)
-        //{
-        //    luaUpdater.OnDispose();
-        //}
+        if (luaUpdater != null)
+        {
+            luaUpdater.OnDispose();
+        }
 #if !UNITY_EDITOR
             // 关闭虚拟机
             if (luaEnv != null)
