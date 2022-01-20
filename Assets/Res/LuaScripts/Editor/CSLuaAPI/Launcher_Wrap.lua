@@ -13,6 +13,7 @@
 ---@field public IsTuoGuan System.Boolean
 ---@field public LuaDebug System.Boolean
 ---@field public ShowLuaMem System.Boolean
+---@field public TestNotchScreen System.Boolean
 ---@field public LocalUpdateUrl string
 local Launcher = {}
 

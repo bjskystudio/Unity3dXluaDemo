@@ -833,6 +833,17 @@ namespace SuperScrollView
             ForceSnapUpdateCheck();
             UpdateSnapMove(false,true);
         }
+        
+        //force move viewport to bottom pos
+        public void MovePanelToBottomForce()
+        {
+            int maxItemIndex = mItemTotalCount - 1;
+            MovePanelToItemIndex(maxItemIndex, 0);
+            float height = mContainerTrans.rect.height - ViewPortHeight;
+            Vector2 pos = mContainerTrans.anchoredPosition3D;
+            pos.y = height;
+            mContainerTrans.anchoredPosition3D = pos;
+        }
 
         //update all visible items.
         public void RefreshAllShownItem()

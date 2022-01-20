@@ -531,6 +531,8 @@ function Transform:SetForward(x,y,z) end
 ---@param y number
 function Transform:SetAnchorPosition(x,y) end
 
+function Transform:GetAnchorPosition() end
+
 function Transform:SetRectTransformZero() end
 
 ---@param minX number
@@ -542,6 +544,22 @@ function Transform:SetRectTransform(minX,minY,maxX,maxY) end
 ---@param width number
 ---@param height number
 function Transform:SetSizeDelta(width,height) end
+
+function Transform:GetSizeDelta() end
+
+function Transform:GetRect() end
+
+---@param refTarget UnityEngine.RectTransform
+function Transform:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.Transform
+function Transform:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.Component
+function Transform:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.GameObject
+function Transform:SetSizeDeltaByREFTarget(refTarget) end
 
 ---@param refTarget UnityEngine.Transform
 ---@param uiOffsetX number
@@ -573,7 +591,9 @@ function Transform:SetParent(parent,worldPositionStays) end
 ---@param worldPositionStays int32
 function Transform:SetParent(parent,worldPositionStays) end
 
----@param points System.Single[]
+---@param x number
+---@param y number
+---@param z number
 ---@param offsetY number
 ---@param segmentNum int32
 ---@param duration number
@@ -581,7 +601,29 @@ function Transform:SetParent(parent,worldPositionStays) end
 ---@param aabb System.Single[]
 ---@param easeIndex int32
 ---@return DG.Tweening.Tweener
-function Transform:PlayCurvePath(points,offsetY,segmentNum,duration,endCall,aabb,easeIndex) end
+function Transform:PlayCurvePath(x,y,z,offsetY,segmentNum,duration,endCall,aabb,easeIndex) end
+
+---@param x number
+---@param y number
+---@param duration number
+---@param endCall System.Action
+---@param easeIndex int32
+---@return DG.Tweening.Tweener
+function Transform:DOSizeDelta(x,y,duration,endCall,easeIndex) end
+
+---@param x number
+---@param y number
+---@param z number
+---@param duration number
+---@param endCall System.Action
+---@param easeIndex int32
+---@return DG.Tweening.Tweener
+function Transform:DORotate(x,y,z,duration,endCall,easeIndex) end
+
+---@param tagName string
+function Transform:SetTag(tagName) end
+
+function Transform:SetRectDeltaSizeSelf() end
 
 ---@param endValue UnityEngine.Vector3
 ---@param duration number

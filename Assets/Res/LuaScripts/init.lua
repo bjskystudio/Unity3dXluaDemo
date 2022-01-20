@@ -36,6 +36,11 @@ require "ConfigManager"
 require "LangUtil"
 --endregion
 
+--region --------------Pool-----------------
+--require "IRecycle"
+--require "ObjectPool"
+--endregion
+
 --region -------------Util-------------
 
 
@@ -68,16 +73,25 @@ require "EventManager"
 --region -------------交互-------------
 
 require "CSCallLua"
+require "AssetLoadManager"
 
 --endregion
 
 --region --------------UI-----------------
 require "EUIType"
 require "UIManager"
---require "LoopListViewHelper"
---require "LoopGridViewHelper"
+require "LoopListViewHelper"
+require "LoopGridViewHelper"
 --endregion
 
+--region ------------- AI -------------
+--require "BehaviourTreeDefine"
+--require "LuaBTNode"
+--require "LuaBTActionNode"
+--require "LuaBTConditionNode"
+--require "BehaviourTreeUtil"
+--require "LuaAIManager"
+--endregion ----------- AI end -----------
 ---Editor部分的Lua文件
 if AppSetting.IsEditor and not AppSetting.UsedLuaAssetBundle then
     --require "GM"

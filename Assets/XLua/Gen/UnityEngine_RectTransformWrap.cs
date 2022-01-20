@@ -21,7 +21,7 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(UnityEngine.RectTransform);
-			Utils.BeginObjectRegister(type, L, translator, 0, 26, 9, 8);
+			Utils.BeginObjectRegister(type, L, translator, 0, 31, 9, 8);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ForceUpdateRectTransforms", _m_ForceUpdateRectTransforms);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetLocalCorners", _m_GetLocalCorners);
@@ -29,10 +29,16 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetInsetAndSizeFromParentEdge", _m_SetInsetAndSizeFromParentEdge);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetSizeWithCurrentAnchors", _m_SetSizeWithCurrentAnchors);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetAnchorPosition", _m_SetAnchorPosition);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetAnchorPosition", _m_GetAnchorPosition);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetRectTransformZero", _m_SetRectTransformZero);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetRectTransform", _m_SetRectTransform);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetSizeDelta", _m_SetSizeDelta);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetSizeDeltaWidth", _m_SetSizeDeltaWidth);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetSizeDelta", _m_GetSizeDelta);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetRect", _m_GetRect);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetSizeDeltaByREFTarget", _m_SetSizeDeltaByREFTarget);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "UIObjectFollow3DObject", _m_UIObjectFollow3DObject);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOSizeDelta", _m_DOSizeDelta);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOAnchorPos", _m_DOAnchorPos);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOAnchorPosX", _m_DOAnchorPosX);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOAnchorPosY", _m_DOAnchorPosY);
@@ -45,7 +51,6 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOPivot", _m_DOPivot);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOPivotX", _m_DOPivotX);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOPivotY", _m_DOPivotY);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOSizeDelta", _m_DOSizeDelta);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOPunchAnchorPos", _m_DOPunchAnchorPos);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOShakeAnchorPos", _m_DOShakeAnchorPos);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOJumpAnchorPos", _m_DOJumpAnchorPos);
@@ -287,6 +292,39 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_GetAnchorPosition(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                UnityEngine.RectTransform gen_to_be_invoked = (UnityEngine.RectTransform)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    float _x;
+                    float _y;
+                    
+                    gen_to_be_invoked.GetAnchorPosition( out _x, out _y );
+                    LuaAPI.lua_pushnumber(L, _x);
+                        
+                    LuaAPI.lua_pushnumber(L, _y);
+                        
+                    
+                    
+                    
+                    return 2;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetRectTransformZero(RealStatePtr L)
         {
 		    try {
@@ -355,7 +393,9 @@ namespace XLua.CSObjectWrap
                 UnityEngine.RectTransform gen_to_be_invoked = (UnityEngine.RectTransform)translator.FastGetCSObj(L, 1);
             
             
-                
+			    int gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(gen_param_count == 3&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)) 
                 {
                     float _width = (float)LuaAPI.lua_tonumber(L, 2);
                     float _height = (float)LuaAPI.lua_tonumber(L, 3);
@@ -366,10 +406,193 @@ namespace XLua.CSObjectWrap
                     
                     return 0;
                 }
+                if(gen_param_count == 2&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)) 
+                {
+                    float _width = (float)LuaAPI.lua_tonumber(L, 2);
+                    
+                    gen_to_be_invoked.SetSizeDelta( _width );
+                    
+                    
+                    
+                    return 0;
+                }
+                if(gen_param_count == 1) 
+                {
+                    
+                    gen_to_be_invoked.SetSizeDelta(  );
+                    
+                    
+                    
+                    return 0;
+                }
                 
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.RectTransform.SetSizeDelta!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_SetSizeDeltaWidth(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                UnityEngine.RectTransform gen_to_be_invoked = (UnityEngine.RectTransform)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    float _width = (float)LuaAPI.lua_tonumber(L, 2);
+                    
+                    gen_to_be_invoked.SetSizeDeltaWidth( _width );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_GetSizeDelta(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                UnityEngine.RectTransform gen_to_be_invoked = (UnityEngine.RectTransform)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    float _width;
+                    float _height;
+                    
+                    gen_to_be_invoked.GetSizeDelta( out _width, out _height );
+                    LuaAPI.lua_pushnumber(L, _width);
+                        
+                    LuaAPI.lua_pushnumber(L, _height);
+                        
+                    
+                    
+                    
+                    return 2;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_GetRect(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                UnityEngine.RectTransform gen_to_be_invoked = (UnityEngine.RectTransform)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    float _x;
+                    float _y;
+                    float _width;
+                    float _height;
+                    
+                    gen_to_be_invoked.GetRect( out _x, out _y, out _width, out _height );
+                    LuaAPI.lua_pushnumber(L, _x);
+                        
+                    LuaAPI.lua_pushnumber(L, _y);
+                        
+                    LuaAPI.lua_pushnumber(L, _width);
+                        
+                    LuaAPI.lua_pushnumber(L, _height);
+                        
+                    
+                    
+                    
+                    return 4;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_SetSizeDeltaByREFTarget(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                UnityEngine.RectTransform gen_to_be_invoked = (UnityEngine.RectTransform)translator.FastGetCSObj(L, 1);
+            
+            
+			    int gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(gen_param_count == 2&& translator.Assignable<UnityEngine.RectTransform>(L, 2)) 
+                {
+                    UnityEngine.RectTransform _refTarget = (UnityEngine.RectTransform)translator.GetObject(L, 2, typeof(UnityEngine.RectTransform));
+                    
+                    gen_to_be_invoked.SetSizeDeltaByREFTarget( _refTarget );
+                    
+                    
+                    
+                    return 0;
+                }
+                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Transform>(L, 2)) 
+                {
+                    UnityEngine.Transform _refTarget = (UnityEngine.Transform)translator.GetObject(L, 2, typeof(UnityEngine.Transform));
+                    
+                    gen_to_be_invoked.SetSizeDeltaByREFTarget( _refTarget );
+                    
+                    
+                    
+                    return 0;
+                }
+                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Component>(L, 2)) 
+                {
+                    UnityEngine.Component _refTarget = (UnityEngine.Component)translator.GetObject(L, 2, typeof(UnityEngine.Component));
+                    
+                    gen_to_be_invoked.SetSizeDeltaByREFTarget( _refTarget );
+                    
+                    
+                    
+                    return 0;
+                }
+                if(gen_param_count == 2&& translator.Assignable<UnityEngine.GameObject>(L, 2)) 
+                {
+                    UnityEngine.GameObject _refTarget = (UnityEngine.GameObject)translator.GetObject(L, 2, typeof(UnityEngine.GameObject));
+                    
+                    gen_to_be_invoked.SetSizeDeltaByREFTarget( _refTarget );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.RectTransform.SetSizeDeltaByREFTarget!");
             
         }
         
@@ -425,6 +648,95 @@ namespace XLua.CSObjectWrap
             }
             
             return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.RectTransform.UIObjectFollow3DObject!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_DOSizeDelta(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                UnityEngine.RectTransform gen_to_be_invoked = (UnityEngine.RectTransform)translator.FastGetCSObj(L, 1);
+            
+            
+			    int gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 4)) 
+                {
+                    UnityEngine.Vector2 _endValue;translator.Get(L, 2, out _endValue);
+                    float _duration = (float)LuaAPI.lua_tonumber(L, 3);
+                    bool _snapping = LuaAPI.lua_toboolean(L, 4);
+                    
+                        var gen_ret = gen_to_be_invoked.DOSizeDelta( _endValue, _duration, _snapping );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 3&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)) 
+                {
+                    UnityEngine.Vector2 _endValue;translator.Get(L, 2, out _endValue);
+                    float _duration = (float)LuaAPI.lua_tonumber(L, 3);
+                    
+                        var gen_ret = gen_to_be_invoked.DOSizeDelta( _endValue, _duration );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 6&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Action>(L, 5)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 6)) 
+                {
+                    float _x = (float)LuaAPI.lua_tonumber(L, 2);
+                    float _y = (float)LuaAPI.lua_tonumber(L, 3);
+                    float _duration = (float)LuaAPI.lua_tonumber(L, 4);
+                    System.Action _endCall = translator.GetDelegate<System.Action>(L, 5);
+                    int _easeIndex = LuaAPI.xlua_tointeger(L, 6);
+                    
+                        var gen_ret = gen_to_be_invoked.DOSizeDelta( _x, _y, _duration, _endCall, _easeIndex );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 5&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Action>(L, 5)) 
+                {
+                    float _x = (float)LuaAPI.lua_tonumber(L, 2);
+                    float _y = (float)LuaAPI.lua_tonumber(L, 3);
+                    float _duration = (float)LuaAPI.lua_tonumber(L, 4);
+                    System.Action _endCall = translator.GetDelegate<System.Action>(L, 5);
+                    
+                        var gen_ret = gen_to_be_invoked.DOSizeDelta( _x, _y, _duration, _endCall );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 4&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)) 
+                {
+                    float _x = (float)LuaAPI.lua_tonumber(L, 2);
+                    float _y = (float)LuaAPI.lua_tonumber(L, 3);
+                    float _duration = (float)LuaAPI.lua_tonumber(L, 4);
+                    
+                        var gen_ret = gen_to_be_invoked.DOSizeDelta( _x, _y, _duration );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.RectTransform.DOSizeDelta!");
             
         }
         
@@ -938,53 +1250,6 @@ namespace XLua.CSObjectWrap
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_DOSizeDelta(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                UnityEngine.RectTransform gen_to_be_invoked = (UnityEngine.RectTransform)translator.FastGetCSObj(L, 1);
-            
-            
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 4)) 
-                {
-                    UnityEngine.Vector2 _endValue;translator.Get(L, 2, out _endValue);
-                    float _duration = (float)LuaAPI.lua_tonumber(L, 3);
-                    bool _snapping = LuaAPI.lua_toboolean(L, 4);
-                    
-                        var gen_ret = gen_to_be_invoked.DOSizeDelta( _endValue, _duration, _snapping );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 3&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)) 
-                {
-                    UnityEngine.Vector2 _endValue;translator.Get(L, 2, out _endValue);
-                    float _duration = (float)LuaAPI.lua_tonumber(L, 3);
-                    
-                        var gen_ret = gen_to_be_invoked.DOSizeDelta( _endValue, _duration );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.RectTransform.DOSizeDelta!");
             
         }
         

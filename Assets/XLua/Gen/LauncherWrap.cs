@@ -21,7 +21,7 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(Launcher);
-			Utils.BeginObjectRegister(type, L, translator, 0, 3, 13, 13);
+			Utils.BeginObjectRegister(type, L, translator, 0, 3, 14, 14);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnComplete", _m_OnComplete);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "IsEditor", _m_IsEditor);
@@ -40,6 +40,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "IsTuoGuan", _g_get_IsTuoGuan);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "LuaDebug", _g_get_LuaDebug);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "ShowLuaMem", _g_get_ShowLuaMem);
+            Utils.RegisterFunc(L, Utils.GETTER_IDX, "TestNotchScreen", _g_get_TestNotchScreen);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "LocalUpdateUrl", _g_get_LocalUpdateUrl);
             
 			Utils.RegisterFunc(L, Utils.SETTER_IDX, "UsedAssetBundle", _s_set_UsedAssetBundle);
@@ -54,6 +55,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "IsTuoGuan", _s_set_IsTuoGuan);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "LuaDebug", _s_set_LuaDebug);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "ShowLuaMem", _s_set_ShowLuaMem);
+            Utils.RegisterFunc(L, Utils.SETTER_IDX, "TestNotchScreen", _s_set_TestNotchScreen);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "LocalUpdateUrl", _s_set_LocalUpdateUrl);
             
 			
@@ -354,6 +356,20 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _g_get_TestNotchScreen(RealStatePtr L)
+        {
+		    try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+			
+                Launcher gen_to_be_invoked = (Launcher)translator.FastGetCSObj(L, 1);
+                LuaAPI.lua_pushboolean(L, gen_to_be_invoked.TestNotchScreen);
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 1;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _g_get_LocalUpdateUrl(RealStatePtr L)
         {
 		    try {
@@ -543,6 +559,21 @@ namespace XLua.CSObjectWrap
 			
                 Launcher gen_to_be_invoked = (Launcher)translator.FastGetCSObj(L, 1);
                 gen_to_be_invoked.ShowLuaMem = LuaAPI.lua_toboolean(L, 2);
+            
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 0;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _s_set_TestNotchScreen(RealStatePtr L)
+        {
+		    try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+			
+                Launcher gen_to_be_invoked = (Launcher)translator.FastGetCSObj(L, 1);
+                gen_to_be_invoked.TestNotchScreen = LuaAPI.lua_toboolean(L, 2);
             
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);

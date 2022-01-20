@@ -74,6 +74,11 @@ public class Launcher : MonoSingleton<Launcher>
     [Label("隱藏LuaMenmry")]
     public bool ShowLuaMem = false;
     /// <summary>
+    /// 测试刘海屏
+    /// </summary>
+    [Label("测试刘海屏")]
+    public bool TestNotchScreen = false;
+    /// <summary>
     /// 本地热更服务器地址
     /// </summary>
     [Label("本地热更服务器地址")]

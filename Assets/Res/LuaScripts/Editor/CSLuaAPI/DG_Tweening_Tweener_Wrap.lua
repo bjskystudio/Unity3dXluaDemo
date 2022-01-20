@@ -3,6 +3,9 @@
 ---@class DG.Tweening.Tweener : DG.Tweening.Tween
 local Tweener = {}
 
+---@param easeIndex int32
+function Tweener:SetEase(easeIndex) end
+
 ---@param newStartValue System.Object
 ---@param newDuration number
 ---@return DG.Tweening.Tweener

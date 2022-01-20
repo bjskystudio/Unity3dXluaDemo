@@ -84,6 +84,7 @@
     <Compile Include="Assets\Engine\NPR Pipeline\Editor\Data\CScriptableRendererDataEditor.cs" />
     <Compile Include="Assets\Engine\NPR Pipeline\Editor\RendererFeatures\CNewRendererFeatureDropdownItem.cs" />
     <Compile Include="Assets\Engine\NPR Pipeline\Editor\RendererFeatures\CRenderObjectsSettingsEditor.cs" />
+    <Compile Include="Assets\Engine\P2PCollisionSystem\Editor\EntranceMonoInspector.cs" />
     <Compile Include="Assets\Engine\ResourceLoad\Editor\ResourceLoadConfigEditor.cs" />
     <Compile Include="Assets\Engine\TimelineExtend\Editor\AnimationParticlePreviewAssetEditor.cs" />
     <Compile Include="Assets\Engine\TimelineExtend\Editor\MecanimControlTrackEditor.cs" />
@@ -114,6 +115,8 @@
     <Compile Include="Assets\Scripts\Engine\Unity\GUI\UI\Editor\AorTMP_InputFieldEditor.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\GUI\UI\Editor\AorTextEditor.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\GUI\UI\Editor\AorUIUtils.cs" />
+    <Compile Include="Assets\Scripts\Game\BehaviourTree\Editor\BTNodeData.cs" />
+    <Compile Include="Assets\Scripts\Game\BehaviourTree\Editor\BTNodeEditor.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Helper\SvnTool.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Lua\GenerateLuaApi\FieldOrPropertyInfo.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Lua\GenerateLuaApi\GenerateLuaApi.cs" />
@@ -123,6 +126,12 @@
     <Compile Include="Assets\Scripts\Game\Editor\Postprocessor\BitmapFontImagePostprocessor.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Postprocessor\CustomAssetPostprocessor.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Postprocessor\IdeaTemplatesPostprocessor.cs" />
+    <Compile Include="Assets\Scripts\Game\Guide\Editor\GuideMaskEditor.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\GMTools\Debugger\Editor\DebuggerComponentInspector.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\GMTools\Editor\EditorUtilities.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\GMTools\Editor\EditorWindow\BaseEditorWindow.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\GMTools\Editor\GameHelperEditorWindow.cs" />
+    <Compile Include="Assets\Scripts\Game\Tools\GMTools\Editor\GameHelperUtilities.cs" />
     <Compile Include="Assets\XLua\Editor\ExampleConfig.cs" />
     <Compile Include="Assets\XLua\Editor\GenConfig.cs" />
     <Compile Include="Assets\XLua\Src\Editor\Generator.cs" />

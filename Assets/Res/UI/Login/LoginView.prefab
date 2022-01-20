@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7116572843226863205}
   - component: {fileID: 2705373544870095515}
-  - component: {fileID: 4407377494442083844}
+  - component: {fileID: 6618187595104860185}
   m_Layer: 5
   m_Name: '@_aortext_serverName'
   m_TagString: Untagged
@@ -45,7 +45,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252910323180690649}
   m_CullTransparentMesh: 0
---- !u!114 &4407377494442083844
+--- !u!114 &6618187595104860185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,11 +54,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 252910323180690649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4ca7e56d2f3634296bd3e5ea957f43, type: 3}
+  m_Script: {fileID: 11500000, guid: 49584a995dbe65e4989966cda2d9a09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: f6d62263bc84cc849a0fcdf1b200e10f, type: 2}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.21226418, g: 0.2659732, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -66,18 +66,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 3
-    m_MaxSize: 36
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: ffd
+  UseDefaultShader: 0
   languageKey: 
 --- !u!1 &1283266001617128480
 GameObject:
@@ -199,8 +200,8 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1045689711489515959}
-  m_TextComponent: {fileID: 1229898582932612117}
-  m_Placeholder: {fileID: 5739034800493323836}
+  m_TextComponent: {fileID: 6153288196505127516}
+  m_Placeholder: {fileID: 8784385491210942033}
   m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
@@ -232,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1787005205630412633}
   - component: {fileID: 8084925796951180984}
-  - component: {fileID: 5739034800493323836}
+  - component: {fileID: 8784385491210942033}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -267,7 +268,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6665948067565147885}
   m_CullTransparentMesh: 0
---- !u!114 &5739034800493323836
+--- !u!114 &8784385491210942033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6665948067565147885}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4ca7e56d2f3634296bd3e5ea957f43, type: 3}
+  m_Script: {fileID: 11500000, guid: 49584a995dbe65e4989966cda2d9a09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: f6d62263bc84cc849a0fcdf1b200e10f, type: 2}
@@ -288,18 +289,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
-    m_FontStyle: 2
+    m_FontSize: 30
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8BF7\u8F93\u5165\u540D\u79F0"
+  m_Text: fdsf
+  UseDefaultShader: 0
   languageKey: 
 --- !u!1 &7400303366297402844
 GameObject:
@@ -311,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7252731635648125392}
   - component: {fileID: 360913236945781644}
-  - component: {fileID: 1229898582932612117}
+  - component: {fileID: 6153288196505127516}
   m_Layer: 5
   m_Name: '@_aortext_inputName'
   m_TagString: Untagged
@@ -346,7 +348,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7400303366297402844}
   m_CullTransparentMesh: 0
---- !u!114 &1229898582932612117
+--- !u!114 &6153288196505127516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,7 +357,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7400303366297402844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4ca7e56d2f3634296bd3e5ea957f43, type: 3}
+  m_Script: {fileID: 11500000, guid: 49584a995dbe65e4989966cda2d9a09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: f6d62263bc84cc849a0fcdf1b200e10f, type: 2}
@@ -367,18 +369,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d827d9ac4f6854443a7009cef72a5841, type: 3}
-    m_FontSize: 36
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 2
-    m_MaxSize: 36
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+  UseDefaultShader: 0
   languageKey: 
 --- !u!1 &8032708874664288029
 GameObject:
@@ -578,7 +581,7 @@ PrefabInstance:
         type: 3}
       propertyPath: uiNodeArray.Array.data[7].Obj
       value: 
-      objectReference: {fileID: 1229898582932612117}
+      objectReference: {fileID: 0}
     - target: {fileID: 252113576320564416, guid: 0f08bddfde683da4fad708b45fbed9ae,
         type: 3}
       propertyPath: uiNodeArray.Array.data[7].gameObject
@@ -593,7 +596,7 @@ PrefabInstance:
         type: 3}
       propertyPath: uiNodeArray.Array.data[8].Obj
       value: 
-      objectReference: {fileID: 4407377494442083844}
+      objectReference: {fileID: 0}
     - target: {fileID: 252113576320564416, guid: 0f08bddfde683da4fad708b45fbed9ae,
         type: 3}
       propertyPath: uiNodeArray.Array.data[8].gameObject
@@ -648,7 +651,7 @@ PrefabInstance:
         type: 3}
       propertyPath: uiNodeArray.Array.data[9].Obj
       value: 
-      objectReference: {fileID: 9001535502753525560}
+      objectReference: {fileID: 0}
     - target: {fileID: 252113576320564416, guid: 0f08bddfde683da4fad708b45fbed9ae,
         type: 3}
       propertyPath: uiNodeArray.Array.data[9].gameObject
@@ -779,6 +782,151 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoginView
       objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiBtnList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[3].KeyName
+      value: aorbtn_Login
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[3].Obj
+      value: 
+      objectReference: {fileID: 2920685737307210342}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[3].gameObject
+      value: 
+      objectReference: {fileID: 1658526622226301893}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[4].KeyName
+      value: aorbtn_more
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[4].Obj
+      value: 
+      objectReference: {fileID: 7574214546453175411}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[4].gameObject
+      value: 
+      objectReference: {fileID: 6606274442930250325}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[5].KeyName
+      value: aorbtn_server
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[5].Obj
+      value: 
+      objectReference: {fileID: 7424774444940924512}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[5].gameObject
+      value: 
+      objectReference: {fileID: 8032708874664288029}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[6].KeyName
+      value: aorinputfield_name
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[6].Obj
+      value: 
+      objectReference: {fileID: 4440803614018891105}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[6].gameObject
+      value: 
+      objectReference: {fileID: 1283266001617128480}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[7].KeyName
+      value: aortext_inputName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[7].Obj
+      value: 
+      objectReference: {fileID: 6153288196505127516}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[7].gameObject
+      value: 
+      objectReference: {fileID: 7400303366297402844}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[8].KeyName
+      value: aortext_serverName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[8].Obj
+      value: 
+      objectReference: {fileID: 6618187595104860185}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[8].gameObject
+      value: 
+      objectReference: {fileID: 252910323180690649}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[9].KeyName
+      value: aortext_title
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[9].Obj
+      value: 
+      objectReference: {fileID: 7974969389281017108}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiNodeArray.Array.data[9].gameObject
+      value: 
+      objectReference: {fileID: 1000199665455900548}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiBtnList.Array.data[0]
+      value: 
+      objectReference: {fileID: 7424774444940924512}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiBtnList.Array.data[1]
+      value: 
+      objectReference: {fileID: 2920685737307210342}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiBtnList.Array.data[2]
+      value: 
+      objectReference: {fileID: 6924872874060313306}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiBtnList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1222628640090811700}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiBtnList.Array.data[4]
+      value: 
+      objectReference: {fileID: 7574214546453175411}
+    - target: {fileID: 7613281798253299765, guid: 0f08bddfde683da4fad708b45fbed9ae,
+        type: 3}
+      propertyPath: uiBtnList.Array.data[5]
+      value: 
+      objectReference: {fileID: 4516433977416659205}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f08bddfde683da4fad708b45fbed9ae, type: 3}
 --- !u!114 &6924872874060313306 stripped
@@ -799,16 +947,16 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6980380840457437837}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9001535502753525560 stripped
+--- !u!114 &7974969389281017108 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2032438159867407797, guid: 0f08bddfde683da4fad708b45fbed9ae,
+  m_CorrespondingSourceObject: {fileID: 1041320026664992665, guid: 0f08bddfde683da4fad708b45fbed9ae,
     type: 3}
   m_PrefabInstance: {fileID: 6980380840457437837}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000199665455900548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4ca7e56d2f3634296bd3e5ea957f43, type: 3}
+  m_Script: {fileID: 11500000, guid: 49584a995dbe65e4989966cda2d9a09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1222628640090811700 stripped
@@ -866,16 +1014,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3209336332666161637}
     m_Modifications:
-    - target: {fileID: 1830837192099006658, guid: 8a5df0b6d4897c0499a1b7f13d57ca47,
-        type: 3}
-      propertyPath: m_Text
-      value: "\u767B\u5F55\u6E38\u620F"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1830837192099006658, guid: 8a5df0b6d4897c0499a1b7f13d57ca47,
-        type: 3}
-      propertyPath: languageKey
-      value: Login_BtnLogin
-      objectReference: {fileID: 0}
     - target: {fileID: 6678972236001116979, guid: 8a5df0b6d4897c0499a1b7f13d57ca47,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -31,8 +31,9 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 76, 0, 0);
-			Utils.RegisterFunc(L, Utils.CLS_IDX, "ResetTrans", _m_ResetTrans_xlua_st_);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 77, 0, 0);
+			Utils.RegisterFunc(L, Utils.CLS_IDX, "GetNodeRelativeParentPath", _m_GetNodeRelativeParentPath_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "ResetTrans", _m_ResetTrans_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "SetPosition", _m_SetPosition_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "SetLocalPosition", _m_SetLocalPosition_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "SetLocalPositionToZero", _m_SetLocalPositionToZero_xlua_st_);
@@ -128,6 +129,34 @@ namespace XLua.CSObjectWrap
         
         
         
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_GetNodeRelativeParentPath_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    UnityEngine.GameObject _rootgo = (UnityEngine.GameObject)translator.GetObject(L, 1, typeof(UnityEngine.GameObject));
+                    UnityEngine.GameObject _currentgo = (UnityEngine.GameObject)translator.GetObject(L, 2, typeof(UnityEngine.GameObject));
+                    
+                        var gen_ret = CSGoHelp.GetNodeRelativeParentPath( _rootgo, _currentgo );
+                        LuaAPI.lua_pushstring(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_ResetTrans_xlua_st_(RealStatePtr L)

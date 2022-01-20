@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XLua;
+using YoukiaCore.Utils;
 
 [XLua.LuaCallCSharp]
 public static class LoopListViewHelp
@@ -19,7 +20,7 @@ public static class LoopListViewHelp
 
     public static OnRefreshAction onEndDragEvent = null;
 
-
+    public static OnRefreshAction OnCenterDragEvent = null;
 
     static LoopListViewHelp()
     {
@@ -36,6 +37,53 @@ public static class LoopListViewHelp
     {
         onRefreshEvent = null;
         onDestroyEvent = null;
+        OnCenterDragEvent = null;
+    }
+    /// <summary>
+    /// 无限循环滚动选择的列表
+    /// </summary>
+    /// <param name="loopListView"></param>
+    /// <param name="count"></param>
+    public static void InitListView2(LoopListView loopListView,int count)
+    {
+        var objId = loopListView.GetInstanceID();
+        loopListView.mOnSnapNearestChanged = (view, item) =>
+        {
+            int index = view.GetIndexInShownItemList(item);
+            if (index < 0)
+            {
+                return;
+            }
+            if (OnCenterDragEvent!=null)
+            {
+                OnCenterDragEvent(objId, item.name.ToInt());
+            }
+        };
+        loopListView.InitListView(-1, (view, index) =>
+        {
+            if (onRefreshEvent != null)
+            {
+                int firstItemVal = 1;
+                int val = 0;
+                if (index >= 0)
+                {
+                    val = index % count;
+                }
+                else
+                {
+                    val = count + ((index + 1) % count) - 1;
+                }
+                val = val + firstItemVal;
+                var r = onRefreshEvent(objId, val);
+                if (r == null)
+                {
+                    return null;
+                }
+                r.name = val.ToString();   //这里有问题是用名字当索引后面有空再优化吧
+                return r.GetComponent<LoopListViewItem>();
+            }
+            return null;
+        });
     }
 
     //暂时不提供使用

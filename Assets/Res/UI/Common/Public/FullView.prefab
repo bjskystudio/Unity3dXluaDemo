@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 3664093603456654272}
   - component: {fileID: 9156511819748536503}
   - component: {fileID: 106531226259650834}
-  - component: {fileID: 252113576320564416}
+  - component: {fileID: 7613281798253299765}
   m_Layer: 5
   m_Name: FullView
   m_TagString: Untagged
@@ -877,7 +877,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   TargetCamera: {fileID: 0}
---- !u!114 &252113576320564416
+--- !u!114 &7613281798253299765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7243668184540172068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b46ddb6a1bf9e439e3472855f19135, type: 3}
+  m_Script: {fileID: 11500000, guid: b9053727d8ffc5944ab7084e97d5c165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiNodeArray:
@@ -902,8 +902,11 @@ MonoBehaviour:
   - KeyName: aorbtn_more
     Obj: {fileID: 703211782966648574}
     gameObject: {fileID: 4283337756076269784}
+  - KeyName: aorrawimage_bg
+    Obj: {fileID: 9126549542563824113}
+    gameObject: {fileID: 9002618582630098077}
   - KeyName: aortext_title
-    Obj: {fileID: 2032438159867407797}
+    Obj: {fileID: 1041320026664992665}
     gameObject: {fileID: 7871772285460161801}
   uiBtnList:
   - {fileID: 55552088229474391}
@@ -911,6 +914,7 @@ MonoBehaviour:
   - {fileID: 703211782966648574}
   - {fileID: 6805734679430574984}
   uiToggleList: []
+  uiTmpList: []
   nowState: 
   stateNameList: []
   stateList: []
@@ -1189,7 +1193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8123370441528874968}
   - component: {fileID: 1596489713362605903}
-  - component: {fileID: 2032438159867407797}
+  - component: {fileID: 1041320026664992665}
   m_Layer: 5
   m_Name: '@_aortext_title'
   m_TagString: Untagged
@@ -1224,7 +1228,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7871772285460161801}
   m_CullTransparentMesh: 0
---- !u!114 &2032438159867407797
+--- !u!114 &1041320026664992665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1233,30 +1237,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 7871772285460161801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4ca7e56d2f3634296bd3e5ea957f43, type: 3}
+  m_Script: {fileID: 11500000, guid: 49584a995dbe65e4989966cda2d9a09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: f6d62263bc84cc849a0fcdf1b200e10f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d827d9ac4f6854443a7009cef72a5841, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+  UseDefaultShader: 0
   languageKey: 
 --- !u!1 &8017403778734092724
 GameObject:
@@ -1424,7 +1429,7 @@ GameObject:
   - component: {fileID: 4594527207162534607}
   - component: {fileID: 9126549542563824113}
   m_Layer: 5
-  m_Name: '@_arrowimage_bg'
+  m_Name: '@_aorrawimage_bg'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,6 +3,9 @@
 ---@class DG.Tweening.Sequence : DG.Tweening.Tween
 local Sequence = {}
 
+---@param callback System.Action
+function Sequence:SetCompleteCallback(callback) end
+
 ---@param t DG.Tweening.Tween
 ---@return DG.Tweening.Sequence
 function Sequence:Append(t) end

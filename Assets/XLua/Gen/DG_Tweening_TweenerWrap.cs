@@ -26,11 +26,11 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ChangeStartValue", _m_ChangeStartValue);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ChangeEndValue", _m_ChangeEndValue);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ChangeValues", _m_ChangeValues);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetEase", _m_SetEase);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetAutoKill", _m_SetAutoKill);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetId", _m_SetId);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetTarget", _m_SetTarget);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetLoops", _m_SetLoops);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetEase", _m_SetEase);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetRecyclable", _m_SetRecyclable);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetUpdate", _m_SetUpdate);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnStart", _m_OnStart);
@@ -243,6 +243,105 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_SetEase(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                DG.Tweening.Tweener gen_to_be_invoked = (DG.Tweening.Tweener)translator.FastGetCSObj(L, 1);
+            
+            
+			    int gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(gen_param_count == 2&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)) 
+                {
+                    int _easeIndex = LuaAPI.xlua_tointeger(L, 2);
+                    
+                    gen_to_be_invoked.SetEase( _easeIndex );
+                    
+                    
+                    
+                    return 0;
+                }
+                if(gen_param_count == 1) 
+                {
+                    
+                    gen_to_be_invoked.SetEase(  );
+                    
+                    
+                    
+                    return 0;
+                }
+                if(gen_param_count == 2&& translator.Assignable<DG.Tweening.Ease>(L, 2)) 
+                {
+                    DG.Tweening.Ease _ease;translator.Get(L, 2, out _ease);
+                    
+                        var gen_ret = gen_to_be_invoked.SetEase( _ease );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 2&& translator.Assignable<UnityEngine.AnimationCurve>(L, 2)) 
+                {
+                    UnityEngine.AnimationCurve _animCurve = (UnityEngine.AnimationCurve)translator.GetObject(L, 2, typeof(UnityEngine.AnimationCurve));
+                    
+                        var gen_ret = gen_to_be_invoked.SetEase( _animCurve );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 2&& translator.Assignable<DG.Tweening.EaseFunction>(L, 2)) 
+                {
+                    DG.Tweening.EaseFunction _customEase = translator.GetDelegate<DG.Tweening.EaseFunction>(L, 2);
+                    
+                        var gen_ret = gen_to_be_invoked.SetEase( _customEase );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 3&& translator.Assignable<DG.Tweening.Ease>(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)) 
+                {
+                    DG.Tweening.Ease _ease;translator.Get(L, 2, out _ease);
+                    float _overshoot = (float)LuaAPI.lua_tonumber(L, 3);
+                    
+                        var gen_ret = gen_to_be_invoked.SetEase( _ease, _overshoot );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 4&& translator.Assignable<DG.Tweening.Ease>(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)) 
+                {
+                    DG.Tweening.Ease _ease;translator.Get(L, 2, out _ease);
+                    float _amplitude = (float)LuaAPI.lua_tonumber(L, 3);
+                    float _period = (float)LuaAPI.lua_tonumber(L, 4);
+                    
+                        var gen_ret = gen_to_be_invoked.SetEase( _ease, _amplitude, _period );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to DG.Tweening.Tweener.SetEase!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetAutoKill(RealStatePtr L)
         {
 		    try {
@@ -411,86 +510,6 @@ namespace XLua.CSObjectWrap
             }
             
             return LuaAPI.luaL_error(L, "invalid arguments to DG.Tweening.Tweener.SetLoops!");
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_SetEase(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                DG.Tweening.Tweener gen_to_be_invoked = (DG.Tweening.Tweener)translator.FastGetCSObj(L, 1);
-            
-            
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 2&& translator.Assignable<DG.Tweening.Ease>(L, 2)) 
-                {
-                    DG.Tweening.Ease _ease;translator.Get(L, 2, out _ease);
-                    
-                        var gen_ret = gen_to_be_invoked.SetEase( _ease );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 2&& translator.Assignable<UnityEngine.AnimationCurve>(L, 2)) 
-                {
-                    UnityEngine.AnimationCurve _animCurve = (UnityEngine.AnimationCurve)translator.GetObject(L, 2, typeof(UnityEngine.AnimationCurve));
-                    
-                        var gen_ret = gen_to_be_invoked.SetEase( _animCurve );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 2&& translator.Assignable<DG.Tweening.EaseFunction>(L, 2)) 
-                {
-                    DG.Tweening.EaseFunction _customEase = translator.GetDelegate<DG.Tweening.EaseFunction>(L, 2);
-                    
-                        var gen_ret = gen_to_be_invoked.SetEase( _customEase );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 3&& translator.Assignable<DG.Tweening.Ease>(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)) 
-                {
-                    DG.Tweening.Ease _ease;translator.Get(L, 2, out _ease);
-                    float _overshoot = (float)LuaAPI.lua_tonumber(L, 3);
-                    
-                        var gen_ret = gen_to_be_invoked.SetEase( _ease, _overshoot );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 4&& translator.Assignable<DG.Tweening.Ease>(L, 2)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)) 
-                {
-                    DG.Tweening.Ease _ease;translator.Get(L, 2, out _ease);
-                    float _amplitude = (float)LuaAPI.lua_tonumber(L, 3);
-                    float _period = (float)LuaAPI.lua_tonumber(L, 4);
-                    
-                        var gen_ret = gen_to_be_invoked.SetEase( _ease, _amplitude, _period );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to DG.Tweening.Tweener.SetEase!");
             
         }
         

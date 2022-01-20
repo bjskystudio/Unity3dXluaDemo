@@ -21,7 +21,7 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(UnityEngine.Animator);
-			Utils.BeginObjectRegister(type, L, translator, 0, 57, 43, 19);
+			Utils.BeginObjectRegister(type, L, translator, 0, 58, 43, 19);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetFloat", _m_GetFloat);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetFloat", _m_SetFloat);
@@ -80,6 +80,7 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ApplyBuiltinRootMotion", _m_ApplyBuiltinRootMotion);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetAnimationClipLength", _m_GetAnimationClipLength);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetAnimationClip", _m_GetAnimationClip);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "IsCurrStateName", _m_IsCurrStateName);
 			
 			
 			Utils.RegisterFunc(L, Utils.GETTER_IDX, "isOptimizable", _g_get_isOptimizable);
@@ -2422,6 +2423,36 @@ namespace XLua.CSObjectWrap
                     
                         var gen_ret = gen_to_be_invoked.GetAnimationClip( _name );
                         translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_IsCurrStateName(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                UnityEngine.Animator gen_to_be_invoked = (UnityEngine.Animator)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    int _layer = LuaAPI.xlua_tointeger(L, 2);
+                    string _name = LuaAPI.lua_tostring(L, 3);
+                    
+                        var gen_ret = gen_to_be_invoked.IsCurrStateName( _layer, _name );
+                        LuaAPI.xlua_pushinteger(L, gen_ret);
                     
                     
                     

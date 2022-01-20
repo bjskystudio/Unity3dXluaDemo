@@ -131,6 +131,10 @@ function Component:DestroyGameObjDelay(time) end
 ---@param index int32
 function Component:ClearChildren(index) end
 
+---@param typeName string
+---@param isEnable int32
+function Component:SetComponentEnable(typeName,isEnable) end
+
 ---@param value int32
 function Component:SetActive(value) end
 
@@ -254,6 +258,8 @@ function Component:SetForward(x,y,z) end
 ---@param y number
 function Component:SetAnchorPosition(x,y) end
 
+function Component:GetAnchorPosition() end
+
 function Component:SetRectTransformZero() end
 
 ---@param minX number
@@ -265,6 +271,25 @@ function Component:SetRectTransform(minX,minY,maxX,maxY) end
 ---@param width number
 ---@param height number
 function Component:SetSizeDelta(width,height) end
+
+---@param width number
+function Component:SetSizeDeltaWidth(width) end
+
+function Component:GetSizeDelta() end
+
+function Component:GetRect() end
+
+---@param refTarget UnityEngine.RectTransform
+function Component:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.Transform
+function Component:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.Component
+function Component:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.GameObject
+function Component:SetSizeDeltaByREFTarget(refTarget) end
 
 ---@param refTarget UnityEngine.Transform
 ---@param uiOffsetX number
@@ -299,6 +324,16 @@ function Component:SetParent(parent,worldPositionStays) end
 ---@param worldPositionStays int32
 function Component:SetParent(parent,worldPositionStays) end
 
+---@param alpha number
+function Component:SetSpineAlpha(alpha) end
+
+---@param alpha number
+---@param time number
+function Component:SetSpineAlphaWithTime(alpha,time) end
+
+---@param boolean int32
+function Component:SetSpineDarken(boolean) end
+
 ---@param value int32
 function Component:SetGray(value) end
 
@@ -308,7 +343,12 @@ function Component:SetCanvasGroupAlpha(value) end
 ---@param value int32
 function Component:SetCanvasGroupRaycast(value) end
 
----@param points System.Single[]
+---@param value int32
+function Component:SetCanvasSortingOrder(value) end
+
+---@param x number
+---@param y number
+---@param z number
 ---@param offsetY number
 ---@param segmentNum int32
 ---@param time number
@@ -316,7 +356,7 @@ function Component:SetCanvasGroupRaycast(value) end
 ---@param aabb System.Single[]
 ---@param easeIndex int32
 ---@return DG.Tweening.Tweener
-function Component:PlayCurvePath(points,offsetY,segmentNum,time,endCall,aabb,easeIndex) end
+function Component:PlayCurvePath(x,y,z,offsetY,segmentNum,time,endCall,aabb,easeIndex) end
 
 ---@param points System.Single[]
 ---@param duration number
@@ -361,6 +401,14 @@ function Component:DOFade(alpha,duration,endCall,easeIndex) end
 
 ---@param x number
 ---@param y number
+---@param duration number
+---@param endCall System.Action
+---@param easeIndex int32
+---@return DG.Tweening.Tweener
+function Component:DOSizeDelta(x,y,duration,endCall,easeIndex) end
+
+---@param x number
+---@param y number
 ---@param z number
 ---@param duration number
 ---@param endCall System.Action
@@ -374,6 +422,11 @@ function Component:DORotate(x,y,z,duration,endCall,easeIndex) end
 ---@param easeIndex int32
 ---@return DG.Tweening.Tweener
 function Component:DOScaleX(targetScale,duration,endCall,easeIndex) end
+
+---@param tagName string
+function Component:SetTag(tagName) end
+
+function Component:SetRectDeltaSizeSelf() end
 
 ---@param withCallbacks System.Boolean
 ---@return int32

@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7292204798738723339}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  BtnText: {fileID: 0}
+  BtnText: {fileID: 4123033182047574409}
   EnableClickSound: 1
   IgnoreClickInterval: 0
   ClickSoundPath: Audio/SimpleButton
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7564941933560486234}
   - component: {fileID: 853731464884874191}
-  - component: {fileID: 1830837192099006658}
+  - component: {fileID: 4123033182047574409}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -192,7 +192,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8696477889912499881}
   m_CullTransparentMesh: 0
---- !u!114 &1830837192099006658
+--- !u!114 &4123033182047574409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8696477889912499881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4ca7e56d2f3634296bd3e5ea957f43, type: 3}
+  m_Script: {fileID: 11500000, guid: 49584a995dbe65e4989966cda2d9a09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: f6d62263bc84cc849a0fcdf1b200e10f, type: 2}
@@ -212,7 +212,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d827d9ac4f6854443a7009cef72a5841, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
@@ -224,5 +224,6 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u786E\u5B9A"
-  languageKey: Common_Sure
+  m_Text: "\u767B\u5F55"
+  UseDefaultShader: 0
+  languageKey: 

@@ -149,6 +149,10 @@ function GameObject:DestroyGameObjDelay(time) end
 ---@param index int32
 function GameObject:ClearChildren(index) end
 
+---@param typeName string
+---@param isEnable int32
+function GameObject:SetComponentEnable(typeName,isEnable) end
+
 ---@param value int32
 function GameObject:SetActive(value) end
 
@@ -263,6 +267,13 @@ function GameObject:SyncTrans(by) end
 ---@param z number
 function GameObject:SetLocalOffsetByWorld(x,y,z) end
 
+function GameObject:SetAsFirstSibling() end
+
+---@param index int32
+function GameObject:SetSiblingIndex(index) end
+
+function GameObject:SetAsLastSibling() end
+
 ---@param x number
 ---@param y number
 ---@param z number
@@ -271,6 +282,8 @@ function GameObject:SetForward(x,y,z) end
 ---@param x number
 ---@param y number
 function GameObject:SetAnchorPosition(x,y) end
+
+function GameObject:GetAnchorPosition() end
 
 function GameObject:SetRectTransformZero() end
 
@@ -283,6 +296,25 @@ function GameObject:SetRectTransform(minX,minY,maxX,maxY) end
 ---@param width number
 ---@param height number
 function GameObject:SetSizeDelta(width,height) end
+
+---@param width number
+function GameObject:SetSizeDeltaWidth(width) end
+
+function GameObject:GetSizeDelta() end
+
+function GameObject:GetRect() end
+
+---@param refTarget UnityEngine.RectTransform
+function GameObject:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.Transform
+function GameObject:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.Component
+function GameObject:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.GameObject
+function GameObject:SetSizeDeltaByREFTarget(refTarget) end
 
 ---@param refTarget UnityEngine.Transform
 ---@param uiOffsetX number
@@ -320,6 +352,16 @@ function GameObject:SetParent(parent,worldPositionStays) end
 ---@param key string
 function GameObject:SetAnimatorTrigger(key) end
 
+---@param alpha number
+function GameObject:SetSpineAlpha(alpha) end
+
+---@param alpha number
+---@param time number
+function GameObject:SetSpineAlphaWithTime(alpha,time) end
+
+---@param boolean int32
+function GameObject:SetSpineDarken(boolean) end
+
 ---@param value int32
 function GameObject:SetGray(value) end
 
@@ -329,7 +371,12 @@ function GameObject:SetCanvasGroupAlpha(value) end
 ---@param value int32
 function GameObject:SetCanvasGroupRaycast(value) end
 
----@param points System.Single[]
+---@param value int32
+function GameObject:SetCanvasSortingOrder(value) end
+
+---@param x number
+---@param y number
+---@param z number
 ---@param offsetY number
 ---@param segmentNum int32
 ---@param time number
@@ -337,7 +384,7 @@ function GameObject:SetCanvasGroupRaycast(value) end
 ---@param aabb System.Single[]
 ---@param easeIndex int32
 ---@return DG.Tweening.Tweener
-function GameObject:PlayCurvePath(points,offsetY,segmentNum,time,endCall,aabb,easeIndex) end
+function GameObject:PlayCurvePath(x,y,z,offsetY,segmentNum,time,endCall,aabb,easeIndex) end
 
 ---@param points System.Single[]
 ---@param duration number
@@ -366,6 +413,22 @@ function GameObject:DoMove(targetX,targetY,targetZ,duration,endCall,snapping,eas
 ---@return DG.Tweening.Tweener
 function GameObject:DOLocalMove(targetX,targetY,targetZ,duration,endCall,snapping,easeIndex) end
 
+---@param endVal number
+---@param duration number
+---@param endCall System.Action
+---@param snapping System.Boolean
+---@param easeIndex int32
+---@return DG.Tweening.Tweener
+function GameObject:DOLocalMoveX(endVal,duration,endCall,snapping,easeIndex) end
+
+---@param endVal number
+---@param duration number
+---@param endCall System.Action
+---@param snapping System.Boolean
+---@param easeIndex int32
+---@return DG.Tweening.Tweener
+function GameObject:DOLocalMoveY(endVal,duration,endCall,snapping,easeIndex) end
+
 ---@param targetScale number
 ---@param duration number
 ---@param endCall System.Action
@@ -382,6 +445,14 @@ function GameObject:DOFade(alpha,duration,endCall,easeIndex) end
 
 ---@param x number
 ---@param y number
+---@param duration number
+---@param endCall System.Action
+---@param easeIndex int32
+---@return DG.Tweening.Tweener
+function GameObject:DOSizeDelta(x,y,duration,endCall,easeIndex) end
+
+---@param x number
+---@param y number
 ---@param z number
 ---@param duration number
 ---@param endCall System.Action
@@ -395,6 +466,11 @@ function GameObject:DORotate(x,y,z,duration,endCall,easeIndex) end
 ---@param easeIndex int32
 ---@return DG.Tweening.Tweener
 function GameObject:DOScaleX(targetScale,duration,endCall,easeIndex) end
+
+---@param tagName string
+function GameObject:SetTag(tagName) end
+
+function GameObject:SetRectDeltaSizeSelf() end
 
 ---@param type UnityEngine.PrimitiveType
 ---@return UnityEngine.GameObject

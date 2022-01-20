@@ -84,6 +84,20 @@ GlobalDefine.eConnectType = {
 
 --endregion
 
+--region ------------- 对象池 -------------
+
+---@class GlobalDefine.ePoolType 预制体池类型
+GlobalDefine.ePoolType = {
+    ---UI模块对象池
+    UIModel = "UIModelPool",
+    ---剧情模块对象池
+    StoryModel = "StoryModelPool",
+    ---战斗模块对象池
+    BattleModule = "BattleModulePool",
+}
+
+--endregion ----------- 对象池 end -----------
+
 --region -------------登录-------------
 
 ---@class GlobalDefine.eLoginState 登录状态

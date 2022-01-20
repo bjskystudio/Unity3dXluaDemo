@@ -5,5 +5,6 @@
 ---@field public aorbtn_help AorButton
 ---@field public aorbtn_home AorButton
 ---@field public aorbtn_more AorButton
+---@field public aorrawimage_bg AorRawImage
 ---@field public aortext_title AorText
 

@@ -1,7 +1,9 @@
-﻿using DG.Tweening;
+﻿using Cinemachine;
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using XLua;
 using YoukiaCore.Log;
 using UObject = UnityEngine.Object;
@@ -12,106 +14,106 @@ using UObject = UnityEngine.Object;
 [LuaCallCSharp]
 public static class UnityObjectExtends
 {
-//    #region BlackList
-//    /// <summary>
-//    /// blackList的目的是为了防止程序员自己又调用了内置接口，比如来新人或者有些人写着写着忘记了 因为这些函数已经封装了正确的调用函数 所以安全起见全部不容许导出xlua 
-//    /// </summary>
-//    [BlackList]
-//    public static List<List<string>> blackList = new List<List<string>>() {
-//#region blackList
+    #region BlackList
+    /// <summary>
+    /// blackList的目的是为了防止程序员自己又调用了内置接口，比如来新人或者有些人写着写着忘记了 因为这些函数已经封装了正确的调用函数 所以安全起见全部不容许导出xlua 
+    /// </summary>
+    //    [BlackList]
+    //    public static List<List<string>> blackList = new List<List<string>>() {
+    //#region blackList
 
-//        #region Object
-//        //属性
-//        new List<string>(){ "UnityEngine.Object", "name"},
+    //        #region Object
+    //        //属性
+    //        new List<string>(){ "UnityEngine.Object", "name"},
 
-//        //方法
-//        new List<string>(){ "UnityEngine.Object", "Destroy","UnityEngine.Object"},
-//        new List<string>(){ "UnityEngine.Object", "DestroyImmediate","UnityEngine.Object"},
-//        new List<string>(){ "UnityEngine.Object", "DestroyImmediate","UnityEngine.Object","System.Boolean"},
-//        new List<string>(){ "UnityEngine.Object", "DestroyObject","UnityEngine.Object"},
+    //        //方法
+    //        new List<string>(){ "UnityEngine.Object", "Destroy","UnityEngine.Object"},
+    //        new List<string>(){ "UnityEngine.Object", "DestroyImmediate","UnityEngine.Object"},
+    //        new List<string>(){ "UnityEngine.Object", "DestroyImmediate","UnityEngine.Object","System.Boolean"},
+    //        new List<string>(){ "UnityEngine.Object", "DestroyObject","UnityEngine.Object"},
 
-//        new List<string>(){ "UnityEngine.Object", "Instantiate", "UnityEngine.Transform","System.Boolean"},
-//        new List<string>(){ "UnityEngine.Object", "Instantiate", "UnityEngine.Transform"},
-//	    #endregion
+    //        new List<string>(){ "UnityEngine.Object", "Instantiate", "UnityEngine.Transform","System.Boolean"},
+    //        new List<string>(){ "UnityEngine.Object", "Instantiate", "UnityEngine.Transform"},
+    //	    #endregion
 
-//        #region Componet
-//        // Componet
-//        //属性
-//        new List<string>(){ "UnityEngine.Componet", "transform"},
-//        new List<string>(){ "UnityEngine.Componet", "gameObject"},
+    //        #region Componet
+    //        // Componet
+    //        //属性
+    //        new List<string>(){ "UnityEngine.Componet", "transform"},
+    //        new List<string>(){ "UnityEngine.Componet", "gameObject"},
 
-//        //方法
-//        new List<string>(){ "UnityEngine.Component", "GetComponent","System.Type"},
-//        new List<string>(){ "UnityEngine.Component", "GetComponent","System.String"},
-//	    #endregion
+    //        //方法
+    //        new List<string>(){ "UnityEngine.Component", "GetComponent","System.Type"},
+    //        new List<string>(){ "UnityEngine.Component", "GetComponent","System.String"},
+    //	    #endregion
 
-//        #region Transform
-//        // Transform
-//        //属性
-//        new List<string>(){ "UnityEngine.Transform", "childCount"},
-//        new List<string>(){ "UnityEngine.Transform", "eulerAngles"},
-//        new List<string>(){ "UnityEngine.Transform", "localEulerAngles"},
-//        new List<string>(){ "UnityEngine.Transform", "localPosition"},
-//        new List<string>(){ "UnityEngine.Transform", "localRotation"},
-//        new List<string>(){ "UnityEngine.Transform", "localScale"},
-//        new List<string>(){ "UnityEngine.Transform", "parent"},
-//        new List<string>(){ "UnityEngine.Transform", "position"},
-//        new List<string>(){ "UnityEngine.Transform", "root"},
-//        new List<string>(){ "UnityEngine.Transform", "rotation"},
+    //        #region Transform
+    //        // Transform
+    //        //属性
+    //        new List<string>(){ "UnityEngine.Transform", "childCount"},
+    //        new List<string>(){ "UnityEngine.Transform", "eulerAngles"},
+    //        new List<string>(){ "UnityEngine.Transform", "localEulerAngles"},
+    //        new List<string>(){ "UnityEngine.Transform", "localPosition"},
+    //        new List<string>(){ "UnityEngine.Transform", "localRotation"},
+    //        new List<string>(){ "UnityEngine.Transform", "localScale"},
+    //        new List<string>(){ "UnityEngine.Transform", "parent"},
+    //        new List<string>(){ "UnityEngine.Transform", "position"},
+    //        new List<string>(){ "UnityEngine.Transform", "root"},
+    //        new List<string>(){ "UnityEngine.Transform", "rotation"},
 
-//        //方法
-//        new List<string>(){ "UnityEngine.Transform", "DetachChildren"},
-//        new List<string>(){ "UnityEngine.Transform", "Find", "System.String"},
-//        new List<string>(){ "UnityEngine.Transform", "FindChild","System.String"},
-//        new List<string>(){ "UnityEngine.Transform", "GetChild","System.Int32"},
-//        new List<string>(){ "UnityEngine.Transform", "GetChildCount"},
-//        new List<string>(){ "UnityEngine.Transform", "GetSiblingIndex"},
-//        new List<string>(){ "UnityEngine.Transform", "SetAsFirstSibling"},
-//        new List<string>(){ "UnityEngine.Transform", "SetAsLastSibling"},
-//        new List<string>(){ "UnityEngine.Transform", "SetParent", "UnityEngine.Transform"},
-//        new List<string>(){ "UnityEngine.Transform", "SetParent", "UnityEngine.Transform","System.Boolean" },
-//        new List<string>(){ "UnityEngine.Transform", "SetSiblingIndex","System.Int32"},
-//	    #endregion
+    //        //方法
+    //        new List<string>(){ "UnityEngine.Transform", "DetachChildren"},
+    //        new List<string>(){ "UnityEngine.Transform", "Find", "System.String"},
+    //        new List<string>(){ "UnityEngine.Transform", "FindChild","System.String"},
+    //        new List<string>(){ "UnityEngine.Transform", "GetChild","System.Int32"},
+    //        new List<string>(){ "UnityEngine.Transform", "GetChildCount"},
+    //        new List<string>(){ "UnityEngine.Transform", "GetSiblingIndex"},
+    //        new List<string>(){ "UnityEngine.Transform", "SetAsFirstSibling"},
+    //        new List<string>(){ "UnityEngine.Transform", "SetAsLastSibling"},
+    //        new List<string>(){ "UnityEngine.Transform", "SetParent", "UnityEngine.Transform"},
+    //        new List<string>(){ "UnityEngine.Transform", "SetParent", "UnityEngine.Transform","System.Boolean" },
+    //        new List<string>(){ "UnityEngine.Transform", "SetSiblingIndex","System.Int32"},
+    //	    #endregion
 
-//        #region GameObject
-//        // GameObject
-//        //属性
-//        new List<string>(){ "UnityEngine.GameObject", "transform"},
-//        new List<string>(){ "UnityEngine.GameObject", "gameObject"},
-//        new List<string>(){ "UnityEngine.GameObject", "activeSelf"},
-//        new List<string>(){ "UnityEngine.GameObject", "activeInHierarchy"},
+    //        #region GameObject
+    //        // GameObject
+    //        //属性
+    //        new List<string>(){ "UnityEngine.GameObject", "transform"},
+    //        new List<string>(){ "UnityEngine.GameObject", "gameObject"},
+    //        new List<string>(){ "UnityEngine.GameObject", "activeSelf"},
+    //        new List<string>(){ "UnityEngine.GameObject", "activeInHierarchy"},
 
-//        //方法
-//        new List<string>(){ "UnityEngine.GameObject", "SetActive", "System.Boolean"},
-//        new List<string>(){ "UnityEngine.GameObject", "AddComponent"},
-//        new List<string>(){ "UnityEngine.GameObject", "AddComponent", "System.Type"},
-//        new List<string>(){ "UnityEngine.GameObject", "AddComponent", "System.String"},
-//        new List<string>(){ "UnityEngine.GameObject", "GetComponent", "System.Type"},
-//        new List<string>(){ "UnityEngine.GameObject", "GetComponent", "System.String"},
+    //        //方法
+    //        new List<string>(){ "UnityEngine.GameObject", "SetActive", "System.Boolean"},
+    //        new List<string>(){ "UnityEngine.GameObject", "AddComponent"},
+    //        new List<string>(){ "UnityEngine.GameObject", "AddComponent", "System.Type"},
+    //        new List<string>(){ "UnityEngine.GameObject", "AddComponent", "System.String"},
+    //        new List<string>(){ "UnityEngine.GameObject", "GetComponent", "System.Type"},
+    //        new List<string>(){ "UnityEngine.GameObject", "GetComponent", "System.String"},
 
-//        // RectTransform
-//        //属性
-//        new List<string>(){ "UnityEngine.RectTransform", "anchoredPosition"},
-//        new List<string>(){ "UnityEngine.RectTransform", "anchoredPosition3D"},
-//        new List<string>(){ "UnityEngine.RectTransform", "anchorMax"},
-//        new List<string>(){ "UnityEngine.RectTransform", "anchorMin"},
-//        new List<string>(){ "UnityEngine.RectTransform", "offsetMax"},
-//        new List<string>(){ "UnityEngine.RectTransform", "offsetMin"},
-//        new List<string>(){ "UnityEngine.RectTransform", "pivot"},
-//        new List<string>(){ "UnityEngine.RectTransform", "rect"},
-//        new List<string>(){ "UnityEngine.RectTransform", "sizeDelta"},
-//	    #endregion
+    //        // RectTransform
+    //        //属性
+    //        new List<string>(){ "UnityEngine.RectTransform", "anchoredPosition"},
+    //        new List<string>(){ "UnityEngine.RectTransform", "anchoredPosition3D"},
+    //        new List<string>(){ "UnityEngine.RectTransform", "anchorMax"},
+    //        new List<string>(){ "UnityEngine.RectTransform", "anchorMin"},
+    //        new List<string>(){ "UnityEngine.RectTransform", "offsetMax"},
+    //        new List<string>(){ "UnityEngine.RectTransform", "offsetMin"},
+    //        new List<string>(){ "UnityEngine.RectTransform", "pivot"},
+    //        new List<string>(){ "UnityEngine.RectTransform", "rect"},
+    //        new List<string>(){ "UnityEngine.RectTransform", "sizeDelta"},
+    //	    #endregion
 
-//        #region Misc
-//	    //Text
-//        new List<string>(){ "UnityEngine.UI.Text", "font"},
-//        // Camera
-//        new List<string>(){ "UnityEngine.Camera", "WorldToScreenPoint", "UnityEngine.Vector3"},
-//	    #endregion
-//#endregion
-//    };
+    //        #region Misc
+    //	    //Text
+    //        new List<string>(){ "UnityEngine.UI.Text", "font"},
+    //        // Camera
+    //        new List<string>(){ "UnityEngine.Camera", "WorldToScreenPoint", "UnityEngine.Vector3"},
+    //	    #endregion
+    //#endregion
+    //    };
 
-//    #endregion
+    #endregion
 
     // 说明：lua侧判Object为空全部使用这个函数
     public static bool IsNull(this UObject target)
@@ -314,6 +316,25 @@ public static class UnityObjectExtends
     public static void ClearChildren(this GameObject target, int index = 0)
     {
         ClearChildren(target?.transform, index);
+    }
+
+    #endregion
+
+    #region SetComponentEnable 设置组件可用 参数：isEnable(0 不可用，1 可用)
+
+    public static void SetComponentEnable(this GameObject target, string typeName, int isEnable)
+    {
+        Component component = target.GetComponent(typeName);
+        Behaviour behaviour = component as Behaviour;
+        if (behaviour != null)
+        {
+            behaviour.enabled = isEnable != 0;
+        }
+    }
+
+    public static void SetComponentEnable(this Component target, string typeName, int isEnable)
+    {
+        target.gameObject.SetComponentEnable(typeName, isEnable);
     }
 
     #endregion
@@ -1052,6 +1073,24 @@ public static class UnityObjectExtends
         SetLocalOffsetByWorld(target?.transform, x, y, z);
     }
     #endregion
+
+    #region SetAsSibling 设置Hierarchy中的顺序
+    public static void SetAsFirstSibling(this GameObject target)
+    {
+        target?.transform.SetAsFirstSibling();
+    }
+
+    public static void SetSiblingIndex(this GameObject target, int index)
+    {
+        target?.transform.SetSiblingIndex(index);
+    }
+
+    public static void SetAsLastSibling(this GameObject target)
+    {
+        target?.transform.SetAsLastSibling();
+    }
+    #endregion
+
     #endregion
 
     #region 场景
@@ -1111,6 +1150,43 @@ public static class UnityObjectExtends
     public static void SetAnchorPosition(this GameObject target, float? x, float? y)
     {
         SetAnchorPosition(target?.transform, x, y);
+    }
+
+    #endregion
+
+    #region GetAnchorPosition 获取Rect的AnchorPosition
+
+    public static void GetAnchorPosition(this RectTransform target, out float x, out float y)
+    {
+        if (target == null)
+        {
+            x = 0;
+            y = 0;
+            return;
+        }
+        x = target.anchoredPosition.x;
+        y = target.anchoredPosition.y;
+    }
+
+    public static void GetAnchorPosition(this Transform target, out float x, out float y)
+    {
+        if (target == null)
+        {
+            x = 0;
+            y = 0;
+            return;
+        }
+        GetAnchorPosition(target as RectTransform, out x, out y);
+    }
+
+    public static void GetAnchorPosition(this Component target, out float x, out float y)
+    {
+        GetAnchorPosition(target?.transform, out x, out y);
+    }
+
+    public static void GetAnchorPosition(this GameObject target, out float x, out float y)
+    {
+        GetAnchorPosition(target?.transform, out x, out y);
     }
 
     #endregion
@@ -1183,12 +1259,14 @@ public static class UnityObjectExtends
 
     #region SetSizeDelta 设置SizeDelta 参数：width,height
 
-    public static void SetSizeDelta(this RectTransform target, float width, float height)
+    public static void SetSizeDelta(this RectTransform target, float width = -1, float height = -1)
     {
         if (target == null)
         {
             return;
         }
+        width = width == -1 ? target.sizeDelta.x : width;
+        height = height == -1 ? target.sizeDelta.y : height;
         target.sizeDelta = new Vector2(width, height);
     }
 
@@ -1211,11 +1289,109 @@ public static class UnityObjectExtends
         SetSizeDelta(target?.transform, width, height);
     }
 
+    public static void SetSizeDeltaWidth(this GameObject target, float width)
+    {
+        RectTransform rt = target.GetComponent<RectTransform>();
+        if (rt != null)
+            SetSizeDeltaWidth(rt, width);
+    }
+
+    public static void SetSizeDeltaWidth(this RectTransform target, float width)
+    {
+        if (target != null)
+            target.sizeDelta = new Vector2(width, target.sizeDelta.y);
+    }
+
+    public static void SetSizeDeltaWidth(this Component target, float width)
+    {
+        if (target != null)
+            SetSizeDeltaWidth(target.gameObject, width);
+    }
+    #endregion
+
+    #region GetSizeDelta 获取SizeDelta 返回值：width,height
+
+    public static void GetSizeDelta(this RectTransform target, out float width, out float height)
+    {
+        if (target == null)
+        {
+            width = 0;
+            height = 0;
+            return;
+        }
+        width = target.sizeDelta.x;
+        height = target.sizeDelta.y;
+    }
+
+    public static void GetSizeDelta(this Transform target, out float width, out float height)
+    {
+        if (target == null)
+        {
+            width = 0;
+            height = 0;
+            return;
+        }
+        GetSizeDelta(target as RectTransform, out width, out height);
+    }
+
+    public static void GetSizeDelta(this Component target, out float width, out float height)
+    {
+        GetSizeDelta(target?.transform, out width, out height);
+    }
+
+    public static void GetSizeDelta(this GameObject target, out float width, out float height)
+    {
+        GetSizeDelta(target?.transform, out width, out height);
+    }
+
+    #endregion
+
+    #region GetRect 获取Rect 返回值x,y,width,height
+
+    public static void GetRect(this RectTransform target, out float x, out float y, out float width, out float height)
+    {
+        if (target == null)
+        {
+            x = 0;
+            y = 0;
+            width = 0;
+            height = 0;
+            return;
+        }
+        x = target.rect.x;
+        y = target.rect.y;
+        width = target.rect.width;
+        height = target.rect.height;
+    }
+
+    public static void GetRect(this Transform target, out float x, out float y, out float width, out float height)
+    {
+        if (target == null)
+        {
+            x = 0;
+            y = 0;
+            width = 0;
+            height = 0;
+            return;
+        }
+        GetRect(target as RectTransform, out x, out y, out width, out height);
+    }
+
+    public static void GetRect(this Component target, out float x, out float y, out float width, out float height)
+    {
+        GetRect(target?.transform, out x, out y, out width, out height);
+    }
+
+    public static void GetRect(this GameObject target, out float x, out float y, out float width, out float height)
+    {
+        GetRect(target?.transform, out x, out y, out width, out height);
+    }
+
     #endregion
 
     #region SetSizeDeltaByREFTarget 设置SizeDelta跟随参考目标
 
-    public static void SetSizeDeltaByREFTarget(RectTransform target, RectTransform refTarget)
+    public static void SetSizeDeltaByREFTarget(this RectTransform target, RectTransform refTarget)
     {
         if (target == null || refTarget == null)
         {
@@ -1224,7 +1400,7 @@ public static class UnityObjectExtends
         target.sizeDelta = refTarget.sizeDelta;
     }
 
-    public static void SetSizeDeltaByREFTarget(RectTransform target, Transform refTarget)
+    public static void SetSizeDeltaByREFTarget(this RectTransform target, Transform refTarget)
     {
         if (target == null || refTarget == null)
         {
@@ -1233,7 +1409,7 @@ public static class UnityObjectExtends
         SetSizeDeltaByREFTarget(target, refTarget as RectTransform);
     }
 
-    public static void SetSizeDeltaByREFTarget(RectTransform target, Component refTarget)
+    public static void SetSizeDeltaByREFTarget(this RectTransform target, Component refTarget)
     {
         if (target == null || refTarget == null)
         {
@@ -1242,7 +1418,7 @@ public static class UnityObjectExtends
         SetSizeDeltaByREFTarget(target, refTarget.transform);
     }
 
-    public static void SetSizeDeltaByREFTarget(RectTransform target, GameObject refTarget)
+    public static void SetSizeDeltaByREFTarget(this RectTransform target, GameObject refTarget)
     {
         if (target == null || refTarget == null)
         {
@@ -1251,7 +1427,7 @@ public static class UnityObjectExtends
         SetSizeDeltaByREFTarget(target, refTarget.transform);
     }
 
-    public static void SetSizeDeltaByREFTarget(Transform target, RectTransform refTarget)
+    public static void SetSizeDeltaByREFTarget(this Transform target, RectTransform refTarget)
     {
         if (target == null || refTarget == null)
         {
@@ -1260,7 +1436,7 @@ public static class UnityObjectExtends
         SetSizeDeltaByREFTarget(target as RectTransform, refTarget);
     }
 
-    public static void SetSizeDeltaByREFTarget(Transform target, Transform refTarget)
+    public static void SetSizeDeltaByREFTarget(this Transform target, Transform refTarget)
     {
         if (target == null || refTarget == null)
         {
@@ -1269,7 +1445,7 @@ public static class UnityObjectExtends
         SetSizeDeltaByREFTarget(target as RectTransform, refTarget as RectTransform);
     }
 
-    public static void SetSizeDeltaByREFTarget(Transform target, Component refTarget)
+    public static void SetSizeDeltaByREFTarget(this Transform target, Component refTarget)
     {
         if (target == null || refTarget == null)
         {
@@ -1278,7 +1454,7 @@ public static class UnityObjectExtends
         SetSizeDeltaByREFTarget(target as RectTransform, refTarget.transform);
     }
 
-    public static void SetSizeDeltaByREFTarget(Transform target, GameObject refTarget)
+    public static void SetSizeDeltaByREFTarget(this Transform target, GameObject refTarget)
     {
         if (target == null || refTarget == null)
         {
@@ -1287,42 +1463,42 @@ public static class UnityObjectExtends
         SetSizeDeltaByREFTarget(target as RectTransform, refTarget.transform);
     }
 
-    public static void SetSizeDeltaByREFTarget(Component target, RectTransform refTarget)
+    public static void SetSizeDeltaByREFTarget(this Component target, RectTransform refTarget)
     {
         SetSizeDeltaByREFTarget(target?.transform, refTarget);
     }
 
-    public static void SetSizeDeltaByREFTarget(Component target, Transform refTarget)
+    public static void SetSizeDeltaByREFTarget(this Component target, Transform refTarget)
     {
         SetSizeDeltaByREFTarget(target?.transform, refTarget);
     }
 
-    public static void SetSizeDeltaByREFTarget(Component target, Component refTarget)
+    public static void SetSizeDeltaByREFTarget(this Component target, Component refTarget)
     {
         SetSizeDeltaByREFTarget(target?.transform, refTarget?.transform);
     }
 
-    public static void SetSizeDeltaByREFTarget(Component target, GameObject refTarget)
+    public static void SetSizeDeltaByREFTarget(this Component target, GameObject refTarget)
     {
         SetSizeDeltaByREFTarget(target?.transform, refTarget?.transform);
     }
 
-    public static void SetSizeDeltaByREFTarget(GameObject target, RectTransform refTarget)
+    public static void SetSizeDeltaByREFTarget(this GameObject target, RectTransform refTarget)
     {
         SetSizeDeltaByREFTarget(target?.transform, refTarget);
     }
 
-    public static void SetSizeDeltaByREFTarget(GameObject target, Transform refTarget)
+    public static void SetSizeDeltaByREFTarget(this GameObject target, Transform refTarget)
     {
         SetSizeDeltaByREFTarget(target?.transform, refTarget);
     }
 
-    public static void SetSizeDeltaByREFTarget(GameObject target, Component refTarget)
+    public static void SetSizeDeltaByREFTarget(this GameObject target, Component refTarget)
     {
         SetSizeDeltaByREFTarget(target?.transform, refTarget?.transform);
     }
 
-    public static void SetSizeDeltaByREFTarget(GameObject target, GameObject refTarget)
+    public static void SetSizeDeltaByREFTarget(this GameObject target, GameObject refTarget)
     {
         SetSizeDeltaByREFTarget(target?.transform, refTarget?.transform);
     }
@@ -1583,387 +1759,205 @@ public static class UnityObjectExtends
     #endregion
 
     #region Spine控制器
-    //临时屏蔽错误by xin.liu
-    //    #region SetSpineAlpha 设置Spine的Alpha值 参数：alpha
 
-    //    public static void SetSpineAlpha(this GameObject target, float alpha)
-    //    {
-    //            if (target == null)
-    //            {
-    //                return;
-    //            }
-    //            SpineCtrl ctrl = target.GetComponent<SpineCtrl>();
-    //            if (ctrl == null)
-    //            {
-    //                Debug.LogError("没有找到SpineCtrl:" + target.name);
-    //                return;
-    //            }
-    //            ctrl.SetAlpha(alpha);
-    //    }
+    #region SetSpineAlpha 设置Spine的Alpha值 参数：alpha
 
-    //    public static void SetSpineAlpha(this Component target, float alpha)
-    //    {
-    //            SetSpineAlpha(target?.gameObject, alpha);
-    //}
-    //    #endregion
+    public static void SetSpineAlpha(this GameObject target, float alpha)
+    {
+        if (target == null)
+        {
+            return;
+        }
+        SpineCtrl ctrl = target.GetComponent<SpineCtrl>();
+        if (ctrl == null)
+        {
+            Debug.LogError("没有找到SpineCtrl:" + target.name);
+            return;
+        }
+        ctrl.SetAlpha(alpha);
+    }
 
-    //    #region SetSpineAlphaWithTime 设置Spine的Alpha值 参数：alpha,time
-    //    public static void SetSpineAlphaWithTime(this GameObject target, float alpha, float time)
-    //    {
-    //            if (target == null)
-    //            {
-    //                return;
-    //            }
-    //            SpineCtrl ctrl = target.GetComponent<SpineCtrl>();
-    //            if (ctrl == null)
-    //            {
-    //                Debug.LogError("没有找到SpineCtrl:" + target.name);
-    //                return;
-    //            }
-    //            ctrl.SetAlphaWithTime(alpha, time);
-    //    }
-    //    public static void SetSpineAlphaWithTime(this Component target, float alpha, float time)
-    //    {
-    //            if (target == null)
-    //            {
-    //                return;
-    //            }
-    //            SetSpineAlphaWithTime(target.gameObject, alpha, time);
-    //    }
+    public static void SetSpineAlpha(this Component target, float alpha)
+    {
+        SetSpineAlpha(target?.gameObject, alpha);
+    }
 
-    //#endregion
+    #endregion
 
-#endregion
+    #region SetSpineAlphaWithTime 设置Spine的Alpha值 参数：alpha,time
+
+    public static void SetSpineAlphaWithTime(this GameObject target, float alpha, float time)
+    {
+        if (target == null)
+        {
+            return;
+        }
+        SpineCtrl ctrl = target.GetComponent<SpineCtrl>();
+        if (ctrl == null)
+        {
+            Debug.LogError("没有找到SpineCtrl:" + target.name);
+            return;
+        }
+        ctrl.SetAlphaWithTime(alpha, time);
+    }
+
+    public static void SetSpineAlphaWithTime(this Component target, float alpha, float time)
+    {
+        if (target == null)
+        {
+            return;
+        }
+        SetSpineAlphaWithTime(target.gameObject, alpha, time);
+    }
+
+    #endregion
+    #region SetSpineAlpha 设置Spine变暗 参数 0 or 1 
+
+    public static void SetSpineDarken(this GameObject target, int boolean)
+    {
+        if (target == null)
+        {
+            return;
+        }
+        SpineCtrl ctrl = target.GetComponent<SpineCtrl>();
+        if (ctrl == null)
+        {
+            Debug.LogError("没有找到SpineCtrl:" + target.name);
+            return;
+        }
+        //ctrl.SetDarken(boolean);
+    }
+
+    public static void SetSpineDarken(this Component target, int boolean)
+    {
+        SetSpineDarken(target?.gameObject, boolean);
+    }
+
+    #endregion
+
+    #endregion
 
     #region UI、Aor实现
 
     #region SetGray 置灰 参数：value(0:false,1:true)
 
     public static void SetGray(this GameObject target, int value)
-{
-    if (value != 0)
     {
         Gray g = target.GetComponent<Gray>();
         if (!g)
-            target.AddComponent<Gray>();
-    }
-    else
-    {
-        Gray g = target.GetComponent<Gray>();
-        if (g)
-            GameObject.Destroy(g);
-    }
-}
-
-public static void SetGray(this Component target, int value)
-{
-    SetGray(target?.gameObject, value);
-}
-
-#endregion
-
-#region SetCanvasGroupAlpha 设置CanvasGroupAlpha 参数：value
-
-public static void SetCanvasGroupAlpha(this GameObject obj, float value)
-{
-    if (obj == null)
-    {
-        return;
-    }
-    CanvasGroup canvasGroup = obj.GetOrAddComponent<CanvasGroup>();
-    canvasGroup.alpha = Mathf.Clamp(value, 0, 1);
-}
-
-public static void SetCanvasGroupAlpha(this Component obj, float value)
-{
-    SetCanvasGroupAlpha(obj?.gameObject, value);
-}
-
-#endregion
-
-#region SetCanvasGroupRaycast 设置CanvasGroupRaycast 参数：value
-public static void SetCanvasGroupRaycast(this GameObject obj, int value)
-{
-    if (obj == null)
-    {
-        return;
-    }
-    CanvasGroup canvasGroup = obj.GetOrAddComponent<CanvasGroup>();
-    bool flag = value != 0;
-    canvasGroup.blocksRaycasts = flag;
-}
-
-public static void SetCanvasGroupRaycast(this Component obj, int value)
-{
-    SetCanvasGroupRaycast(obj?.gameObject, value);
-}
-
-#endregion
-
-#endregion
-
-#region DOTween
-
-#region PlayCurvePath  贝塞尔曲线移动 参数：点位:{endx,endy,endz}，中间点偏移，采样点数量，时间，回调，空气墙, easeIndex缓动类型
-
-/// <summary>
-/// dotween path 贝塞尔曲线移动
-/// </summary>
-/// <param name="target">目标</param>
-/// <param name="aabb">空气墙:minx,miny,minz,maxx,maxy,maxz</param>
-/// <param name="points">点位:{endx,endy,endz}</param>
-/// <param name="offsetY">中间点偏移</param>
-/// <param name="segmentNum">采样点数量</param>
-/// <param name="duration">时间</param>
-/// <param name="endCall">回调</param>
-public static Tweener PlayCurvePath(this Transform target, float[] points, float offsetY, int segmentNum, float duration, Action endCall, float[] aabb = null, int easeIndex = 0)
-{
-    if (target == null || points == null || points.Length < 3)
-    {
-        return null;
-    }
-    Vector3 start = target.position;
-    Vector3 end = new Vector3(points[0], points[1], points[2]);
-    Vector3 center = (start + end) * 0.5f;
-    center.y += offsetY;
-    Vector3[] vecPoints = GetBeizerList(start, center, end, segmentNum);
-    if (aabb != null)
-    {
-        Vector3 aabbMin = new Vector3(aabb[0], aabb[1], aabb[2]);
-        Vector3 aabbMax = new Vector3(aabb[3], aabb[4], aabb[5]);
-        for (int i = 0; i < vecPoints.Length; i++)
+            g = target.AddComponent<Gray>();
+        if (value != 0)
         {
-            VectorClamp(ref vecPoints[i], ref aabbMin, ref aabbMax);
+            g.SetGrayEffect(true);
+        }
+        else
+        {
+            g.SetGrayEffect(false);
         }
     }
-    var tweener = target.DOPath(vecPoints, duration, PathType.CatmullRom);
-    if (endCall != null)
+
+    public static void SetGray(this Component target, int value)
     {
-        tweener.onComplete = (() =>
+        SetGray(target?.gameObject, value);
+    }
+
+    #endregion
+
+    #region SetCanvasGroupAlpha 设置CanvasGroupAlpha 参数：value
+
+    public static void SetCanvasGroupAlpha(this GameObject obj, float value)
+    {
+        if (obj == null)
         {
-            endCall();
-        });
+            return;
+        }
+        CanvasGroup canvasGroup = obj.GetOrAddComponent<CanvasGroup>();
+        canvasGroup.alpha = Mathf.Clamp(value, 0, 1);
     }
-    if (easeIndex > 0)
+
+    public static void SetCanvasGroupAlpha(this Component obj, float value)
     {
-        tweener.SetEase((Ease)easeIndex);
+        SetCanvasGroupAlpha(obj?.gameObject, value);
     }
-    return tweener;
-}
 
-public static Tweener PlayCurvePath(this Component target, float[] points, float offsetY, int segmentNum, float time, Action endCall, float[] aabb = null, int easeIndex = 0)
-{
-    return PlayCurvePath(target?.transform, points, offsetY, segmentNum, time, endCall, aabb, easeIndex);
-}
+    #endregion
 
-public static Tweener PlayCurvePath(this GameObject target, float[] points, float offsetY, int segmentNum, float time, Action endCall, float[] aabb = null, int easeIndex = 0)
-{
-    return PlayCurvePath(target?.transform, points, offsetY, segmentNum, time, endCall, aabb, easeIndex);
-}
-
-/// <summary>
-/// 获取存储贝塞尔曲线点的数组二次贝塞尔
-/// </summary>
-/// <param name="startPoint"></param>起始点
-/// <param name="controlPoint"></param>控制点
-/// <param name="endPoint"></param>目标点
-/// <param name="segmentNum"></param>采样点的数量
-/// <returns></returns>存储贝塞尔曲线点的数组
-private static Vector3[] GetBeizerList(Vector3 startPoint, Vector3 controlPoint, Vector3 endPoint, int segmentNum)
-{
-    Vector3[] path = new Vector3[segmentNum + 1];
-    path[0] = startPoint;
-    for (int i = 1; i <= segmentNum; i++)
+    #region SetCanvasGroupRaycast 设置CanvasGroupRaycast 参数：value
+    public static void SetCanvasGroupRaycast(this GameObject obj, int value)
     {
-        float t = i / (float)segmentNum;
-        Vector3 pixel = CalculateCubicBezierPoint(t, startPoint,
-            controlPoint, endPoint);
-        path[i] = pixel;
-    }
-    return path;
-}
-
-/// <summary>
-/// 根据T值，计算贝塞尔曲线上面相对应的点
-/// </summary>
-/// <param name="t"></param>T值
-/// <param name="p0"></param>起始点
-/// <param name="p1"></param>控制点
-/// <param name="p2"></param>目标点
-/// <returns></returns>根据T值计算出来的贝赛尔曲线点
-private static Vector3 CalculateCubicBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
-{
-    float u = 1 - t;
-    float tt = t * t;
-    float uu = u * u;
-    Vector3 p = uu * p0;
-    p += 2 * u * t * p1;
-    p += tt * p2;
-    return p;
-}
-
-/// <summary>
-/// 
-/// </summary>
-/// <param name="value"></param>
-/// <param name="min"></param>
-/// <param name="max"></param>
-private static void VectorClamp(ref Vector3 value, ref Vector3 min, ref Vector3 max)
-{
-    value.x = Mathf.Clamp(value.x, min.x, max.x);
-    value.y = Mathf.Clamp(value.y, min.y, max.y);
-    value.z = Mathf.Clamp(value.z, min.z, max.z);
-}
-#endregion
-
-#region DoPath 执行DoPath移动 参数：points移动点位(3个成组，3的倍数)，时间，回调, easeIndex缓动类型
-
-public static Tweener DoPath(this Component target, float[] points, float duration, Action endCall = null, int easeIndex = 0)
-{
-    return DoPath(target?.gameObject, points, duration, endCall, easeIndex);
-}
-
-public static Tweener DoPath(this GameObject target, float[] points, float duration, Action endCall = null, int easeIndex = 0)
-{
-    if (target == null || points == null || points.Length < 3 || (points.Length >= 3 && points.Length % 3 != 0))
-    {
-        return null;
-    }
-    int count = points.Length / 3;
-    Vector3[] vecPoints = new Vector3[count];
-    int index = 0;
-    for (int i = 0; i < count; i++)
-    {
-        index = i * 3;
-        vecPoints[i] = new Vector3(points[index], points[index + 1], points[index + 2]);
-    }
-    var tweener = target.transform.DOPath(vecPoints, duration, PathType.CatmullRom);
-    if (endCall != null)
-    {
-        tweener.onComplete = (() =>
+        if (obj == null)
         {
-            endCall();
-        });
+            return;
+        }
+        CanvasGroup canvasGroup = obj.GetOrAddComponent<CanvasGroup>();
+        bool flag = value != 0;
+        canvasGroup.blocksRaycasts = flag;
     }
-    if (easeIndex > 0)
+
+    public static void SetCanvasGroupRaycast(this Component obj, int value)
     {
-        tweener.SetEase((Ease)easeIndex);
+        SetCanvasGroupRaycast(obj?.gameObject, value);
     }
-    return tweener;
-}
 
-#endregion
+    #endregion
 
-#region DoMove 执行DoTween移动 参数：X,Y,Z,时间，回调，只取整数值（默认为false）, easeIndex缓动类型
+    #region SetCanvasSortingOrder 设置CanvasSortingOrder 参数：value
 
-public static Tweener DoMove(this Component target, float targetX, float targetY, float targetZ, float duration = 0, Action endCall = null, bool snapping = false, int easeIndex = 0)
-{
-    return DoMove(target?.gameObject, targetX, targetY, targetZ, duration, endCall, snapping, easeIndex);
-}
-
-public static Tweener DoMove(this GameObject target, float targetX, float targetY, float targetZ, float duration = 0, Action endCall = null, bool snapping = false, int easeIndex = 0)
-{
-    if (target == null)
+    public static void SetCanvasSortingOrder(this GameObject obj, int value)
     {
-        return null;
-    }
-    var endvalue = new Vector3(targetX, targetY, targetZ);
-    var tweener = target.transform.DOMove(endvalue, duration, snapping);
-    if (endCall != null)
-    {
-        tweener.onComplete = (() =>
+        if (obj == null)
         {
-            endCall();
-        });
+            return;
+        }
+        Canvas canvas = obj.GetOrAddComponent<Canvas>();
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = value;
     }
-    if (easeIndex > 0)
+
+    public static void SetCanvasSortingOrder(this Component obj, int value)
     {
-        tweener.SetEase((Ease)easeIndex);
+        SetCanvasSortingOrder(obj?.gameObject, value);
     }
-    return tweener;
-}
 
-#endregion
+    #endregion
 
-#region DOLocalMove 执行DoTween本地坐标移动 参数：X,Y,Z,时间，回调，只取整数值（默认为false）, easeIndex缓动类型
+    #endregion
 
-public static Tweener DOLocalMove(this Component target, float targetX, float targetY, float targetZ, float duration = 0, Action endCall = null, bool snapping = false, int easeIndex = 0)
-{
-    return DOLocalMove(target?.gameObject, targetX, targetY, targetZ, duration, endCall, snapping, easeIndex);
-}
+    #region DOTween
 
-public static Tweener DOLocalMove(this GameObject target, float targetX, float targetY, float targetZ, float duration = 0, Action endCall = null, bool snapping = false, int easeIndex = 0)
-{
-    if (target == null)
+    #region PlayCurvePath  贝塞尔曲线移动 参数：点位:{endx,endy,endz}，中间点偏移，采样点数量，时间，回调，空气墙, easeIndex缓动类型
+
+    /// <summary>
+    /// dotween path 贝塞尔曲线移动
+    /// </summary>
+    /// <param name="target">目标</param>
+    /// <param name="aabb">空气墙:minx,miny,minz,maxx,maxy,maxz</param>
+    /// <param name="points">点位:{endx,endy,endz}</param>
+    /// <param name="offsetY">中间点偏移</param>
+    /// <param name="segmentNum">采样点数量</param>
+    /// <param name="duration">时间</param>
+    /// <param name="endCall">回调</param>
+    public static Tweener PlayCurvePath(this Transform target, float x, float y, float z, float offsetY, int segmentNum, float duration, Action endCall, float[] aabb = null, int easeIndex = 0)
     {
-        return null;
-    }
-    var endvalue = new Vector3(targetX, targetY, targetZ);
-    var tweener = target.transform.DOLocalMove(endvalue, duration, snapping);
-    if (endCall != null)
-    {
-        tweener.onComplete = (() =>
+        if (target == null)
         {
-            endCall();
-        });
-    }
-    if (easeIndex > 0)
-    {
-        tweener.SetEase((Ease)easeIndex);
-    }
-    return tweener;
-}
-
-#endregion
-
-#region DOScale 执行DOScale缩放 参数：缩放值，时间，回调, easeIndex缓动类型
-
-public static Tweener DOScale(this Component target, float targetScale, float duration, Action endCall, int easeIndex = 0)
-{
-    return DOScale(target?.gameObject, targetScale, duration, endCall, easeIndex);
-}
-
-public static Tweener DOScale(this GameObject target, float targetScale, float duration, Action endCall = null, int easeIndex = 0)
-{
-    if (target == null)
-    {
-        return null;
-    }
-    var tweener = target.transform.DOScale(targetScale, duration);
-    if (endCall != null)
-    {
-        tweener.onComplete = (() =>
+            return null;
+        }
+        Vector3 start = target.position;
+        Vector3 end = new Vector3(x, y, z);
+        Vector3 center = (start + end) * 0.5f;
+        center.y += offsetY;
+        Vector3[] vecPoints = GetBeizerList(start, center, end, segmentNum);
+        if (aabb != null)
         {
-            endCall();
-        });
-    }
-    if (easeIndex > 0)
-    {
-        tweener.SetEase((Ease)easeIndex);
-    }
-    return tweener;
-}
-
-#endregion
-
-#region DOFade 执行DOFade变淡 参数：阿尔法值，时间，回调, easeIndex缓动类型
-
-public static Tweener DOFade(this Component target, float alpha, float duration, Action endCall, int easeIndex = 0)
-{
-    return DOFade(target?.gameObject, alpha, duration, endCall, easeIndex);
-}
-
-public static Tweener DOFade(this GameObject target, float alpha, float duration, Action endCall = null, int easeIndex = 0)
-{
-    if (target == null)
-    {
-        return null;
-    }
-    CanvasGroup cg = target.GetComponent<CanvasGroup>();
-    Tweener tweener = null;
-    if (cg)
-    {
-        tweener = cg.DOFade(alpha, duration);
+            Vector3 aabbMin = new Vector3(aabb[0], aabb[1], aabb[2]);
+            Vector3 aabbMax = new Vector3(aabb[3], aabb[4], aabb[5]);
+            for (int i = 0; i < vecPoints.Length; i++)
+            {
+                VectorClamp(ref vecPoints[i], ref aabbMin, ref aabbMax);
+            }
+        }
+        var tweener = target.DOPath(vecPoints, duration, PathType.CatmullRom);
         if (endCall != null)
         {
             tweener.onComplete = (() =>
@@ -1975,34 +1969,96 @@ public static Tweener DOFade(this GameObject target, float alpha, float duration
         {
             tweener.SetEase((Ease)easeIndex);
         }
+        return tweener;
     }
-    else
+
+    public static Tweener PlayCurvePath(this Component target, float x, float y, float z, float offsetY, int segmentNum, float time, Action endCall, float[] aabb = null, int easeIndex = 0)
     {
-        endCall?.Invoke();
+        return PlayCurvePath(target?.transform, x, y, z, offsetY, segmentNum, time, endCall, aabb, easeIndex);
     }
-    return tweener;
-}
 
-#endregion
-
-#region DORotate 执行DORotate选择 参数：x旋转量，y旋转量，z旋转量，时间，回调, easeIndex缓动类型
-
-public static Tweener DORotate(this Component target, float x, float y, float z, float duration, Action endCall = null, int easeIndex = 0)
-{
-    return DORotate(target?.gameObject, x, y, z, duration, endCall, easeIndex);
-}
-
-public static Tweener DORotate(this GameObject target, float x, float y, float z, float duration, Action endCall = null, int easeIndex = 0)
-{
-    if (target == null)
+    public static Tweener PlayCurvePath(this GameObject target, float x, float y, float z, float offsetY, int segmentNum, float time, Action endCall, float[] aabb = null, int easeIndex = 0)
     {
-        return null;
+        return PlayCurvePath(target?.transform, x, y, z, offsetY, segmentNum, time, endCall, aabb, easeIndex);
     }
-    CanvasGroup cg = target.GetComponent<CanvasGroup>();
-    Tweener tweener = null;
-    if (cg)
+
+    /// <summary>
+    /// 获取存储贝塞尔曲线点的数组二次贝塞尔
+    /// </summary>
+    /// <param name="startPoint"></param>起始点
+    /// <param name="controlPoint"></param>控制点
+    /// <param name="endPoint"></param>目标点
+    /// <param name="segmentNum"></param>采样点的数量
+    /// <returns></returns>存储贝塞尔曲线点的数组
+    private static Vector3[] GetBeizerList(Vector3 startPoint, Vector3 controlPoint, Vector3 endPoint, int segmentNum)
     {
-        tweener = cg.transform.DORotate(new Vector3(x, y, z), duration);
+        Vector3[] path = new Vector3[segmentNum + 1];
+        path[0] = startPoint;
+        for (int i = 1; i <= segmentNum; i++)
+        {
+            float t = i / (float)segmentNum;
+            Vector3 pixel = CalculateCubicBezierPoint(t, startPoint,
+                controlPoint, endPoint);
+            path[i] = pixel;
+        }
+        return path;
+    }
+
+    /// <summary>
+    /// 根据T值，计算贝塞尔曲线上面相对应的点
+    /// </summary>
+    /// <param name="t"></param>T值
+    /// <param name="p0"></param>起始点
+    /// <param name="p1"></param>控制点
+    /// <param name="p2"></param>目标点
+    /// <returns></returns>根据T值计算出来的贝赛尔曲线点
+    private static Vector3 CalculateCubicBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
+    {
+        float u = 1 - t;
+        float tt = t * t;
+        float uu = u * u;
+        Vector3 p = uu * p0;
+        p += 2 * u * t * p1;
+        p += tt * p2;
+        return p;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    private static void VectorClamp(ref Vector3 value, ref Vector3 min, ref Vector3 max)
+    {
+        value.x = Mathf.Clamp(value.x, min.x, max.x);
+        value.y = Mathf.Clamp(value.y, min.y, max.y);
+        value.z = Mathf.Clamp(value.z, min.z, max.z);
+    }
+    #endregion
+
+    #region DoPath 执行DoPath移动 参数：points移动点位(3个成组，3的倍数)，时间，回调, easeIndex缓动类型
+
+    public static Tweener DoPath(this Component target, float[] points, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        return DoPath(target?.gameObject, points, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DoPath(this GameObject target, float[] points, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        if (target == null || points == null || points.Length < 3 || (points.Length >= 3 && points.Length % 3 != 0))
+        {
+            return null;
+        }
+        int count = points.Length / 3;
+        Vector3[] vecPoints = new Vector3[count];
+        int index = 0;
+        for (int i = 0; i < count; i++)
+        {
+            index = i * 3;
+            vecPoints[i] = new Vector3(points[index], points[index + 1], points[index + 2]);
+        }
+        var tweener = target.transform.DOPath(vecPoints, duration, PathType.CatmullRom);
         if (endCall != null)
         {
             tweener.onComplete = (() =>
@@ -2014,45 +2070,338 @@ public static Tweener DORotate(this GameObject target, float x, float y, float z
         {
             tweener.SetEase((Ease)easeIndex);
         }
+        return tweener;
     }
-    else
+
+    #endregion
+
+    #region DoMove 执行DoTween移动 参数：X,Y,Z,时间，回调，只取整数值（默认为false）, easeIndex缓动类型
+
+    public static Tweener DoMove(this Component target, float targetX, float targetY, float targetZ, float duration = 0, Action endCall = null, bool snapping = false, int easeIndex = 0)
     {
-        endCall?.Invoke();
+        return DoMove(target?.gameObject, targetX, targetY, targetZ, duration, endCall, snapping, easeIndex);
     }
-    return tweener;
-}
 
-#endregion
-
-#region DOScaleX 执行DOScaleX缩放 参数：缩放值，时间，回调, easeIndex缓动类型
-
-public static Tweener DOScaleX(this Component target, float targetScale, float duration, Action endCall, int easeIndex = 0)
-{
-    return DOScaleX(target?.gameObject, targetScale, duration, endCall, easeIndex);
-}
-
-public static Tweener DOScaleX(this GameObject target, float targetScale, float duration, Action endCall = null, int easeIndex = 0)
-{
-    if (target == null)
+    public static Tweener DoMove(this GameObject target, float targetX, float targetY, float targetZ, float duration = 0, Action endCall = null, bool snapping = false, int easeIndex = 0)
     {
-        return null;
-    }
-    var tweener = target.transform.DOScaleX(targetScale, duration);
-    if (endCall != null)
-    {
-        tweener.onComplete = (() =>
+        if (target == null)
         {
-            endCall();
-        });
+            return null;
+        }
+        var endvalue = new Vector3(targetX, targetY, targetZ);
+        var tweener = target.transform.DOMove(endvalue, duration, snapping);
+        if (endCall != null)
+        {
+            tweener.onComplete = (() =>
+            {
+                endCall();
+            });
+        }
+        if (easeIndex > 0)
+        {
+            tweener.SetEase((Ease)easeIndex);
+        }
+        return tweener;
     }
-    if (easeIndex > 0)
+
+    #endregion
+
+    #region DOLocalMove 执行DoTween本地坐标移动 参数：X,Y,Z,时间，回调，只取整数值（默认为false）, easeIndex缓动类型
+
+    public static Tweener DOLocalMove(this Component target, float targetX, float targetY, float targetZ, float duration = 0, Action endCall = null, bool snapping = false, int easeIndex = 0)
     {
-        tweener.SetEase((Ease)easeIndex);
+        return DOLocalMove(target?.gameObject, targetX, targetY, targetZ, duration, endCall, snapping, easeIndex);
     }
-    return tweener;
-}
 
-#endregion
+    public static Tweener DOLocalMove(this GameObject target, float targetX, float targetY, float targetZ, float duration = 0, Action endCall = null, bool snapping = false, int easeIndex = 0)
+    {
+        if (target == null)
+        {
+            return null;
+        }
+        var endvalue = new Vector3(targetX, targetY, targetZ);
+        var tweener = target.transform.DOLocalMove(endvalue, duration, snapping);
+        if (endCall != null)
+        {
+            tweener.onComplete = (() =>
+            {
+                endCall();
+            });
+        }
+        if (easeIndex > 0)
+        {
+            tweener.SetEase((Ease)easeIndex);
+        }
+        return tweener;
+    }
 
-#endregion
+    public static Tweener DOLocalMoveX(this GameObject target, float endVal, float duration, Action endCall = null, bool snapping = false, int easeIndex = 0)
+    {
+        Tweener tweener = target?.transform.DOLocalMoveX(endVal, duration, snapping);
+        if (endCall != null)
+            tweener.onComplete = () => { endCall(); };
+        if (easeIndex > 0)
+            tweener.SetEase((Ease)easeIndex);
+        return tweener;
+    }
+
+    public static Tweener DOLocalMoveY(this GameObject target, float endVal, float duration, Action endCall = null, bool snapping = false, int easeIndex = 0)
+    {
+        Tweener tweener = target?.transform.DOLocalMoveY(endVal, duration, snapping);
+        if (endCall != null)
+            tweener.onComplete = () => { endCall(); };
+        if (easeIndex > 0)
+            tweener.SetEase((Ease)easeIndex);
+        return tweener;
+    }
+
+    #endregion
+
+    #region DOScale 执行DOScale缩放 参数：缩放值，时间，回调, easeIndex缓动类型
+
+    public static Tweener DOScale(this Component target, float targetScale, float duration, Action endCall, int easeIndex = 0)
+    {
+        return DOScale(target?.gameObject, targetScale, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DOScale(this GameObject target, float targetScale, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        if (target == null)
+        {
+            return null;
+        }
+        var tweener = target.transform.DOScale(targetScale, duration);
+        if (endCall != null)
+        {
+            tweener.onComplete = (() =>
+            {
+                endCall();
+            });
+        }
+        if (easeIndex > 0)
+        {
+            tweener.SetEase((Ease)easeIndex);
+        }
+        return tweener;
+    }
+
+    #endregion
+
+    #region DOFade 执行DOFade变淡 参数：阿尔法值，时间，回调, easeIndex缓动类型
+
+    public static Tweener DOFade(this Component target, float alpha, float duration, Action endCall, int easeIndex = 0)
+    {
+        return DOFade(target?.gameObject, alpha, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DOFade(this GameObject target, float alpha, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        if (target == null)
+        {
+            return null;
+        }
+        CanvasGroup cg = target.GetComponent<CanvasGroup>();
+        Tweener tweener = null;
+        if (cg)
+        {
+            tweener = cg.DOFade(alpha, duration);
+            if (endCall != null)
+            {
+                tweener.onComplete = (() =>
+                {
+                    endCall();
+                });
+            }
+            if (easeIndex > 0)
+            {
+                tweener.SetEase((Ease)easeIndex);
+            }
+        }
+        else
+        {
+            endCall?.Invoke();
+        }
+        return tweener;
+    }
+
+    #endregion
+
+    #region 设置Ease 参数:easeIndex
+
+    public static void SetEase(this Tweener target, int easeIndex = 0)
+    {
+        target.SetEase((Ease)easeIndex);
+    }
+
+    #endregion
+
+    #region DOSizeDelta 执行DOSizeDelta调整尺寸 参数：x, y
+
+    public static Tweener DOSizeDelta(this Component target, float x, float y, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        return DOSizeDelta(target?.transform, x, y, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DOSizeDelta(this GameObject target, float x, float y, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        return DOSizeDelta(target?.transform, x, y, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DOSizeDelta(this Transform target, float x, float y, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        return DOSizeDelta(target as RectTransform, x, y, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DOSizeDelta(this RectTransform target, float x, float y, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        if (target == null)
+        {
+            return null;
+        }
+        Tweener tweener = target.DOSizeDelta(new Vector2(x, y), duration);
+        if (endCall != null)
+        {
+            tweener.onComplete = (() =>
+            {
+                endCall();
+            });
+        }
+        if (easeIndex > 0)
+        {
+            tweener.SetEase((Ease)easeIndex);
+        }
+        return tweener;
+    }
+
+    #endregion
+
+    #region DORotate 执行DORotate选择 参数：x旋转量，y旋转量，z旋转量，时间，回调, easeIndex缓动类型
+
+    public static Tweener DORotate(this Component target, float x, float y, float z, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        return DORotate(target?.gameObject, x, y, z, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DORotate(this GameObject target, float x, float y, float z, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        return DORotate(target?.transform, x, y, z, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DORotate(this Transform target, float x, float y, float z, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        if (target == null)
+        {
+            return null;
+        }
+        Tweener tweener = null;
+        tweener = target.DORotate(new Vector3(x, y, z), duration);
+        if (endCall != null)
+        {
+            tweener.onComplete = (() =>
+            {
+                endCall();
+            });
+        }
+        if (easeIndex > 0)
+        {
+            tweener.SetEase((Ease)easeIndex);
+        }
+        return tweener;
+    }
+
+    #endregion
+
+    #region DOScaleX 执行DOScaleX缩放 参数：缩放值，时间，回调, easeIndex缓动类型
+
+    public static Tweener DOScaleX(this Component target, float targetScale, float duration, Action endCall, int easeIndex = 0)
+    {
+        return DOScaleX(target?.gameObject, targetScale, duration, endCall, easeIndex);
+    }
+
+    public static Tweener DOScaleX(this GameObject target, float targetScale, float duration, Action endCall = null, int easeIndex = 0)
+    {
+        if (target == null)
+        {
+            return null;
+        }
+        var tweener = target.transform.DOScaleX(targetScale, duration);
+        if (endCall != null)
+        {
+            tweener.onComplete = (() =>
+            {
+                endCall();
+            });
+        }
+        if (easeIndex > 0)
+        {
+            tweener.SetEase((Ease)easeIndex);
+        }
+        return tweener;
+    }
+
+    #endregion
+
+    #region Sequence
+    public static void SetCompleteCallback(this Sequence seq, Action callback)
+    {
+        if (callback != null)
+        {
+            seq.onComplete = () => { callback(); };
+        }
+    }
+    #endregion
+
+    #endregion
+
+    #region 递归设置Tag
+    public static void SetTag(this Transform target, string tagName)
+    {
+        if (target == null)
+        {
+            return;
+        }
+        target.tag = tagName;
+        if (target.childCount > 0)
+        {
+            for (int i = 0; i < target.childCount; i++)
+            {
+                Transform child = target.GetChild(i);
+                child.SetTag(tagName);
+            }
+        }
+    }
+
+    public static void SetTag(this GameObject target, string tagName)
+    {
+        SetTag(target?.transform, tagName);
+    }
+
+    public static void SetTag(this Component target, string tagName)
+    {
+        SetTag(target?.transform, tagName);
+    }
+
+    #endregion
+
+    #region 刷新FollowSizeDelta
+    public static void SetRectDeltaSizeSelf(this Transform target)
+    {
+        target.gameObject.SetRectDeltaSizeSelf();
+    }
+
+    public static void SetRectDeltaSizeSelf(this GameObject target)
+    {
+        //FollowSizeDelta followSizeDelta = target.GetComponent<FollowSizeDelta>();
+        //if (followSizeDelta != null)
+        //{
+        //    followSizeDelta.SetRectDeltaSizeSelf();
+        //}
+    }
+
+    public static void SetRectDeltaSizeSelf(this Component target)
+    {
+        target.gameObject.SetRectDeltaSizeSelf();
+    }
+
+    #endregion
 }

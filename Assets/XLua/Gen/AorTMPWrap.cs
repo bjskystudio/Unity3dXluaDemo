@@ -21,14 +21,19 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(AorTMP);
-			Utils.BeginObjectRegister(type, L, translator, 0, 1, 1, 1);
+			Utils.BeginObjectRegister(type, L, translator, 0, 3, 3, 2);
 			
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetGrayEffect", _m_SetGrayEffect);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnPointerClick", _m_OnPointerClick);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DOText", _m_DOText);
 			
 			
-			Utils.RegisterFunc(L, Utils.GETTER_IDX, "languageKey", _g_get_languageKey);
+			Utils.RegisterFunc(L, Utils.GETTER_IDX, "onLinkClick", _g_get_onLinkClick);
+            Utils.RegisterFunc(L, Utils.GETTER_IDX, "IsGray", _g_get_IsGray);
+            Utils.RegisterFunc(L, Utils.GETTER_IDX, "languageKey", _g_get_languageKey);
             
-			Utils.RegisterFunc(L, Utils.SETTER_IDX, "languageKey", _s_set_languageKey);
+			Utils.RegisterFunc(L, Utils.SETTER_IDX, "onLinkClick", _s_set_onLinkClick);
+            Utils.RegisterFunc(L, Utils.SETTER_IDX, "languageKey", _s_set_languageKey);
             
 			
 			Utils.EndObjectRegister(type, L, translator, null, null,
@@ -75,6 +80,62 @@ namespace XLua.CSObjectWrap
         
         
         
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_SetGrayEffect(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                AorTMP gen_to_be_invoked = (AorTMP)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    bool _isGray = LuaAPI.lua_toboolean(L, 2);
+                    
+                    gen_to_be_invoked.SetGrayEffect( _isGray );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_OnPointerClick(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                AorTMP gen_to_be_invoked = (AorTMP)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    UnityEngine.EventSystems.PointerEventData _eventData = (UnityEngine.EventSystems.PointerEventData)translator.GetObject(L, 2, typeof(UnityEngine.EventSystems.PointerEventData));
+                    
+                    gen_to_be_invoked.OnPointerClick( _eventData );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_DOText(RealStatePtr L)
@@ -156,6 +217,34 @@ namespace XLua.CSObjectWrap
         
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _g_get_onLinkClick(RealStatePtr L)
+        {
+		    try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+			
+                AorTMP gen_to_be_invoked = (AorTMP)translator.FastGetCSObj(L, 1);
+                translator.Push(L, gen_to_be_invoked.onLinkClick);
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 1;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _g_get_IsGray(RealStatePtr L)
+        {
+		    try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+			
+                AorTMP gen_to_be_invoked = (AorTMP)translator.FastGetCSObj(L, 1);
+                LuaAPI.lua_pushboolean(L, gen_to_be_invoked.IsGray);
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 1;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _g_get_OnAwake(RealStatePtr L)
         {
 		    try {
@@ -184,11 +273,26 @@ namespace XLua.CSObjectWrap
         
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _s_set_onLinkClick(RealStatePtr L)
+        {
+		    try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+			
+                AorTMP gen_to_be_invoked = (AorTMP)translator.FastGetCSObj(L, 1);
+                gen_to_be_invoked.onLinkClick = (AorTMP.LinkClickEvent)translator.GetObject(L, 2, typeof(AorTMP.LinkClickEvent));
+            
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 0;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _s_set_OnAwake(RealStatePtr L)
         {
 		    try {
                 ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			    AorTMP.OnAwake = translator.GetDelegate<System.Action<string, AorTMP>>(L, 1);
+			    AorTMP.OnAwake = translator.GetDelegate<System.Func<string, string>>(L, 1);
             
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);

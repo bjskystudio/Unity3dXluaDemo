@@ -4,6 +4,7 @@ using EngineCenter.Timeline;
 using Framework;
 using Framework.TimelineExtend;
 using System;
+using System.Text;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
@@ -40,6 +41,48 @@ public static class CSGoHelp
         throw new Exception("无法转化对象" + target.GetType().FullName);
     }
 
+    /// <summary>
+    /// 获取指定节点相对根节点的相对路径
+    /// </summary>
+    /// <param name="rootgo"></param>
+    /// <param name="currentgo"></param>
+    /// <returns></returns>
+    public static string GetNodeRelativeParentPath(GameObject rootgo, GameObject currentgo)
+    {
+        if (rootgo != null && currentgo != null)
+        {
+            var tempcurrentgo = currentgo;
+            StringBuilder relativepath = new StringBuilder(string.Empty);
+            if (currentgo.transform.parent != null)
+            {
+                var parentgo = currentgo.transform.parent.gameObject;
+                var parentcount = 0;
+                while (parentgo != null)
+                {
+                    if (GameObject.ReferenceEquals(rootgo, parentgo))
+                    {
+                        relativepath.Insert(relativepath.Length, relativepath.Length == 0 ? tempcurrentgo.name : "/" + tempcurrentgo.name);
+                        return relativepath.ToString();
+                    }
+                    else
+                    {
+                        relativepath.Insert(0, parentcount != 0 ? parentgo.name + "/" : parentgo.name);
+                        currentgo = parentgo;
+                        parentgo = currentgo.transform.parent == null ? null : currentgo.transform.parent.gameObject;
+                        parentcount++;
+                    }
+                }
+                Debug.LogError(string.Format("没有匹配到有效的根节点 : {0}！获取节点 : {1}相对路径失败！", rootgo.name, tempcurrentgo.name));
+                return string.Empty;
+            }
+            return relativepath.ToString();
+        }
+        else
+        {
+            Debug.LogError(string.Format("根节点 : {0}和当前节点 : {1}都不能为空！获取节点相对路径失败！", rootgo, currentgo));
+            return string.Empty;
+        }
+    }
     #endregion
 
     #region 3D、Transform、位置、距离、位移
@@ -55,7 +98,7 @@ public static class CSGoHelp
         trans.rotation = Quaternion.identity;
         trans.localScale = Vector3.one;
     }
-    
+
     public static void SetPosition(UObject target, float x, float y, float z)
     {
         GetTrans(target).position = new Vector3(x, y, z);
@@ -223,7 +266,7 @@ public static class CSGoHelp
     /// <param name="limitObj">限制物体（不超过）</param>
     /// <returns></returns>
     public static float[] GetPosByTargetForwardDistance(UObject target, float distance, float size = 0, UObject limitObj = null)
-    {        
+    {
         var trans = GetTrans(target);
         Vector3 targetPos = trans.forward * distance + trans.position;
         if (limitObj != null)
@@ -237,7 +280,7 @@ public static class CSGoHelp
                 targetPos = limitPos;
             }
         }
-        float[] pos = new float[3] { targetPos.x, targetPos.y, targetPos.z};
+        float[] pos = new float[3] { targetPos.x, targetPos.y, targetPos.z };
         return pos;
     }
     /// <summary>
@@ -698,7 +741,7 @@ public static class CSGoHelp
             {
                 VectorClamp(ref vecPoints[i], ref aabbMin, ref aabbMax);
             }
-        }    
+        }
         var tweener = trans.DOPath(vecPoints, time, PathType.CatmullRom);
         if (endCall != null)
         {
@@ -766,7 +809,7 @@ public static class CSGoHelp
         if (easeIndex > 0)
         {
             tweener.SetEase((Ease)easeIndex);
-        }      
+        }
         return tweener;
     }
 
@@ -1022,7 +1065,8 @@ public static class CSGoHelp
                 return;
             }
             mainCam.cameraStack.Add(addCam);
-        }else if (UniversalRenderPipeline.asset != null)
+        }
+        else if (UniversalRenderPipeline.asset != null)
         {
             UniversalAdditionalCameraData mainCam = GetGo(mainCamObj).GetOrAddComponent<UniversalAdditionalCameraData>();
             if (mainCam == null)
@@ -1057,16 +1101,16 @@ public static class CSGoHelp
             Debug.LogError("没有找到CinemachineImpulseSource:" + target.name);
             return;
         }
-        AssetLoadManager.Instance.LoadObj(RawSignalPath, AssetLoadType.eScriptableObject, false, (tran, res) =>
+        AssetLoadManager.Instance.LoadScriptableObject(RawSignalPath, (so, res) =>
         {
-            SignalSourceAsset RawSignal = tran as SignalSourceAsset;
+            SignalSourceAsset RawSignal = so as SignalSourceAsset;
             impulseSource.m_ImpulseDefinition.m_RawSignal = RawSignal;
             impulseSource.m_ImpulseDefinition.m_AmplitudeGain = Amplitude;
             impulseSource.m_ImpulseDefinition.m_FrequencyGain = Frequency;
             impulseSource.m_ImpulseDefinition.m_TimeEnvelope.m_AttackTime = Time;
             impulseSource.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime = DecayTime;
             impulseSource.GenerateImpulse();
-        });      
+        });
     }
 
     #endregion
@@ -1146,7 +1190,7 @@ public static class CSGoHelp
     /// </summary>
     /// <param name="target"></param>
     /// <param name="alpha"></param>
-    public static void SetSpineAlpha(UObject target,float alpha)
+    public static void SetSpineAlpha(UObject target, float alpha)
     {
         SpineCtrl ctrl = GetTrans(target).GetComponent<SpineCtrl>();
         if (ctrl == null)
@@ -1163,7 +1207,7 @@ public static class CSGoHelp
     /// <param name="target"></param>
     /// <param name="alpha"></param>
     /// <param name="time"></param>
-    public static void SetSpineAlphaWithTime(UObject target, float alpha,float time)
+    public static void SetSpineAlphaWithTime(UObject target, float alpha, float time)
     {
         SpineCtrl ctrl = GetTrans(target).GetComponent<SpineCtrl>();
         if (ctrl == null)
@@ -1171,7 +1215,7 @@ public static class CSGoHelp
             Debug.LogError("没有找到SpineCtrl:" + target.name);
             return;
         }
-        ctrl.SetAlphaWithTime(alpha,time);
+        ctrl.SetAlphaWithTime(alpha, time);
     }
     #endregion
 

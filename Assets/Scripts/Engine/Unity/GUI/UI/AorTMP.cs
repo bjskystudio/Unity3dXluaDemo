@@ -1,38 +1,70 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class AorTMP : TextMeshProUGUI
+public class AorTMP : TextMeshProUGUI, IGrayMember,IPointerClickHandler
 {
-    public static Action<string, AorTMP> OnAwake = null;
+    public static Func<string, string> OnAwake = null;
 
     public string languageKey;
 
-    private bool m_bHasReplace = false;
+    [Serializable]
+    public class LinkClickEvent : UnityEvent<string> { }
+    [SerializeField]
+    private LinkClickEvent m_OnLinkClick = new LinkClickEvent();
+    /// <summary>
+    /// 超链接点击事件
+    /// </summary>
+    public LinkClickEvent onLinkClick
+    {
+        get { return m_OnLinkClick; }
+        set { m_OnLinkClick = value; }
+    }
 
     protected override void Awake()
     {
-        base.Awake();
-#if UNITY_EDITOR
-        if (!Application.isPlaying)
+        if (Application.isPlaying && !string.IsNullOrEmpty(languageKey))
         {
-            return;
-        }
-#endif
-        if (!string.IsNullOrEmpty(languageKey))
-        {
-            if (!m_bHasReplace)
+            if (OnAwake != null)
             {
-                if (OnAwake != null)
-                {
-                    OnAwake(languageKey, this);
-                    if (Application.isPlaying)
-                    {
-                        m_bHasReplace = true;
-                    }
-                    return;
-                }
+                text = OnAwake(languageKey);
             }
+        }
+        base.Awake();
+    }
+
+    public bool IsGray { get; private set; }
+
+    private Color oldColor;
+
+    public void SetGrayEffect(bool isGray)
+    {
+        if (IsGray == isGray)
+            return;
+        IsGray = isGray;
+        if (isGray)
+        {
+            oldColor = color;
+            ColorUtility.TryParseHtmlString(AorText.GrayColor, out Color newColor);
+            color = newColor;
+        }
+        else
+        {
+            color = oldColor;
+        }
+    }
+
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        int linkIndex = TMP_TextUtilities.FindIntersectingLink(this, Input.mousePosition, UIModel.Inst.UICamera);
+        if (linkIndex != -1)
+        {
+            TMP_LinkInfo linkInfo = this.textInfo.linkInfo[linkIndex];
+            string linkId = linkInfo.GetLinkID();
+            m_OnLinkClick?.Invoke(linkId);
         }
     }
 }

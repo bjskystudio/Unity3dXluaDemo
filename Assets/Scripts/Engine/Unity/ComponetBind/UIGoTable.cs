@@ -1,5 +1,4 @@
-﻿using System.Collections;
-//*******************************
+﻿//*******************************
 // Name: wyx Time:2019.05.25
 // Des: 预序列化节点类,用于UI的节点获取
 //******************************
@@ -57,6 +56,8 @@ public sealed class UIGoTable : MonoBehaviour
     public delegate void LuaOnClickBtnAction(LuaTable t, Button g);
     [CSharpCallLua]
     public delegate void LuaOnClickToggleAction(LuaTable t, Toggle g, int isOn);
+    [CSharpCallLua]
+    public delegate void LuaOnClickTmpAction(LuaTable t, AorTMP g,string linkId);
 
     /// <summary>
     /// 导出的节点数组
@@ -67,6 +68,8 @@ public sealed class UIGoTable : MonoBehaviour
     private List<Button> uiBtnList;
     [SerializeField]
     private List<Toggle> uiToggleList;
+    [SerializeField]
+    private List<AorTMP> uiTmpList;
 
     [HideInInspector]
     [SerializeField]
@@ -95,6 +98,11 @@ public sealed class UIGoTable : MonoBehaviour
     /// </summary>
     [CSharpCallLua]
     public static LuaOnClickToggleAction luaOnClickToggle;
+    /// <summary>
+    /// View Lua代码对应的超链接响应事件
+    /// </summary>
+    [CSharpCallLua]
+    public static LuaOnClickTmpAction luaOnClickTmp;
 
 #if UNITY_EDITOR
     /// <summary>
@@ -127,6 +135,7 @@ public sealed class UIGoTable : MonoBehaviour
         //序列化 Button
         uiBtnList = new List<Button>();
         uiToggleList = new List<Toggle>();
+        uiTmpList = new List<AorTMP>();
         for (int i = 0; i < uiNodeArray.Length; i++)
         {
             var nodeinfo = uiNodeArray[i];
@@ -143,6 +152,11 @@ public sealed class UIGoTable : MonoBehaviour
                     if (toggle != null)
                     {
                         uiToggleList.Add(toggle);
+                    }
+                    var tmp = nodeinfo.gameObject.GetComponent<AorTMP>();
+                    if (tmp != null)
+                    {
+                        uiTmpList.Add(tmp);
                     }
                 }
             }
@@ -381,6 +395,19 @@ public sealed class UIGoTable : MonoBehaviour
                     });
                 }
             }
+
+            for (int i = 0; i < uiTmpList.Count; i++)
+            {
+                var tmp = uiTmpList[i];
+                if (tmp != null)
+                {
+                    tmp.onLinkClick.AddListener(delegate (string linkId)
+                    {
+                        OnTmpClick(tmp, null, linkId);
+                    });
+                }
+            }
+
             isBind = true;
         }
     }
@@ -417,6 +444,11 @@ public sealed class UIGoTable : MonoBehaviour
         {
             luaOnClickToggle?.Invoke(goTable, go, isOn ? 1 : 0);
         }
+    }
+    
+    private void OnTmpClick(AorTMP go,PointerEventData eventData, string linkId)
+    {
+        luaOnClickTmp?.Invoke(goTable, go,linkId);
     }
 }
 

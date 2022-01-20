@@ -33,6 +33,8 @@ function RectTransform:SetSizeWithCurrentAnchors(axis,size) end
 ---@param y number
 function RectTransform:SetAnchorPosition(x,y) end
 
+function RectTransform:GetAnchorPosition() end
+
 function RectTransform:SetRectTransformZero() end
 
 ---@param minX number
@@ -45,10 +47,37 @@ function RectTransform:SetRectTransform(minX,minY,maxX,maxY) end
 ---@param height number
 function RectTransform:SetSizeDelta(width,height) end
 
+---@param width number
+function RectTransform:SetSizeDeltaWidth(width) end
+
+function RectTransform:GetSizeDelta() end
+
+function RectTransform:GetRect() end
+
+---@param refTarget UnityEngine.RectTransform
+function RectTransform:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.Transform
+function RectTransform:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.Component
+function RectTransform:SetSizeDeltaByREFTarget(refTarget) end
+
+---@param refTarget UnityEngine.GameObject
+function RectTransform:SetSizeDeltaByREFTarget(refTarget) end
+
 ---@param refTarget UnityEngine.Transform
 ---@param uiOffsetX number
 ---@param uiOffsetY number
 function RectTransform:UIObjectFollow3DObject(refTarget,uiOffsetX,uiOffsetY) end
+
+---@param x number
+---@param y number
+---@param duration number
+---@param endCall System.Action
+---@param easeIndex int32
+---@return DG.Tweening.Tweener
+function RectTransform:DOSizeDelta(x,y,duration,endCall,easeIndex) end
 
 ---@param endValue UnityEngine.Vector2
 ---@param duration number

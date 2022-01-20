@@ -21,8 +21,9 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(DG.Tweening.Sequence);
-			Utils.BeginObjectRegister(type, L, translator, 0, 31, 0, 0);
+			Utils.BeginObjectRegister(type, L, translator, 0, 32, 0, 0);
 			
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetCompleteCallback", _m_SetCompleteCallback);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetAutoKill", _m_SetAutoKill);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetId", _m_SetId);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetTarget", _m_SetTarget);
@@ -84,6 +85,34 @@ namespace XLua.CSObjectWrap
         
         
         
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_SetCompleteCallback(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                DG.Tweening.Sequence gen_to_be_invoked = (DG.Tweening.Sequence)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    System.Action _callback = translator.GetDelegate<System.Action>(L, 2);
+                    
+                    gen_to_be_invoked.SetCompleteCallback( _callback );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetAutoKill(RealStatePtr L)

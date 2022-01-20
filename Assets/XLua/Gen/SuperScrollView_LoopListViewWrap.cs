@@ -21,7 +21,7 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(SuperScrollView.LoopListView);
-			Utils.BeginObjectRegister(type, L, translator, 0, 29, 29, 13);
+			Utils.BeginObjectRegister(type, L, translator, 0, 30, 29, 13);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetItemPrefabConfData", _m_GetItemPrefabConfData);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnItemPrefabChanged", _m_OnItemPrefabChanged);
@@ -40,6 +40,7 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RefreshItemByItemIndex", _m_RefreshItemByItemIndex);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "FinishSnapImmediately", _m_FinishSnapImmediately);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MovePanelToItemIndex", _m_MovePanelToItemIndex);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MovePanelToBottomForce", _m_MovePanelToBottomForce);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RefreshAllShownItem", _m_RefreshAllShownItem);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RefreshAllShownItemWithFirstIndex", _m_RefreshAllShownItemWithFirstIndex);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RefreshAllShownItemWithFirstIndexAndPos", _m_RefreshAllShownItemWithFirstIndexAndPos);
@@ -660,6 +661,33 @@ namespace XLua.CSObjectWrap
                     float _offset = (float)LuaAPI.lua_tonumber(L, 3);
                     
                     gen_to_be_invoked.MovePanelToItemIndex( _itemIndex, _offset );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_MovePanelToBottomForce(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                SuperScrollView.LoopListView gen_to_be_invoked = (SuperScrollView.LoopListView)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    
+                    gen_to_be_invoked.MovePanelToBottomForce(  );
                     
                     
                     
