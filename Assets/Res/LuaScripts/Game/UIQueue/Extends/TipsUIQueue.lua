@@ -8,8 +8,6 @@ local BaseUIQueue = require("BaseUIQueue")
 local AssetLoadManager = require("AssetLoadManager")
 local TimerManager = require("TimerManager")
 local Logger = require("Logger")
-local LogUtilities = require("LogUtilities")
-local LogMoudle = LogUtilities.Module
 
 ---@class TipsUIQueue : BaseUIQueue TipsUIQueue
 ---@field super BaseUIQueue 父对象
@@ -41,7 +39,7 @@ end
 ---@param index number 队列中的index
 function TipsUIQueue:OnStart(index)
     self.AniMoving = false
-    LogUtilities.Info(LogMoudle.UIQueueModule,"提示队列开始播放：",index)
+    Logger.Info("提示队列开始播放：",index)
     AssetLoadManager:GetInstance():LoadObj(TipsPath, AssetLoadManager.AssetType.ePrefab, false, function(go)
         self.GoTrans = go
         go:SetParent(self.TipsRoot)

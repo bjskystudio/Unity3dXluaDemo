@@ -14,7 +14,7 @@
 ---@class UIConfig
 ---@field public LoadingView  UIConfig_Item
 ---@field public MaskView  UIConfig_Item
----@field public SystemDialogView  UIConfig_Item
 ---@field public LoginView  UIConfig_Item
 ---@field public CreateRoleView  UIConfig_Item
 ---@field public MainView  UIConfig_Item
+---@field public AlertDialogView  UIConfig_Item

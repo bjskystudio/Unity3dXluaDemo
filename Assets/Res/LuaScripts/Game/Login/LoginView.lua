@@ -19,6 +19,7 @@ local ServerManager = require("ServerManager")
 local LoginManager = require("LoginManager")
 local PlayerManager = require("PlayerManager")
 local eLoginState = require("GlobalDefine").eLoginState
+local PopupManager = require("PopupManager")
 
 local GetLangPackValue = GetLangPackValue
 local LanguagePackage = LanguagePackage
@@ -160,7 +161,7 @@ function LoginView:CheckLoginState()
         curServer = ServerManager:GetInstance():GetLastServer()
         if not curServer then
             SDKManager:GetInstance():GetServerList()
-            --PopupManager.ShowAlertDialog(nil, LanguagePackage.Login_UnSelectServer)
+            PopupManager.ShowAlertDialog(nil, LanguagePackage.Login_UnSelectServer)
             SDKManager:GetInstance():SendBIStep(SDKDef.BIStep.NoServerDataAlert)
             return false
         end
@@ -184,7 +185,7 @@ function LoginView:CheckLoginState()
     end
     if not AppSetting.IsSDK then
         if string.IsNullOrEmpty(self.go_table.aortext_inputName.text) then
-            --PopupManager.ShowAlertDialog(nil, LanguagePackage.Login_NameCantNil)
+            PopupManager.ShowAlertDialog(nil, LanguagePackage.Login_NameCantNil)
             return false
         end
     end
