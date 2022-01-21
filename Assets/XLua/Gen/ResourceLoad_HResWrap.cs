@@ -21,7 +21,7 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(ResourceLoad.HRes);
-			Utils.BeginObjectRegister(type, L, translator, 0, 8, 11, 10);
+			Utils.BeginObjectRegister(type, L, translator, 0, 7, 11, 10);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Init", _m_Init);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StartLoad", _m_StartLoad);
@@ -30,7 +30,6 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Release", _m_Release);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ReleaseReal", _m_ReleaseReal);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetRealType", _m_GetRealType);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetExtesions", _m_GetExtesions);
 			
 			
 			Utils.RegisterFunc(L, Utils.GETTER_IDX, "Asset", _g_get_Asset);
@@ -300,34 +299,6 @@ namespace XLua.CSObjectWrap
                 {
                     
                         var gen_ret = gen_to_be_invoked.GetRealType(  );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_GetExtesions(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                ResourceLoad.HRes gen_to_be_invoked = (ResourceLoad.HRes)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    
-                        var gen_ret = gen_to_be_invoked.GetExtesions(  );
                         translator.Push(L, gen_ret);
                     
                     

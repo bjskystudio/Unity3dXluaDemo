@@ -1,3 +1,4 @@
+---@field public UIQueueConfig UIQueueConfig
 ---@field public UIConfig UIConfig
 ---@field public ServerListConfig ServerListConfig_Item[]
 ---@field public NetMap NetMap
@@ -14,4 +15,5 @@ _G.ConfigList = {
     NetMap = {"NetMap"},
     ServerListConfig = {"ServerListConfig"},
     UIConfig = {"UIConfig"},
+    UIQueueConfig = {"UIQueueConfig"},
 }

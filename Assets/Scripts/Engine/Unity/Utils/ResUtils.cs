@@ -1,22 +1,23 @@
-﻿using System.IO;
-using System.Text;
+﻿using ResourceLoad;
+using System.IO;
 using UnityEngine;
-using UObject = UnityEngine.Object;
+using YoukiaCore.Log;
 
 namespace Framework
 {
     public static class ResUtils
     {
-        #region 热更资源定位
-
         public static string mSDKUpdatePath = null;
+        /// <summary>
+        /// 热更路径
+        /// </summary>
         public static string SDKUpdatePath
         {
             get
             {
                 if (string.IsNullOrEmpty(mSDKUpdatePath))
                 {
-                    mSDKUpdatePath = $"{Application.persistentDataPath}/youkia/{Application.identifier}/GameRes/";
+                    mSDKUpdatePath = PathManager.RES_PERSISTENT_ROOT_PATH;
                 }
                 return mSDKUpdatePath;
             }
@@ -27,42 +28,28 @@ namespace Framework
         }
 
         /// <summary>
-        /// 获取AB资源全路径
+        /// 资源路径
         /// </summary>
-        /// <param name="p_filename">资源相对路径，需要带后缀</param>
-        /// <returns>修正后的资源路径</returns>
-        public static string GetResFullPath(string p_filename)
+        /// <param name="pathBySuffix"></param>
+        /// <returns></returns>
+        public static string ResPath(string pathBySuffix)
         {
-            p_filename = "StreamingResources/" + p_filename;
-            string finalPath = GetURLPath(p_filename);
-            if (!File.Exists(finalPath))
+            var path = ResUtils.SDKUpdatePath + "StreamingResources/" + pathBySuffix;
+            Log.Debug("try GetPath:" + path);
+            if (!File.Exists(path))
             {
-                finalPath = GetStreamingAssetsPath(p_filename);
+                Log.Debug("asset.Video:" + pathBySuffix);
+                if (pathBySuffix.StartsWith("/"))
+                {
+                    path = GetStreamingAssetsPath(pathBySuffix);
+                }
+                else
+                {
+                    path = Path.Combine(GetStreamingAssetsPath(pathBySuffix));
+                }
+                Log.Debug("cg GetVideoPath:" + path);
             }
-            return finalPath;
-        }
-
-        /// <summary>
-        /// 获得外部更新文件夹路径
-        /// </summary>
-        private static string GetURLPath(string p_filename)
-        {
-            return SDKUpdatePath + p_filename + ".assetbundle";
-            //if (string.IsNullOrEmpty(SDK_UPDATE_PATH))
-            //{
-            //    StringBuilder result = new StringBuilder();
-            //    result.Append(Application.persistentDataPath);
-            //    result.Append("/youkia/");
-            //    result.Append(Application.identifier);
-            //    result.Append("/GameRes/");
-            //    result.Append(p_filename);
-            //    result.Append(".assetbundle");
-            //    return result.ToString();
-            //}
-            //else
-            //{
-            //    return SDK_UPDATE_PATH + p_filename + ".assetbundle";
-            //}
+            return path;
         }
 
         /// <summary>
@@ -71,91 +58,36 @@ namespace Framework
         private static string GetStreamingAssetsPath(string p_filename)
         {
             string path = string.Empty;
-            string streamingAssetsPath = "";
+            string STREAMING_ASSET_PATH = "";
             if (Application.platform == RuntimePlatform.Android)
             {
-                streamingAssetsPath = Application.dataPath + "!assets";   // 安卓平台
+                STREAMING_ASSET_PATH = Application.dataPath + "!assets";   // 安卓平台
             }
             else
             {
-                streamingAssetsPath = Application.streamingAssetsPath;  // 其他平台
+                STREAMING_ASSET_PATH = Application.streamingAssetsPath;  // 其他平台
             }
-            path = streamingAssetsPath + "/" + p_filename + ".assetbundle";
+            path = STREAMING_ASSET_PATH + "/" + p_filename;
             return path;
         }
 
-        #endregion
-
-        #region 资源加载
-
         /// <summary>
-        /// 同步加载资源
-        /// <para>使用AB模式时路径：</para>
-        /// <code>AB:Res/***/1</code>
-        /// <para>使用AD模式时路径：</para>
-        /// <code>AD:Res/***/1.prefab</code>
+        /// 加载Resources下的预制体
         /// </summary>
-        /// <typeparam name="T">类型</typeparam>
-        /// <param name="resPath">资源路径，模式不同,路径格式不同</param>
-        /// <param name="usedAssetBundle">是否使用AB加载</param>
-        public static T LoadResSync<T>(string resPath, bool usedAssetBundle) where T : UObject
+        /// <param name="path">预制体路径</param>
+        /// <param name="root">父节点</param>
+        /// <returns>实例化后的预制体</returns>
+        public static GameObject LoadPrefabInstance(string path, Transform root = null)
         {
-            if (usedAssetBundle)
+            GameObject resGO = Resources.Load<GameObject>(path);
+            GameObject go = GameObject.Instantiate(resGO);
+            if (root != null)
             {
-                string resFullPath = GetResFullPath(resPath);
-                string resName = Path.GetFileNameWithoutExtension(resFullPath);
-                AssetBundle _assetBundle = AssetBundle.LoadFromFile(resFullPath);
-                if (null == _assetBundle)
-                {
-                    return null;
-                }
-                UObject[] assetList = _assetBundle.LoadAllAssets();
-                UObject target = null;
-                for (int i = 0; i < assetList.Length; ++i)
-                {
-                    if (resName == assetList[i].name.ToLower())
-                    {
-                        target = assetList[i];
-                        break;
-                    }
-                }
-                _assetBundle.Unload(false);
-                UObject ret = target;
-                if (target is GameObject)
-                {
-                    ret = GameObject.Instantiate(target);
-                    ret.name = resName;
-                }
-                return ret as T;
+                go.transform.SetParent(root);
             }
-            else
-            {
-#if UNITY_EDITOR
-                string resFullPath = "Assets/" + resPath;
-                string resName = Path.GetFileNameWithoutExtension(resFullPath);
-                UObject[] assetList = UnityEditor.AssetDatabase.LoadAllAssetsAtPath(resFullPath);
-                UObject target = null;
-                for (int i = 0; i < assetList.Length; i++)
-                {
-                    if (resName == assetList[i].name && assetList[i].GetType() == typeof(T))
-                    {
-                        target = assetList[i];
-                        break;
-                    }
-                }
-                UObject ret = target;
-                if (target is GameObject)
-                {
-                    ret = GameObject.Instantiate(target);
-                    ret.name = resName;
-                }
-                return ret as T;
-#else
-                Debug.LogError("非编辑模式必须用AB");
-                return null;
-#endif
-            }
+            go.ResetPRS();
+            resGO = null;
+            return go;
         }
-        #endregion
     }
 }

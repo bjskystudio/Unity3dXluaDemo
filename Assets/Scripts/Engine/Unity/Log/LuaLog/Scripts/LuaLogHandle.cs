@@ -45,6 +45,10 @@ public class LuaLogHandle
 
     public string GetLog(string source)
     {
+        if (Launcher.Instance.UsedAssetBundle)
+        {
+            return source;
+        }
 #if UNITY_EDITOR
         Reset();
         return regex.Replace(source, matchEvaluator);

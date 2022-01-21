@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LauncherAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 841d9f5d41733884e8eacf87a43c006a, type: 3}
+    totalSpriteSurfaceArea: 118482
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8749c170f908fd04294540f4a81efcbe, type: 3}
+  - {fileID: 21300000, guid: fa228ca0e248d304e9154151a99d4c6d, type: 3}
+  - {fileID: 21300000, guid: 8eacb5c2f95d7b547aff96067b509554, type: 3}
+  - {fileID: 21300000, guid: f7e855030d3bf4342813818d03c4a8c5, type: 3}
+  - {fileID: 21300000, guid: 51e6ad449461f1e4584ed8d7cfc0a07a, type: 3}
+  - {fileID: 21300000, guid: 85779e8463452c34aa999ef092982123, type: 3}
+  - {fileID: 21300000, guid: b57ac42546a7b6d40936a98c32bfab6b, type: 3}
+  - {fileID: 21300000, guid: 818ed76514378574a89fabf9fc9e2c1e, type: 3}
+  - {fileID: 21300000, guid: 9002a047deecbb04396a90eb6bfaa128, type: 3}
+  - {fileID: 21300000, guid: 01043f0af8f44e74aba083c27266f41d, type: 3}
+  - {fileID: 21300000, guid: aa6fef9ad46f35948b2b5f6789cdcba2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - c_btn_01_lan
+  - c_btn_01_huang
+  - zoumadengdikuang
+  - c_bak_tcdk_02
+  - load_bak_dianwen_2
+  - login_loading_bg2
+  - c_bak_tcdk_bt_01
+  - ty_bak_hefang
+  - login_loading_bg1
+  - jz_bar_1
+  - c_bak_01_chunbai
+  m_Tag: LauncherAtlas
+  m_IsVariant: 0

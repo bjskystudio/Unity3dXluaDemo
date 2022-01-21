@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,11 @@ public class UIModel : MonoBehaviour
     public Transform UICanvas;
     public RectTransform UICanvasRect;
     public CanvasScaler UIScaler;
+
+    /// <summary>
+    /// 3D模型挂点
+    /// </summary>
+    public Transform ModelRoot;
 
     [Space(20)]
     /// <summary>
@@ -62,6 +68,10 @@ public class UIModel : MonoBehaviour
     public RectTransform[] NeedAdapterRects;
 
     /// <summary>
+    /// 是否初始化完成
+    /// </summary>
+    public bool IsInitFinish { get; set; } = false;
+    /// <summary>
     /// 屏幕尺寸
     /// </summary>
     public Vector2 ScreenSize { get; set; }
@@ -81,11 +91,11 @@ public class UIModel : MonoBehaviour
     /// <summary>
     /// 是否为刘海屏
     /// </summary>
-    private bool IsNotchScreen { get; set; } = false;
+    public bool IsNotchScreen { get; set; } = false;
     /// <summary>
     /// 左横握
     /// </summary>
-    private bool IsLandscapeLeft { get; set; } = true;
+    public bool IsLandscapeLeft { get; set; } = true;
 
     private void Awake()
     {
@@ -94,16 +104,13 @@ public class UIModel : MonoBehaviour
 
     public void Init()
     {
+        if (Application.isPlaying)
+        {
+            ModelRoot = new GameObject("ModelRoot").transform;
+        }
+        ResetData();
         GlobalEvent.AddEventSingle(EventDef.SDKGetNotchScreenInfo, InitSDKData);
-        Reset();
-        if (Launcher.Instance.IsSDK)
-        {
-            //SDKManager.Instance.SDK.openNotchScreen();
-        }
-        else
-        {
-            RefreshUIRealSize();
-        }
+        AndroidSDKManager.Instance.SDK.openNotchScreen();
     }
 
     private void InitSDKData(object notchScreenMsg)
@@ -143,11 +150,13 @@ public class UIModel : MonoBehaviour
             }
         }
 
-        RefreshUIRealSize();
+        StartCoroutine(RefreshUIRealSize());
     }
 
-    private void RefreshUIRealSize()
+    private IEnumerator RefreshUIRealSize()
     {
+        if (IsInitFinish)
+            yield return new WaitForEndOfFrame();
         var defaultSize = UIScaler.referenceResolution;
         var realScreenRatio = Screen.width / (float)Screen.height;
         var defaultRatio = defaultSize.x / defaultSize.y;
@@ -164,12 +173,10 @@ public class UIModel : MonoBehaviour
         {
             ScreenSize = defaultSize;
         }
-
         if (realScreenRatio >= 1.8f)
             CameraFovScale = 1 / (defaultSize.x / ScreenSize.x);
         else if (realScreenRatio <= 1.6f)
             CameraFovHeightScale = 1 / (defaultSize.y / ScreenSize.y);
-
         if (realScreenRatio >= 1.8f)
         {
             //刘海屏
@@ -182,7 +189,6 @@ public class UIModel : MonoBehaviour
                 if (!IsNotchScreen)
                 {
                     NotchScreenPixel = 0;//全面屏
-                    Log.Debug("全面屏!!!");
                 }
             }
         }
@@ -193,6 +199,13 @@ public class UIModel : MonoBehaviour
                 Log.Warning(string.Format("新手机比率刘海屏:{0},刘海像素:{1}", realScreenRatio, NotchScreenPixel));
             }
         }
+
+        Log.Warning($"defaultSize:{defaultSize},width:{Screen.width},height:{Screen.height}," +
+            $"realScreenRatio:{realScreenRatio},defaultRatio:{defaultRatio}" + $",ScreenSize:{ScreenSize}," +
+            $"CameraFovScale:{CameraFovScale},CameraFovHeightScale:{CameraFovHeightScale},IsNotchScreen:{IsNotchScreen}");
+
+        IsInitFinish = true;
+        yield return new WaitForEndOfFrame();
 
         #region 刘海测试
 #if UNITY_EDITOR
@@ -223,7 +236,7 @@ public class UIModel : MonoBehaviour
                 leftRect.SetParent(tempRoot, false);
                 leftRect.offsetMin = new Vector2(-tempIponeBgOffset - tempPixel, -tempIponeBgOffset);
                 leftRect.offsetMax = new Vector2(tempIponeBgOffset + tempPixel, tempIponeBgOffset);
-                leftObject.AddComponent<AorImage>().LoadSingleSprite("Images/Adapter/iphonexBG");
+                leftObject.AddComponent<AorImage>().LoadSingleSprite("Texture/Adapter/iphonexBG");
                 leftRect.SetLayer(LayerMask.NameToLayer("UI"));
                 Canvas c = leftRect.gameObject.AddComponent<Canvas>();
                 c.overrideSorting = true;
@@ -246,7 +259,7 @@ public class UIModel : MonoBehaviour
                 rightRect.offsetMin = new Vector2(-tempIponeBgOffset - tempPixel, -tempIponeBgOffset);
                 rightRect.offsetMax = new Vector2(tempIponeBgOffset + tempPixel, tempIponeBgOffset);
                 rightRect.localScale = new Vector3(-1, 1, 1);
-                rightObject.AddComponent<AorImage>().LoadSingleSprite("Images/Adapter/iphonexBG");
+                rightObject.AddComponent<AorImage>().LoadSingleSprite("Texture/Adapter/iphonexBG");
                 rightObject.SetActive(false);
                 rightRect.SetLayer(LayerMask.NameToLayer("UI"));
                 Canvas c = rightRect.gameObject.AddComponent<Canvas>();
@@ -280,21 +293,24 @@ public class UIModel : MonoBehaviour
         {
             nsa[i].ChangeSize();
         }
-        Log.Warning(string.Format("是否刘海屏:{0},刘海像素:{1}", IsNotchScreen, NotchScreenPixel));
-        Log.Warning(string.Format("制作尺寸:{0},屏幕尺寸:{5}:{6},实际修正尺寸:{1},宽高比:{2},fov倍率:{3},{4}",
-            defaultSize, ScreenSize, realScreenRatio, CameraFovScale, CameraFovHeightScale, Screen.width, Screen.height));
     }
 
-    private void Reset()
+    private void ResetData()
     {
-        IsNotchScreen = false;
         NotchScreenPixel = 0;
         CameraFovScale = 1;
         CameraFovHeightScale = 1;
+        IsNotchScreen = false;
+        IsLandscapeLeft = true;
     }
 
-    public void Dispose()
+    private void OnDestroy()
     {
-        GlobalEvent.RemoveEventSingle(EventDef.SDKGetNotchScreenInfo, InitSDKData);
+        Inst = null;
+        if (ModelRoot)
+        {
+            ModelRoot.DestroyGameObj();
+        }
+        ResetData();
     }
 }

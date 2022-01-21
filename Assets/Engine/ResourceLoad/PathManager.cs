@@ -10,7 +10,9 @@ namespace ResourceLoad
 {
     public class PathManager
     {
-        //本地assetdatabase加载的路径
+        /// <summary>
+        /// 本地assetdatabase加载的路径
+        /// </summary>
         public static string RES_LOCAL_ASSETDATABASE_RELATIVE_PATH
         {
             get
@@ -20,11 +22,13 @@ namespace ResourceLoad
                     return ResourceManager.Config.RES_LOCAL_ASSETDATABASE_RELATIVE_PATH;
                 }
 
-                return "Assets/Export";
+                return "";
             }
         }
 
-        //本地AB根路径
+        /// <summary>
+        /// 本地AB根路径
+        /// </summary>
         public static string RES_LOCAL_AB_ROOT_PATH
         {
             get
@@ -34,11 +38,13 @@ namespace ResourceLoad
                     return Application.dataPath + "/" + ResourceManager.Config.RES_LOCAL_AB_RELATIVE_PATH;
                 }
 
-                return Application.dataPath + "/../ClientRes/Android/Assetbundle";
+                return "";
             }
         }
 
-        //流式AB根路径
+        /// <summary>
+        /// 流式AB根路径
+        /// </summary>
         public static string RES_STREAM_AB_ROOT_PATH
         {
             get
@@ -48,25 +54,36 @@ namespace ResourceLoad
                     return Application.streamingAssetsPath + "/" + ResourceManager.Config.RES_STREAM_AB_RELATIVE_PATH;
                 }
 
-                return Application.streamingAssetsPath + "/ClientRes/Android/Assetbundle";
+                return "";
             }
         }
 
-        //沙盒AB根路径
-        public static string RES_PERSISTENT_AB_ROOT_PATH
+        /// <summary>
+        /// 沙盒资源根路径
+        /// </summary>
+        public static string RES_PERSISTENT_ROOT_PATH
         {
             get
             {
                 if (ResourceManager.Config != null)
                 {
-                    return Application.persistentDataPath + "/" + ResourceManager.Config.RES_PERSISTENT_AB_RELATIVE_PATH;
+                    if(string.IsNullOrEmpty(ResourceManager.Config.RES_PERSISTENT_RELATIVE_PATH))
+                    {
+                        return Application.persistentDataPath;
+                    }
+                    else
+                    {
+                        return Application.persistentDataPath + "/" + ResourceManager.Config.RES_PERSISTENT_RELATIVE_PATH;
+                    }
                 }
 
-                return Application.persistentDataPath + "/ClientRes/Android/Assetbundle";
+                return "";
             }
         }
 
-        //SDK指定得热更新目录
+        /// <summary>
+        /// SDK指定得热更新目录
+        /// </summary>
         public static string RES_SDK_UPDATE_ROOT_PATH
         {
             get;
@@ -105,6 +122,11 @@ namespace ResourceLoad
         //就是为了解决Assetdatabase需要传入资源后缀名才能加载的问题
         public static string GetExtension(string assetPath, HRes res)
         {
+            if(res == null)
+            {
+                return "";
+            }
+
             List<string> extensions = res.GetExtesions();
             if (extensions.Count == 1)
             {
@@ -116,21 +138,29 @@ namespace ResourceLoad
             string fullPath = Application.dataPath.Replace("Assets", "") + assetPath;
             string directoryPath = Path.GetDirectoryName(fullPath);
             string fileName = Path.GetFileNameWithoutExtension(fullPath).ToLower();
-            string[] allFiles = Directory.GetFiles(directoryPath);
-            for (int i = 0; i < allFiles.Length; i++)
+            if(Directory.Exists(directoryPath))
             {
-                string extension = Path.GetExtension(allFiles[i]);
-                if (extension != ".meta" && extensions.Contains(extension))
+                string[] allFiles = Directory.GetFiles(directoryPath);
+                for (int i = 0; i < allFiles.Length; i++)
                 {
-                    string tempFileName = Path.GetFileNameWithoutExtension(allFiles[i]).ToLower();
-                    if (fileName == tempFileName)
+                    string extension = Path.GetExtension(allFiles[i]);
+                    if (extension != ".meta" && extensions.Contains(extension))
                     {
-                        return extension;
+                        string tempFileName = Path.GetFileNameWithoutExtension(allFiles[i]).ToLower();
+                        if (fileName == tempFileName)
+                        {
+                            return extension;
+                        }
                     }
                 }
-            }
 
-            return "";
+                return "";
+            }
+            else
+            {
+                Debug.LogError(string.Format("加载资源的目录{0}不存在，请确定！！！！", directoryPath));
+                return "";
+            }
         }
 #endif
 
@@ -156,6 +186,11 @@ namespace ResourceLoad
                     case RuntimePlatform.Android:
                         {
                             result.Append(RES_SDK_UPDATE_ROOT_PATH);
+                            if(!string.IsNullOrEmpty(ResourceManager.Config.RES_PERSISTENT_AB_RELATIVE_PATH))
+                            {
+                                result.Append("/");
+                                result.Append(ResourceManager.Config.RES_PERSISTENT_AB_RELATIVE_PATH);
+                            }
                         }
                         break;
                     case RuntimePlatform.OSXEditor:
@@ -163,7 +198,12 @@ namespace ResourceLoad
                     case RuntimePlatform.WindowsPlayer:
                     case RuntimePlatform.OSXPlayer:
                         {
-                            result.Append(RES_PERSISTENT_AB_ROOT_PATH);
+                            result.Append(RES_PERSISTENT_ROOT_PATH);
+                            if (!string.IsNullOrEmpty(ResourceManager.Config.RES_PERSISTENT_AB_RELATIVE_PATH))
+                            {
+                                result.Append("/");
+                                result.Append(ResourceManager.Config.RES_PERSISTENT_AB_RELATIVE_PATH);
+                            }
                         }
                         break;
                 }

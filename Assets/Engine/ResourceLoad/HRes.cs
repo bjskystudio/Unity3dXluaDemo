@@ -103,12 +103,13 @@ namespace ResourceLoad
         //该资源加载次数
         public int RefCount;
         //放入回收站时间
-        public float RecycleBinPutInTime = -1; 
+        public float RecycleBinPutInTime = -1;
+
+        protected static Dictionary<string, List<AssetRequest>> mAssetReuqestMap = new Dictionary<string, List<AssetRequest>>();
 
         public HRes()
         {
             ABRequest = new ABRequest();
-            AssetRequest = new AssetRequest();
         }
 
         public virtual void Init(string assetPath, string assetName, string resName, AssetType assetType, bool isAll)
@@ -119,6 +120,12 @@ namespace ResourceLoad
             AssetType = assetType;
             ResName = resName;
             IsLoadAll = isAll;
+            AssetRequest = GetAssetRequest(AssetPath, assetName, assetType, isAll);
+        }
+
+        protected virtual AssetRequest GetAssetRequest(string abName, string assetName, AssetType assetType, bool isAll)
+        {
+            return new AssetRequest();
         }
 
         public void StartLoad(bool isSync, bool isAll, bool isPreLoad, Action<System.Object, ResRef> callback)
@@ -181,19 +188,10 @@ namespace ResourceLoad
                     else if (isAll)
                     {
                         asset = UnityEditor.AssetDatabase.LoadAllAssetsAtPath(path);
-                        List<UnityEngine.Object> objectList = (asset as IEnumerable<System.Object>).Cast<UnityEngine.Object>().ToList();
-                        for (int i = 0; i < objectList.Count; i++)
-                        {
-                            if (objectList[i].name.ToLower() == AssetName && objectList[i].GetType() == GetRealType())
-                            {
-                                asset = objectList[i];
-                                break;
-                            }
-                        }
                     }
                     else
                     {
-                        asset = UnityEditor.AssetDatabase.LoadAssetAtPath(path, typeof(System.Object));
+                        asset = UnityEditor.AssetDatabase.LoadAssetAtPath(path, GetRealType());
                     }
                 }
             }
@@ -275,17 +273,14 @@ namespace ResourceLoad
 
         public virtual void ReleaseReal()
         {
+            if (AssetRequest != null)
+            {
+                AssetRequest.StopRequest();
+            }
+
             if (ResourceManager.Instance.mResMap.ContainsKey(ResName))
             {
                 ResourceManager.Instance.mResMap.Remove(ResName);
-            }
-
-            if (ResourceManager.Instance.LoadMode == ResourceLoadMode.eAssetbundle)
-            {
-                if (ABDep != null)
-                {
-                    AssetRequest.RemoveAsset(ABDep.ABName, AssetName, GetRealType());
-                }
             }
 
             //这里不在去强行释放了，因为有种情况无法正确计数，情况是：A prefab 上拖上去一张贴图 B， 此时A和B都是单独打包，
@@ -334,6 +329,7 @@ namespace ResourceLoad
         }
 
 #if UNITY_EDITOR
+        [XLua.BlackList]
         public virtual List<string> GetExtesions()
         {
             return new List<string>();

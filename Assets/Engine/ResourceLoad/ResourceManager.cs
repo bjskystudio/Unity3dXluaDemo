@@ -18,7 +18,9 @@ using UnityEngine.Video;
 //2.资源带路径得原因，由于美术会规划自己得资源路径，要支持AssetDatabase和AB使用统一路径加载资源，所以要带上路径，ab名也带上了路径
 //(注意：并不是所有资源都能统一路径，因为AB中可以包含多份资源，比如所有lua文件都可以打包到一个ab中去，此时无法统一路径，这种情况不仅仅有path路径，还会有一个assetName名字， AssetDatabase加载会失效对于这种情况）
 //3.使用引用计数来维护资源，所以使用者必须很清楚加载了资源，一定要释放资源，否则资源会一直保存再内存中。对于prefab实例化得资源，我们会加上PrefabAutoDestory，自动维护技术，其余资源自己手动维护
-//4.支持同步加载和异步加载，那么就会涉及到异步加载得过程中同步加载同样资源会如何？ 此时同步加载会将异步加载强行打断，立即返回，不会有问题
+//4.支持同步加载和异步加载AB,如果异步加载AB的时候同步再次加载这个AB，我们内部会进行打断处理，(打断原理：https://answer.uwa4d.com/question/5af3db530e95a527a7a81d31 )不然unity会报错 ：
+//The AssetBundle 'xxx' can't be loaded because another AssetBundle with the same files is already loaded.
+//对于AB中的Asset，异步加载的时候同步再次加载同样的资源，不会报错。
 //5.一般所有shader会打包到一个ab中，这里就假定名字为SHADER_AB_NAME， 注意变体问题！(也就是使用了shader_feature，可以通过几种方法解决 1.将一个激活对应变体得dump材质打包到SHADER_AB_NAME中 2.使用multi_compile 3.使用shader变体列表)
 //6.加载图集很特殊，使用ab得时候，必须把ab中得所有资源加载出来，然后找到要加载得sprite.
 //7.加载一个ab中得所有资源得时候，使用了*这个符号作为assetName，不是所有资源的得时候，使用了assetName自身。
@@ -286,7 +288,7 @@ namespace ResourceLoad
             {
                 path = Path.GetDirectoryName(path).Replace("\\", "/");
             }
-            Load<Sprite, HSprite>(path, assetName, AssetType.eSprite, callback, isSync, true);
+            Load<Sprite, HSprite>(path, assetName, AssetType.eSprite, callback, isSync, false);
         }
 
         /// <summary>
@@ -299,7 +301,7 @@ namespace ResourceLoad
         public void LoadSpriteSingle(string path, Action<Sprite, ResRef> callback, bool isSync = false)
         {
             string assetName = GetAssetName(path);
-            Load<Sprite, HSprite>(path, assetName, AssetType.eSprite, callback, isSync, true);
+            Load<Sprite, HSprite>(path, assetName, AssetType.eSprite, callback, isSync);
         }
 
         /// <summary>
@@ -367,6 +369,11 @@ namespace ResourceLoad
         {
             string assetName = GetAssetName(path);
             Load<Texture, HTexture>(path, assetName, AssetType.eTexture, callback, isSync);
+        }
+
+        public void LoadTextureAll(string path, Action<List<Texture>, ResRef> callback, bool isSync = false)
+        {
+            LoadAll<Texture, HTexture>(path, AssetType.eTexture, callback, isSync);
         }
 
         /// <summary>
@@ -473,6 +480,11 @@ namespace ResourceLoad
         {
             string assetName = GetAssetName(path);
             Load<Material, HMaterial>(path, assetName, AssetType.eMaterial, callback, isSync);
+        }
+
+        public void LoadMaterialAll (string path, Action<List<Material>, ResRef> callback, bool isSync = false)
+        {
+            LoadAll<Material, HMaterial>(path, AssetType.eMaterial, callback, isSync);
         }
 
         /// <summary>
@@ -718,16 +730,16 @@ namespace ResourceLoad
             return Path.GetFileName(assetPath);
         }
 
-        private string GetResName(string assetPath, string assetName)
+        private string GetResName(string assetPath, string assetName, AssetType assetType, bool isAll)
         {
             assetPath = assetPath.ToLower();
-            string resName = string.IsNullOrEmpty(assetName) ? assetPath : string.Format("{0}/{1}", assetPath, assetName);
+            string resName = string.IsNullOrEmpty(assetName) ? string.Format("{0}", assetPath) : string.Format("{0}/{1}({2})", assetPath, assetName, assetType);
             return resName.ToLower();
         }
 
         internal T Get<T>(string assetPath, string assetName, AssetType assetType, bool isAll = false, bool isDep = false) where T : HRes, new()
         {
-            string resName = GetResName(assetPath, assetName);
+            string resName = GetResName(assetPath, assetName, assetType, isAll);
             HRes res = null;
             if (!mResMap.TryGetValue(resName, out res))
             {
@@ -871,7 +883,7 @@ namespace ResourceLoad
                 {
                     resList.Add(item.Value);
                 }
-
+                 
                 //释放所有资源
                 for (int i = 0; i < resList.Count; i++)
                 {
@@ -890,14 +902,11 @@ namespace ResourceLoad
 #endif
             {
                 //清空缓存shader
+                mShaderResRef.Release();
                 mShaderResRef = null;
                 mShaderMap.Clear();
-                //停止掉正在加载的AB
-                ABRequest.StopAllRequest();
-                //停止掉正在加载的AB中的资源
-                AssetRequest.StopAllRequest();
                 //清空回收站
-                foreach(var item in mRecycleBinMap)
+                foreach (var item in mRecycleBinMap)
                 {
                     item.Key.ReleaseReal();
                 }

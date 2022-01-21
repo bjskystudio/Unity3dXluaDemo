@@ -8,6 +8,7 @@
 ---@field public aorbtn_more AorButton
 ---@field public aorbtn_server AorButton
 ---@field public aorinputfield_name AorInputField
+---@field public aorrawimage_bg AorRawImage
 ---@field public aortext_inputName AorText
 ---@field public aortext_serverName AorText
 ---@field public aortext_title AorText

@@ -207,8 +207,6 @@ namespace ResourceLoad
         {
             //停止对这个AB的请求
             ABRequest.StopRequest(ABName);
-            //停止这个对这个AB中资源的请求
-            AssetRequest.StopRequest(ABName);
             //缓存列表中移除
             if (ResourceManager.Instance.mResMap.ContainsKey(ResName))
             {

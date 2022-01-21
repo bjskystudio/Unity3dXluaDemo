@@ -21,10 +21,11 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(SDKInterface);
-			Utils.BeginObjectRegister(type, L, translator, 0, 38, 1, 1);
+			Utils.BeginObjectRegister(type, L, translator, 0, 40, 1, 1);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddAutoSetpFlag", _m_AddAutoSetpFlag);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Init", _m_Init);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "getLocalDynamicUpdatePath", _m_getLocalDynamicUpdatePath);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "getDynamicUpdate", _m_getDynamicUpdate);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "downDynamicUpdate", _m_downDynamicUpdate);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "updateInfo", _m_updateInfo);
@@ -35,8 +36,9 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "loginout", _m_loginout);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "showExit", _m_showExit);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "exit", _m_exit);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "getAgreementResult", _m_getAgreementResult);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "showWebAgreementDialog", _m_showWebAgreementDialog);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "isMinor", _m_isMinor);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "realNameRegister", _m_realNameRegister);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "getGoodsList", _m_getGoodsList);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "buy", _m_buy);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "getGoodsList_pro", _m_getGoodsList_pro);
@@ -138,6 +140,33 @@ namespace XLua.CSObjectWrap
                 {
                     
                     gen_to_be_invoked.Init(  );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_getLocalDynamicUpdatePath(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                SDKInterface gen_to_be_invoked = (SDKInterface)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    
+                    gen_to_be_invoked.getLocalDynamicUpdatePath(  );
                     
                     
                     
@@ -425,6 +454,60 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_getAgreementResult(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                SDKInterface gen_to_be_invoked = (SDKInterface)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    
+                    gen_to_be_invoked.getAgreementResult(  );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_showWebAgreementDialog(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                SDKInterface gen_to_be_invoked = (SDKInterface)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    
+                    gen_to_be_invoked.showWebAgreementDialog(  );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_isMinor(RealStatePtr L)
         {
 		    try {
@@ -439,35 +522,6 @@ namespace XLua.CSObjectWrap
                 {
                     
                     gen_to_be_invoked.isMinor(  );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_realNameRegister(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                SDKInterface gen_to_be_invoked = (SDKInterface)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    string _name = LuaAPI.lua_tostring(L, 2);
-                    string _idcard = LuaAPI.lua_tostring(L, 3);
-                    
-                    gen_to_be_invoked.realNameRegister( _name, _idcard );
                     
                     
                     
@@ -521,8 +575,10 @@ namespace XLua.CSObjectWrap
                 
                 {
                     string _productId = LuaAPI.lua_tostring(L, 2);
+                    string _gameProductId = LuaAPI.lua_tostring(L, 3);
+                    string _gameProductName = LuaAPI.lua_tostring(L, 4);
                     
-                    gen_to_be_invoked.buy( _productId );
+                    gen_to_be_invoked.buy( _productId, _gameProductId, _gameProductName );
                     
                     
                     
@@ -576,9 +632,11 @@ namespace XLua.CSObjectWrap
                 
                 {
                     string _productId = LuaAPI.lua_tostring(L, 2);
-                    string _extra = LuaAPI.lua_tostring(L, 3);
+                    string _gameProductId = LuaAPI.lua_tostring(L, 3);
+                    string _gameProductName = LuaAPI.lua_tostring(L, 4);
+                    string _extra = LuaAPI.lua_tostring(L, 5);
                     
-                    gen_to_be_invoked.buy_pro( _productId, _extra );
+                    gen_to_be_invoked.buy_pro( _productId, _gameProductId, _gameProductName, _extra );
                     
                     
                     

@@ -1,0 +1,11 @@
+string	string	int	int	string	string	lua	int	int
+界面名称	界面名	分组	队列优先级（从小到大，同样优先级同时触发）	脚本路径---------------------	窗口名称------------	队列类型(连续，并发----------)	并发队列的触发间隔(秒)	最大同时并发数
+Name	Desc	Group	Priority	Script	UIName	QueueType	ConcurrentDelay	ConcurrentMaxCount
+CommonTip	普通提示	1	1	TipsUIQueue		EUIQueueType.Concurrent	0.15	4
+MoreTips	多行提示	1	2	MoreTipsUIQueue		EUIQueueType.Sequence	0	0
+HorseLamp	跑马灯	2	1	HorseLampUIQueue		EUIQueueType.Sequence	0	0
+PlayRoleLevelUp	升级提示	9	1	PlayRoleLevelUpUIQueue		EUIQueueType.Sequence	0	0
+FuncOpen	功能开放提示	9	3	FunctionOpenUIQueue		EUIQueueType.Sequence	0	0
+Achievement	成就提示	9	2	CommonOpenUIQueue	AchievementTipPopupView	EUIQueueType.Sequence	0	0
+TitleTips	称号解锁	9	2	TitleTipsUIQueue		EUIQueueType.Sequence	0	0
+Power	战斗力提示	9	2	PowerChangeUIQueue		EUIQueueType.Immediate	0	0

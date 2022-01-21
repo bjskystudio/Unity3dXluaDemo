@@ -53,33 +53,36 @@ namespace ResourceLoad
                 mABLoadList.Add(depAB);
             }
 
-            //开启所有加载
-            for (int i = 0; i < mABLoadList.Count; i++)
+            if(!IsComplete)
             {
-                ResourceManager.Instance.StartCoroutine(CoLoadAB(mABLoadList[i]));
-            }
-
-            //等待加载完成
-            for (int i = 0; i < mABLoadList.Count; i++)
-            {
-                ABData data;
-                if (mABDataMap.TryGetValue(mABLoadList[i].ABName, out data))
+                //开启所有加载
+                for (int i = 0; i < mABLoadList.Count; i++)
                 {
-                    if (data.mRequest != null)
+                    ResourceManager.Instance.StartCoroutine(CoLoadAB(mABLoadList[i]));
+                }
+
+                //等待加载完成
+                for (int i = 0; i < mABLoadList.Count; i++)
+                {
+                    ABData data;
+                    if (mABDataMap.TryGetValue(mABLoadList[i].ABName, out data))
                     {
-                        while (!data.mRequest.isDone)
+                        if (data.mRequest != null)
                         {
-                            yield return null;
+                            while (!data.mRequest.isDone)
+                            {
+                                yield return null;
+                            }
                         }
                     }
+                    else
+                    {
+                        Debug.LogError("mABDataMap is not find abname : " + mABLoadList[i].ABName);
+                    }
                 }
-                else
-                {
-                    Debug.LogError("mABDataMap is not find abname : " + mABLoadList[i].ABName);
-                }
-            }
 
-            IsComplete = true;
+                IsComplete = true;
+            }
         }
 
         private IEnumerator CoLoadAB(HAssetBundle ab)
@@ -140,27 +143,10 @@ namespace ResourceLoad
 
         public static void StopRequest(AssetBundleCreateRequest request)
         {
-            if (request == null)
-            {
-                return;
-            }
-
-            if (!request.isDone)
+            if (request != null && !request.isDone)
             {
                 AssetBundle ab = request.assetBundle;
             }
-        }
-
-        public static void StopAllRequest()
-        {
-            //访问AssetBundleCreateRequest异步请求的assetbundle会导致该ab的异步加载立马返回，相当于变为同步加载
-            //这句会让之前的异步加载立马完成，像Goto一样跳转到yield return request后面的逻辑执行，执行完后再回到这里执行
-            foreach (var item in mABDataMap)
-            {
-                StopRequest(item.Value.mRequest);
-            }
-
-            mABDataMap.Clear();
         }
     }
 }

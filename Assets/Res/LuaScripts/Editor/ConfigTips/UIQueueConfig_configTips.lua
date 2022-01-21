@@ -1,0 +1,21 @@
+---@class UIQueueConfig_Item
+---@field public Name string @界面名称
+---@field public Desc string @界面名
+---@field public Group number @分组
+---@field public Priority number @队列优先级（从小到大，同样优先级同时触发）
+---@field public Script string @脚本路径---------------------
+---@field public UIName string @窗口名称------------
+---@field public QueueType lua @队列类型(连续，并发----------)
+---@field public ConcurrentDelay number @并发队列的触发间隔(秒)
+---@field public ConcurrentMaxCount number @最大同时并发数
+
+
+---@class UIQueueConfig
+---@field public CommonTip  UIQueueConfig_Item
+---@field public MoreTips  UIQueueConfig_Item
+---@field public HorseLamp  UIQueueConfig_Item
+---@field public PlayRoleLevelUp  UIQueueConfig_Item
+---@field public FuncOpen  UIQueueConfig_Item
+---@field public Achievement  UIQueueConfig_Item
+---@field public TitleTips  UIQueueConfig_Item
+---@field public Power  UIQueueConfig_Item

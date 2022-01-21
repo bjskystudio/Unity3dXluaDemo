@@ -1,10 +1,14 @@
 ﻿using YoukiaCore.Event;
 
-[XLua.CSharpCallLua]
+[XLua.LuaCallCSharp]
 public static class EventDef
 {
     #region SDK
 
+    /// <summary>
+    /// 获取热更本地路径
+    /// </summary>
+    public static int SDKGetLocalDynamicUpdatePathSuccess = GlobalEvent.NewEventId;
     /// <summary>
     /// 获取更新大小
     /// </summary>
@@ -34,6 +38,10 @@ public static class EventDef
     /// 点击Esc
     /// </summary>
     public static int OnClickEsc = GlobalEvent.NewEventId;
+    /// <summary>
+    /// 游戏启动完成
+    /// </summary>
+    public static int OnGameStartUp = GlobalEvent.NewEventId;
 
     #endregion
 }

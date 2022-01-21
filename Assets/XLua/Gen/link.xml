@@ -15,15 +15,19 @@
 		<type fullname="ListEntends" preserve="all"/>
 		<type fullname="QuaternionExtends" preserve="all"/>
 		<type fullname="TransformExtends" preserve="all"/>
+		<type fullname="Launcher" preserve="all"/>
+		<type fullname="StartUpManager" preserve="all"/>
 		<type fullname="BattleObjectExtends" preserve="all"/>
 		<type fullname="CSGoHelp" preserve="all"/>
 		<type fullname="LuaAssetHelp" preserve="all"/>
 		<type fullname="UnityObjectExtends" preserve="all"/>
 		<type fullname="XLuaManager" preserve="all"/>
+		<type fullname="AndroidSDKManager" preserve="all"/>
+		<type fullname="SDKInterface" preserve="all"/>
+		<type fullname="EventDef" preserve="all"/>
+		<type fullname="GameManager" preserve="all"/>
 		<type fullname="WorldItemControl" preserve="all"/>
 		<type fullname="LuaBehaviourTree.LuaBehaviourTreeUtils" preserve="all"/>
-		<type fullname="SDKInterface" preserve="all"/>
-		<type fullname="Launcher" preserve="all"/>
 		<type fullname="UIModel" preserve="all"/>
 		<type fullname="AorLongPressButton" preserve="all"/>
 		<type fullname="AorButton" preserve="all"/>

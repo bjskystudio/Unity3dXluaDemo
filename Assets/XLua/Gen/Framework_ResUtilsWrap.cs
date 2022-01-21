@@ -31,8 +31,9 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 2, 2, 2);
-			Utils.RegisterFunc(L, Utils.CLS_IDX, "GetResFullPath", _m_GetResFullPath_xlua_st_);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 3, 2, 2);
+			Utils.RegisterFunc(L, Utils.CLS_IDX, "ResPath", _m_ResPath_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadPrefabInstance", _m_LoadPrefabInstance_xlua_st_);
             
 			
             
@@ -60,7 +61,7 @@ namespace XLua.CSObjectWrap
         
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_GetResFullPath_xlua_st_(RealStatePtr L)
+        static int _m_ResPath_xlua_st_(RealStatePtr L)
         {
 		    try {
             
@@ -68,9 +69,9 @@ namespace XLua.CSObjectWrap
             
                 
                 {
-                    string _p_filename = LuaAPI.lua_tostring(L, 1);
+                    string _pathBySuffix = LuaAPI.lua_tostring(L, 1);
                     
-                        var gen_ret = Framework.ResUtils.GetResFullPath( _p_filename );
+                        var gen_ret = Framework.ResUtils.ResPath( _pathBySuffix );
                         LuaAPI.lua_pushstring(L, gen_ret);
                     
                     
@@ -81,6 +82,49 @@ namespace XLua.CSObjectWrap
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_LoadPrefabInstance_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+			    int gen_param_count = LuaAPI.lua_gettop(L);
+            
+                if(gen_param_count == 2&& (LuaAPI.lua_isnil(L, 1) || LuaAPI.lua_type(L, 1) == LuaTypes.LUA_TSTRING)&& translator.Assignable<UnityEngine.Transform>(L, 2)) 
+                {
+                    string _path = LuaAPI.lua_tostring(L, 1);
+                    UnityEngine.Transform _root = (UnityEngine.Transform)translator.GetObject(L, 2, typeof(UnityEngine.Transform));
+                    
+                        var gen_ret = Framework.ResUtils.LoadPrefabInstance( _path, _root );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                if(gen_param_count == 1&& (LuaAPI.lua_isnil(L, 1) || LuaAPI.lua_type(L, 1) == LuaTypes.LUA_TSTRING)) 
+                {
+                    string _path = LuaAPI.lua_tostring(L, 1);
+                    
+                        var gen_ret = Framework.ResUtils.LoadPrefabInstance( _path );
+                        translator.Push(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to Framework.ResUtils.LoadPrefabInstance!");
             
         }
         

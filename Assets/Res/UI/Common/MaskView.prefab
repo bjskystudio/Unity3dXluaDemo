@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 2067163310433088746}
   - component: {fileID: 2067163310433088751}
   - component: {fileID: 2067163310433088749}
-  - component: {fileID: 2067163310433088748}
+  - component: {fileID: 1076656391671282300}
   m_Layer: 5
   m_Name: MaskView
   m_TagString: Untagged
@@ -232,7 +232,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   TargetCamera: {fileID: 0}
---- !u!114 &2067163310433088748
+--- !u!114 &1076656391671282300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2067163310433088747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b46ddb6a1bf9e439e3472855f19135, type: 3}
+  m_Script: {fileID: 11500000, guid: b9053727d8ffc5944ab7084e97d5c165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiNodeArray:
@@ -256,6 +256,7 @@ MonoBehaviour:
     gameObject: {fileID: 1253439869327936634}
   uiBtnList: []
   uiToggleList: []
+  uiTmpList: []
   nowState: 
   stateNameList: []
   stateList: []

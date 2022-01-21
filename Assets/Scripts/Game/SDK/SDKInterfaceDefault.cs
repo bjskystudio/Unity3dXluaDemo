@@ -1,4 +1,5 @@
 ﻿using Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using YoukiaCore.Log;
@@ -13,6 +14,11 @@ public class SDKInterfaceDefault : SDKInterface
     }
 
     #region 热更
+
+    public override void getLocalDynamicUpdatePath()
+    {
+        SDKCall("get_local_dynamic_update_path", ResUtils.SDKUpdatePath);
+    }
 
     //单位字节
     private long size;
@@ -40,10 +46,6 @@ public class SDKInterfaceDefault : SDKInterface
         //{
         //    SDKCall("get_dynamic_update_per", size + "");
         //}
-        SDKManager.Instance.TestDownDynamicUpdate(size, (nowSize) =>
-        {
-            SDKCall("get_dynamic_update_per", nowSize + "");
-        });
     }
 
     public override void updateInfo()
@@ -142,20 +144,22 @@ public class SDKInterfaceDefault : SDKInterface
 
     #region 防沉迷
 
+    public override void getAgreementResult()
+    {
+        //是否同意协议：0取消，1同意
+        SDKCall("get_agreement_result", PlayerPrefs.GetString("UserAgreement", "0"));
+    }
+
+    public override void showWebAgreementDialog()
+    {
+        //是否同意协议：0取消，1同意
+        SDKCall("agreement_result", PlayerPrefs.GetString("UserAgreement", "0"));
+    }
+
     public override void isMinor()
     {
         //玩家年龄段 > (-1:未获取到数据时的默认值) (0:未认证) (1:<8岁) (2:8岁>年龄<16岁) (3:16岁>年龄<18岁 4:>18岁)
         SDKCall("fangchenmi_flag", "4");
-    }
-
-    public override void realNameRegister(string name, string idcard)
-    {
-        string[][] temp = new string[][]
-      {
-            new string[2]{ "fangchenmi_flag", "4"},
-            new string[2]{ "crc", DefaultKey},
-      };
-        SDKCall("realname_success", temp);
     }
 
     #endregion
@@ -164,22 +168,24 @@ public class SDKInterfaceDefault : SDKInterface
 
     public override void getGoodsList()
     {
-        throw new System.NotImplementedException();
+        SDKCall("pay_goods_list", DefaultKey);
     }
 
-    public override void buy(string productId)
+    public override void buy(string productId, string gameProductId, string gameProductName)
     {
-        throw new System.NotImplementedException();
+        SDKCall("pay_success", DefaultKey);
+        SDKCall("get_change_order", productId + "|p360_14425|" + DateTime.UtcNow.Ticks);
     }
 
     public override void getGoodsList_pro()
     {
-        throw new System.NotImplementedException();
+        SDKCall("pay_goods_list_pro", DefaultKey);
     }
 
-    public override void buy_pro(string productId, string extra)
+    public override void buy_pro(string productId, string gameProductId, string gameProductName, string extra)
     {
-        throw new System.NotImplementedException();
+        SDKCall("pay_success", DefaultKey);
+        SDKCall("get_change_order", productId + "|p360_14425|" + DateTime.UtcNow.Ticks);
     }
 
     #endregion
@@ -269,10 +275,22 @@ public class SDKInterfaceDefault : SDKInterface
 
     public override void openNotchScreen()
     {
-        string[][] temp = new string[][]
+        string[][] temp = null;
+        if (Launcher.Instance.TestNotchScreen)
         {
-            new string[2]{ "hasNotchScreen", "false"},
-        };
+            temp = new string[][]
+            {
+                new string[2]{ "hasNotchScreen", "true"},
+                new string[2]{ "notchWight", "120"},
+            };
+        }
+        else
+        {
+            temp = new string[][]
+            {
+                new string[2]{ "hasNotchScreen", "false"},
+            };
+        }
         SDKCall("notchScreenInfo", temp);
     }
 
@@ -281,7 +299,7 @@ public class SDKInterfaceDefault : SDKInterface
         string[][] temp = new string[][]
         {
             new string[2]{ "appName", "appName"},
-            new string[2]{ "platform", "platform"},
+            new string[2]{ "platform", "1"},
             new string[2]{ "appId", "appId"},
             new string[2]{ "youkia_deviceId", "youkia_deviceId"},
             new string[2]{ "deviceId", "deviceId"},
@@ -341,7 +359,7 @@ public class SDKInterfaceDefault : SDKInterface
             { "head", head }
         };
         data.Add("body", body);
-        SDKManager.Instance.OnGetMessage(Json.Encode(data));
+        AndroidSDKManager.Instance.OnGetMessage(Json.Encode(data));
     }
 
     private string ToJsonString(string[][] body)

@@ -44,16 +44,44 @@ namespace ResourceLoad
                 if (asset != null && !asset.Equals(null))
                 {
                     Material material = asset as Material;
-                    Shader shader = Shader.Find(material.shader.name);
-                    if (shader != null)
+                    if (material != null)
                     {
-                        material.shader = shader;
-                    }
+                        Shader shader = Shader.Find(material.shader.name);
+                        if (shader != null)
+                        {
+                            material.shader = shader;
+                        }
 
-                    if (callback != null)
+                        if (callback != null)
+                        {
+                            ResRef resRef = new ResRef(this);
+                            callback(material, resRef);
+                        }
+                    }
+                    else
                     {
-                        ResRef resRef = new ResRef(this);
-                        callback(material, resRef);
+                        List<Material> materialList = (asset as IEnumerable<System.Object>).Cast<Material>().ToList();
+                        if (materialList != null)
+                        {
+                            for (int i = 0; i < materialList.Count; i++)
+                            {
+                                Material tMaterial = materialList[i];
+                                if (tMaterial != null)
+                                {
+                                    Shader shader = Shader.Find(tMaterial.shader.name);
+                                    if (shader != null)
+                                    {
+                                        tMaterial.shader = shader;
+                                    }
+                                }
+                            }
+
+                            if (callback != null)
+                            {
+                                ResRef resRef = new ResRef(this);
+                                callback(materialList, resRef);
+                            }
+                        }
                     }
                 }
                 else

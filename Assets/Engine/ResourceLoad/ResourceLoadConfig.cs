@@ -16,7 +16,8 @@ namespace ResourceLoad
         public string RES_LOCAL_ASSETDATABASE_RELATIVE_PATH = "Assets/Export";
         public string RES_LOCAL_AB_RELATIVE_PATH = "../ClientRes/Android/Assetbundle";
         public string RES_STREAM_AB_RELATIVE_PATH = "ClientRes/Android/Assetbundle";
-        public string RES_PERSISTENT_AB_RELATIVE_PATH = "ClientRes/Android/Assetbundle";
+        public string RES_PERSISTENT_RELATIVE_PATH = "ClientRes/Android/Assetbundle";
+        public string RES_PERSISTENT_AB_RELATIVE_PATH = "Assetbundle";
         public float RECYBLEBIN_RES_DESTROY_TIME = 10;
     }
 

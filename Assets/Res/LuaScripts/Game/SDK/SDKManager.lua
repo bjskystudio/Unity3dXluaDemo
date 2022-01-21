@@ -9,11 +9,12 @@ local Logger = require("Logger")
 local SDKDef = require("SDKDef")
 local EventManager = require("EventManager")
 
-local handler = handler
+local tostring = tostring
 ---@type SDKInterface
-local SDKInterface = CS.SDKManager.Instance.SDK
+local SDKInterface = CS.AndroidSDKManager.Instance.SDK
 
 ---@class SDKManager : Singleton SDK管理器
+---@field public IsLoginSDKSucceed boolean 是否已登录SDK
 local SDKManager = Class("SDKManager", Singleton)
 
 ---同步>SDKInterfaceDefault.cs
@@ -21,9 +22,22 @@ SDKManager.DefaultKey = "default"
 
 ---初始化
 function SDKManager:__init()
-    CS.SDKManager.LuaOnGetMessage = function(head, body)
+    self:AddEvent(SDKDef.GetMsg.login_success, self.login_success)
+    self:AddEvent(SDKDef.GetMsg.login_failed, self.login_failed)
+    self:AddEvent(SDKDef.GetMsg.login_cancle, self.login_failed)
+    CS.AndroidSDKManager.LuaOnGetMessage = function(head, body)
         EventManager:GetInstance():Broadcast(SDKDef.GetMsg[head], body)
     end
+end
+
+---@private
+function SDKManager:login_success()
+    self.IsLoginSDKSucceed = true
+end
+
+---@private
+function SDKManager:login_failed()
+    self.IsLoginSDKSucceed = false
 end
 
 --region -------------实现-------------
@@ -80,16 +94,19 @@ end
 
 --region -------------防沉迷-------------
 
+---获取隐私协议状态
+function SDKManager:getAgreementResult()
+    SDKInterface:getAgreementResult()
+end
+
+---显示Web协议弹窗
+function SDKManager:showWebAgreementDialog()
+    SDKInterface:showWebAgreementDialog()
+end
+
 ---查询是否未成年（通过这个可以查询是否已登记实名制）
 function SDKManager:SendIsMinor()
     SDKInterface:isMinor()
-end
-
----请求实名认证
----@param name string 身份证名字
----@param idcard string 身份证号码
-function SDKManager:SendRealNameRegister(name, idcard)
-    SDKInterface:realNameRegister(name, idcard)
 end
 
 --endregion
@@ -107,23 +124,26 @@ function SDKManager:SendGetProGoodsList()
 end
 
 ---购买充值商品
----@param goodsID string 商品ID
-function SDKManager:SendBuy(goodsID)
-    SDKInterface:buy(goodsID)
+---@param goodsID string 档位ID
+---@param itemSid number 游戏物品SID
+---@param itemName string 游戏物品名字
+function SDKManager:SendBuy(goodsID, itemSid, itemName)
+    SDKInterface:buy(goodsID, tostring(itemSid), itemName)
 end
 
 ---购买限时商品
----@param goodsID string 商品ID
----@param itemId number 物品ID
----@param activityId number 活动ID
-function SDKManager:SendBuyPro(goodsID, itemId, activityId)
+---@param goodsID string 档位ID
+---@param itemSid number 游戏物品SID
+---@param itemName string 游戏物品名字
+---@param activityId number 游戏物品名字
+function SDKManager:SendBuyPro(goodsID, itemSid, itemName, activityId)
     local a_sid = ""
     if activityId ~= nil then
         a_sid = "#a_sid:" .. activityId
     end
 
-    local extra = "item_id:" .. itemId .. a_sid
-    SDKInterface:buy_pro(goodsID, extra)
+    local extra = "item_id:" .. itemSid .. a_sid
+    SDKInterface:buy_pro(goodsID, tostring(itemSid), itemName, extra)
 end
 
 --endregion
@@ -145,7 +165,7 @@ end
 ---@param createRoleTime string 角色创建时间
 ---@param extra string 额外参数(map格式数据，k=v结构)
 function SDKManager:SendCreateRole(roleId, roleName, roleLevel, zoneId, zoneName, createRoleTime, extra)
-    extra = extra or "nil=nil"
+    extra = extra or "null=null"
     SDKInterface:createRole(roleId, roleName, roleLevel, zoneId, zoneName, createRoleTime, extra)
 end
 
@@ -158,7 +178,7 @@ end
 ---@param createRoleTime string 角色创建时间
 ---@param extra string 额外参数(map格式数据，k=v结构)
 function SDKManager:SendEnterGame(roleId, roleName, roleLevel, zoneId, zoneName, createRoleTime, extra)
-    extra = extra or "nil=nil"
+    extra = extra or "null=null"
     SDKInterface:enterGame(roleId, roleName, roleLevel, zoneId, zoneName, createRoleTime, extra)
 end
 
@@ -171,7 +191,7 @@ end
 ---@param createRoleTime string 角色创建时间
 ---@param extra string 额外参数(map格式数据，k=v结构)
 function SDKManager:SendGameRoleInfo(roleId, roleName, roleLevel, zoneId, zoneName, createRoleTime, extra)
-    extra = extra or "nil=nil"
+    extra = extra or "null=null"
     SDKInterface:gameRoleInfo(roleId, roleName, roleLevel, zoneId, zoneName, createRoleTime, extra)
 end
 

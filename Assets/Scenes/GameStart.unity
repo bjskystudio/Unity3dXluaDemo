@@ -357,8 +357,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1139893288}
-  - component: {fileID: 1139893287}
   - component: {fileID: 1139893289}
+  - component: {fileID: 1139893287}
   m_Layer: 0
   m_Name: Launcher
   m_TagString: Untagged
@@ -375,23 +375,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139893286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5860c10dddb162943a8883769196736b, type: 3}
+  m_Script: {fileID: 11500000, guid: 601255a32425c934da8ab78e5a9f9f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UsedAssetBundle: 0
-  UsedLuaAssetBundle: 0
-  IsSDK: 0
-  IsOpenRecharge: 1
-  IsRechargeBySDK: 0
-  IsShowTeach: 0
-  ShowSplash: 0
-  GameSpeed: 1
-  LogLevel: 0
-  IsTuoGuan: 0
-  LuaDebug: 0
-  ShowLuaMem: 0
-  TestNotchScreen: 0
-  LocalUpdateUrl: 
+  mConfig: {fileID: 11400000, guid: 54bcfd04402568542a200ca338aea820, type: 2}
 --- !u!4 &1139893288
 Transform:
   m_ObjectHideFlags: 0
@@ -415,10 +402,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139893286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20000423c864f974fa6d546c088ff435, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ca52a4b61d6a0c4b83c44830484a39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mConfig: {fileID: 11400000, guid: 54bcfd04402568542a200ca338aea820, type: 2}
+  UsedAssetBundle: 0
+  UsedLuaAssetBundle: 0
+  IsSDK: 0
+  IsRechargeBySDK: 0
+  IsOpenRecharge: 1
+  IsShowGuide: 0
+  ShowSplash: 0
+  ShowStartCG: 0
+  GameSpeed: 1
+  LogLevel: 0
+  IsTuoGuan: 0
+  LuaDebug: 0
+  ShowLuaMem: 0
+  TestNotchScreen: 0
+  IsOpenLocalUpdate: 0
+  LocalUpdateUrl: 
 --- !u!1 &2049518424
 GameObject:
   m_ObjectHideFlags: 0

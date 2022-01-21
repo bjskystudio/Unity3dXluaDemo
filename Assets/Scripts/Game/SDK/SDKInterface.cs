@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-[XLua.CSharpCallLua]
+[XLua.LuaCallCSharp]
 public abstract class SDKInterface
 {
     public Dictionary<string, int> StepKeyValue = new Dictionary<string, int>();
@@ -28,6 +29,12 @@ public abstract class SDKInterface
     public abstract void Init();
 
     #region 热更
+
+    /// <summary>
+    /// 获取本地热更地址
+    /// <para>返回Key：get_local_dynamic_update_path</para>
+    /// </summary>
+    public abstract void getLocalDynamicUpdatePath();
 
     /// <summary>
     /// 请求热更信息
@@ -94,16 +101,19 @@ public abstract class SDKInterface
     #region 防沉迷
 
     /// <summary>
+    /// 获取协议是否同意
+    /// <para>返回Key:get_agreeement_result,值:0取消/1同意</para>
+    /// </summary>
+    public abstract void getAgreementResult();
+    /// <summary>
+    /// 显示Web协议弹窗
+    /// <para>返回Key:agreeement_result,值:0取消/1同意</para>
+    /// </summary>
+    public abstract void showWebAgreementDialog();
+    /// <summary>
     /// 是否未成年
     /// </summary>
     public abstract void isMinor();
-    /// <summary>
-    /// 实名认证
-    /// <para>*建议在loginEx(String serverSid, int flags)之后，loginServer(String serverSid)之前调用此接口</para>
-    /// </summary>
-    /// <param name="name">身份证名字</param>
-    /// <param name="idcard">身份证号码</param>
-    public abstract void realNameRegister(string name, string idcard);
 
     #endregion
 
@@ -114,18 +124,24 @@ public abstract class SDKInterface
     /// </summary>
     public abstract void getGoodsList();
     /// <summary>
-    /// 普通购买
+    /// 购买商品(充值)
     /// </summary>
-    public abstract void buy(string productId);
+    /// <param name="productId">充值档位ID</param>
+    /// <param name="gameProductId">游戏商品ID</param>
+    /// <param name="gameProductName">游戏商品名称</param>
+    public abstract void buy(string productId, string gameProductId, string gameProductName);
     /// <summary>
     /// 直购商品列表
     /// </summary>
     public abstract void getGoodsList_pro();
     /// <summary>
-    /// 直购
+    /// 直购商品（礼包）
     /// </summary>
-    /// <param name="productId"></param>
-    public abstract void buy_pro(string productId, string extra);
+    /// <param name="productId">充值档位ID</param>
+    /// <param name="gameProductId">游戏商品ID</param>
+    /// <param name="gameProductName">游戏商品名称</param>
+    /// <param name="extra">附加数据</param>
+    public abstract void buy_pro(string productId, string gameProductId, string gameProductName, string extra);
 
     #endregion
 

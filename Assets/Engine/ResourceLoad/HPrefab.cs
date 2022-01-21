@@ -45,6 +45,7 @@ namespace ResourceLoad
             if (ResourceManager.Instance.LoadMode == ResourceLoadMode.eAssetbundle)
             {
                 Type materialType = typeof(Material);
+                Type materialArrayType = typeof(Material[]);
                 Type smrType = typeof(SkinnedMeshRenderer);
                 Type mrType = typeof(MeshRenderer);
                 Component[] components = obj.GetComponentsInChildren<Component>(true);
@@ -60,27 +61,51 @@ namespace ResourceLoad
                     for (int j = 0; j < propertyInfos.Length; j++)
                     {
                         PropertyInfo propertyInfo = propertyInfos[j];
-                        if (propertyInfo.PropertyType == materialType && propertyInfo.CanRead && propertyInfo.CanWrite)
+                        if ((propertyInfo.PropertyType == materialType || propertyInfo.PropertyType == materialArrayType) && propertyInfo.CanRead && propertyInfo.CanWrite)
                         {
                             if(FilterMaterial(type, propertyInfo))
                             {
                                 try
                                 {
-                                    Material material = propertyInfo.GetValue(comp) as Material;
-                                    if (material != null)
+                                    object value = propertyInfo.GetValue(comp);
+                                    if(value is Array)
                                     {
-                                        if (type == smrType || type == mrType)
+                                        Material[] materials = value as Material[];
+                                        for (int k = 0; k < materials.Length; k++)
                                         {
-                                            int rederQueue = material.renderQueue;
-                                            material.shader = Shader.Find(material.shader.name);
-                                            //换了shader后会导致renderqueue重置为默认，所以这里要还原回来
-                                            material.renderQueue = rederQueue;
-                                            propertyInfo.SetValue(comp, material);
+                                            Material material = materials[k];
+                                            if (material != null)
+                                            {
+                                                if (type == smrType || type == mrType)
+                                                {
+                                                    int rederQueue = material.renderQueue;
+                                                    material.shader = Shader.Find(material.shader.name);
+                                                    //换了shader后会导致renderqueue重置为默认，所以这里要还原回来
+                                                    material.renderQueue = rederQueue;
+                                                }
+                                                else
+                                                {
+                                                    material.shader = Shader.Find(material.shader.name);
+                                                }
+                                            }
                                         }
-                                        else
+                                    }
+                                    else
+                                    {
+                                        Material material = value as Material;
+                                        if (material != null)
                                         {
-                                            material.shader = Shader.Find(material.shader.name);
-                                            propertyInfo.SetValue(comp, material);
+                                            if (type == smrType || type == mrType)
+                                            {
+                                                int rederQueue = material.renderQueue;
+                                                material.shader = Shader.Find(material.shader.name);
+                                                //换了shader后会导致renderqueue重置为默认，所以这里要还原回来
+                                                material.renderQueue = rederQueue;
+                                            }
+                                            else
+                                            {
+                                                material.shader = Shader.Find(material.shader.name);
+                                            }
                                         }
                                     }
                                 }

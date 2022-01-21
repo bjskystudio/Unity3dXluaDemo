@@ -160,7 +160,7 @@ function LoginView:CheckLoginState()
         curServer = ServerManager:GetInstance():GetLastServer()
         if not curServer then
             SDKManager:GetInstance():GetServerList()
-            PopupManager.ShowAlertDialog(nil, LanguagePackage.Login_UnSelectServer)
+            --PopupManager.ShowAlertDialog(nil, LanguagePackage.Login_UnSelectServer)
             SDKManager:GetInstance():SendBIStep(SDKDef.BIStep.NoServerDataAlert)
             return false
         end
@@ -178,13 +178,13 @@ function LoginView:CheckLoginState()
             param.Content = curServer.NotOpenTips
         end
 
-        PopupManager.ShowSystemDialog(param)
+        --PopupManager.ShowSystemDialog(param)
         SDKManager:GetInstance():SendBIStep(SDKDef.BIStep.MaintenanceServer)
         return false
     end
     if not AppSetting.IsSDK then
         if string.IsNullOrEmpty(self.go_table.aortext_inputName.text) then
-            PopupManager.ShowAlertDialog(nil, LanguagePackage.Login_NameCantNil)
+            --PopupManager.ShowAlertDialog(nil, LanguagePackage.Login_NameCantNil)
             return false
         end
     end

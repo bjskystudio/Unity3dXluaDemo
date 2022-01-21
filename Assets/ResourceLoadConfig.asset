@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c74f0c8038db8744491dda7f698439d7, type: 3}
+  m_Script: {fileID: 11500000, guid: ec698ca35b579d24dba9ffdd80aab31b, type: 3}
   m_Name: ResourceLoadConfig
   m_EditorClassIdentifier: 
-  mResourceLoadMode: 0
-  DEBUG_MODE: 0
-  REPLACE_AB_SHADER: 1
-  ASSETBUNDLE_SUFFIX_NAME: 
-  MANIFEST_NAME: Assetbundle
-  SHADER_AB_RELATIVE_PATH: allshader
+  mResourceLoadMode: 1
+  DEBUG_MODE: 1
+  REPLACE_AB_SHADER: 0
+  ASSETBUNDLE_SUFFIX_NAME: .assetbundle
+  MANIFEST_NAME: StreamingResources
+  SHADER_AB_RELATIVE_PATH: shader/allshader
   RES_LOCAL_ASSETDATABASE_RELATIVE_PATH: Assets/Res
-  RES_LOCAL_AB_RELATIVE_PATH: ../ClientRes/Android/Assetbundle
-  RES_STREAM_AB_RELATIVE_PATH: ClientRes/Android/Assetbundle
-  RES_PERSISTENT_AB_RELATIVE_PATH: ClientRes/Android/Assetbundle
-  RECYBLEBIN_RES_DESTROY_TIME: 10
+  RES_LOCAL_AB_RELATIVE_PATH: StreamingAssets/StreamingResources
+  RES_STREAM_AB_RELATIVE_PATH: StreamingResources
+  RES_PERSISTENT_RELATIVE_PATH: GameRes
+  RES_PERSISTENT_AB_RELATIVE_PATH: StreamingResources
+  RECYBLEBIN_RES_DESTROY_TIME: 1

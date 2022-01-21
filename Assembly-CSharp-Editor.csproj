@@ -115,6 +115,12 @@
     <Compile Include="Assets\Scripts\Engine\Unity\GUI\UI\Editor\AorTMP_InputFieldEditor.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\GUI\UI\Editor\AorTextEditor.cs" />
     <Compile Include="Assets\Scripts\Engine\Unity\GUI\UI\Editor\AorUIUtils.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Log\LuaLog\Editor\CodeOpenEditor.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Log\LuaLog\Editor\IDEAOpenHandle.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Log\LuaLog\Editor\ILuaLogOpenHandle.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Log\LuaLog\Editor\LuaLogEditor.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Log\LuaLog\Editor\LuaLogEditorHandle.cs" />
+    <Compile Include="Assets\Scripts\Engine\Unity\Log\LuaLog\Editor\VSCodeOpenHandle.cs" />
     <Compile Include="Assets\Scripts\Game\BehaviourTree\Editor\BTNodeData.cs" />
     <Compile Include="Assets\Scripts\Game\BehaviourTree\Editor\BTNodeEditor.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Helper\SvnTool.cs" />
@@ -127,11 +133,13 @@
     <Compile Include="Assets\Scripts\Game\Editor\Postprocessor\CustomAssetPostprocessor.cs" />
     <Compile Include="Assets\Scripts\Game\Editor\Postprocessor\IdeaTemplatesPostprocessor.cs" />
     <Compile Include="Assets\Scripts\Game\Guide\Editor\GuideMaskEditor.cs" />
+    <Compile Include="Assets\Scripts\Game\Launch\Editor\LauncherEditor.cs" />
     <Compile Include="Assets\Scripts\Game\Tools\GMTools\Debugger\Editor\DebuggerComponentInspector.cs" />
     <Compile Include="Assets\Scripts\Game\Tools\GMTools\Editor\EditorUtilities.cs" />
     <Compile Include="Assets\Scripts\Game\Tools\GMTools\Editor\EditorWindow\BaseEditorWindow.cs" />
     <Compile Include="Assets\Scripts\Game\Tools\GMTools\Editor\GameHelperEditorWindow.cs" />
     <Compile Include="Assets\Scripts\Game\Tools\GMTools\Editor\GameHelperUtilities.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\RedPointSys\Editor\RedPointPrefEditor.cs" />
     <Compile Include="Assets\XLua\Editor\ExampleConfig.cs" />
     <Compile Include="Assets\XLua\Editor\GenConfig.cs" />
     <Compile Include="Assets\XLua\Src\Editor\Generator.cs" />

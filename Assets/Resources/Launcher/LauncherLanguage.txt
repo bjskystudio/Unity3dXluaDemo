@@ -1,0 +1,13 @@
+﻿loadWait=资源加载中,请稍后...
+updWait=更新下载中,请稍后...{0}{1}/{2}{3}
+updDesc=检测到有资源需要更新，更新内容为{0}，建议在<color=#FF0000>WIFI</color>环境下下载。
+iosUpdWait=加载中,请稍后...{0}{1}/{2}{3}
+iosUpdDesc=检测到有资源需要重新解压，解压大小为{0}，建议在<color=#FF0000>WIFI</color>环境下解压。
+title=提示
+sure=确定
+cancel=取消
+continue=继续
+update=更新
+updateFailed=获取更新数据失败，稍后重试？
+reTry=重试
+loadingTitle=加载中...

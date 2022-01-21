@@ -59,10 +59,15 @@ local GetMsg = {
 
     --region -------------防沉迷-------------
 
-    ---实名认证成功
-    realname_success = EventNumberUtils.NewEventId(),
-    ---此账号已经绑定
-    realname_failed = EventNumberUtils.NewEventId(),
+    --getAgreementResult
+    ---获取隐私协议状态返回(0取消，1同意)
+    get_agreement_result = EventNumberUtils.NewEventId(),
+
+    --showWebAgreementDiglog
+    ---是否同意协议内容(0取消，1同意)
+    agreement_result = EventNumberUtils.NewEventId(),
+
+    --isMinor
     ---是否未成年返回
     --- -1： 未获取到数据时的默认值
     ---0： 未认证
