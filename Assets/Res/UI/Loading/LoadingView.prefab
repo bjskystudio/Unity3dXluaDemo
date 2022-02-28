@@ -350,7 +350,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8182786875768503375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b46ddb6a1bf9e439e3472855f19135, type: 3}
+  m_Script: {fileID: 11500000, guid: b9053727d8ffc5944ab7084e97d5c165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiNodeArray:
@@ -362,6 +362,7 @@ MonoBehaviour:
     gameObject: {fileID: 8182786875764044234}
   uiBtnList: []
   uiToggleList: []
+  uiTmpList: []
   nowState: 
   stateNameList: []
   stateList: []
