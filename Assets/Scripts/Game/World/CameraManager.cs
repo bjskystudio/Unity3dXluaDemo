@@ -8,6 +8,8 @@ using Cinemachine;
 using ResourceLoad;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using Framework.Environment;
+using YoukiaCore.Collections;
 
 public class CameraManager : MonoBehaviour
 {
@@ -29,6 +31,29 @@ public class CameraManager : MonoBehaviour
             return cinemachineBrain;
         }
     }
+    /// <summary>
+    /// 已打开的场景设置列表
+    /// </summary>
+
+    private XCoreList<EnvironmentSetting> ESList = new XCoreList<EnvironmentSetting>();
+    /// <summary>
+    /// 当前场景设置
+    /// </summary>
+    private EnvironmentSetting LastEnvironmentSetting
+    {
+        get
+        {
+            if (ESList.Size > 0)
+            {
+                return ESList[ESList.Size - 1];
+            }
+            return null;
+        }
+    }
+    /// <summary>
+    /// 已注册的场景绘制阻挠列表
+    /// </summary>
+    private Dictionary<string, bool> ObstructionDic = new Dictionary<string, bool>();
 
     public static CameraManager Get()
     {
@@ -37,10 +62,10 @@ public class CameraManager : MonoBehaviour
 
     public void Start()
     {
+        maincamera = transform.Find("MainCamera").GetComponent<Camera>();
         inst = this;
         HudRoot = transform.Find("Canvas/HudRoot");
         StoryRoot = transform.Find("Canvas/StoryRoot");
-        maincamera = Camera.main;
         if (CNPRPipeline.asset != null)
             cameradata = maincamera.GetAdditionalCameraData();
         else if (UniversalRenderPipeline.asset != null)
@@ -48,12 +73,12 @@ public class CameraManager : MonoBehaviour
         AddCameraToStack(UIModel.Inst.BlurCamera);
         AddCameraToStack(UIModel.Inst.UICamera);
         DontDestroyOnLoad(gameObject);
-       
     }
-
 
     private void OnDestroy()
     {
+        ObstructionDic.Clear();
+        ESList.Clear();
         inst = null;
     }
 
@@ -64,6 +89,7 @@ public class CameraManager : MonoBehaviour
         else if (UniversalRenderPipeline.asset != null)
             ((UniversalAdditionalCameraData)cameradata).cameraStack.Add(camera);
     }
+
     public void RemoveCameraFromStrack(Camera camera)
     {
         if (CNPRPipeline.asset != null)
@@ -71,18 +97,90 @@ public class CameraManager : MonoBehaviour
         else if (UniversalRenderPipeline.asset != null)
             ((UniversalAdditionalCameraData)cameradata).cameraStack.Remove(camera);
     }
+
+    public void AddEnvironmentSetting(EnvironmentSetting setting)
+    {
+        LastEnvironmentSetting?.SetBloomPostActive(false);
+        ESList.Add(setting);
+        //SetMainCameraCullingMask(setting.CameraCullingMask);
+        //场景的添加,遵循检查是否有场景阻挠器起效的原则
+        CheckMainCameraVisibility();
+    }
+
+    public void RemoveEnvironmentSetting(EnvironmentSetting setting)
+    {
+        ESList.Remove(setting);
+        var curSetting = LastEnvironmentSetting;
+        if (curSetting != null)
+        {
+            curSetting.UpdateSetting();
+            curSetting.LightMap?.SetSceneInfo();
+            //SetMainCameraCullingMask(curSetting.CameraCullingMask);
+            //场景的移除,遵循检查是否有场景阻挠器起效的原则
+            CheckMainCameraVisibility();
+        }
+    }
+
+    /// <summary>
+    /// 注册场景绘制阻挠器
+    /// </summary>
+    /// <param name="viewName"></param>
+    public void RegisterObst(string viewName)
+    {
+        if (!ObstructionDic.ContainsKey(viewName))
+        {
+            ObstructionDic.Add(viewName, true);
+        }
+        CheckMainCameraVisibility();
+    }
+
+    /// <summary>
+    /// 取消注册场景绘制阻挠器
+    /// </summary>
+    /// <param name="viewName"></param>
+    public void UnRegisterObst(string viewName)
+    {
+        if (ObstructionDic.ContainsKey(viewName))
+        {
+            ObstructionDic.Remove(viewName);
+        }
+        CheckMainCameraVisibility();
+    }
+
+    /// <summary>
+    /// 检查主摄像机可见性
+    /// </summary>
+    /// <param name="value"></param>
+    private void CheckMainCameraVisibility()
+    {
+        if (ObstructionDic.Count == 0)
+        {
+            var curSetting = LastEnvironmentSetting;
+            if (curSetting != null)
+            {
+                SetMainCameraCullingMask(curSetting.CameraCullingMask);
+            }
+        }
+        else
+        {
+            SetMainCameraCullingMask(0);
+        }
+    }
+
+    private void SetMainCameraCullingMask(int cullingMask)
+    {
+        maincamera.cullingMask = cullingMask;
+    }
+
     public void VisibilityLayer(int layer, bool flag)
     {
         if (flag)
         {
-            maincamera.cullingMask = (maincamera.cullingMask | layer);
+            maincamera.cullingMask = (maincamera.cullingMask | 1 << layer);
         }
         else
         {
-            if ((maincamera.cullingMask & layer) > 0)
-            {
-                maincamera.cullingMask -= layer;
-            }
+            maincamera.cullingMask = maincamera.cullingMask & ~(1 << layer);
         }
     }
 
@@ -137,10 +235,10 @@ public class CameraManager : MonoBehaviour
     {
         foreach (var VARIABLE in WorldManager.Instance.AllObj.Values)
         {
-            if (VARIABLE is WorldItem t && t.TriggerDis > 0)
+            if (VARIABLE!=null && VARIABLE is WorldItem t && t.TriggerDis > 0)
             {
                 UnityEditor.Handles.color = Color.green;
-                UnityEditor.Handles.DrawWireDisc(VARIABLE.Root.position, Vector3.up, t.TriggerDis);
+                UnityEditor.Handles.DrawWireDisc(VARIABLE.Root.position, Vector3.up, t.TriggerDis-0.25f);
             }
         }
     }

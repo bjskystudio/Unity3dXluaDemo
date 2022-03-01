@@ -1,0 +1,521 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ShaderVariants
+  m_Shaders:
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_CLIP_RECT
+        passType: 0
+  - first: {fileID: 4800000, guid: 65df88701913c224d95fc554db28381a, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 0
+  - first: {fileID: 4800000, guid: cf14c6908470f4649b6c9237b03f8aa9, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 45495790b394f894a967dbf44489b57b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: aae4e4f0d2a50754ab4caee607db80d8, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS
+        passType: 0
+  - first: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 1f3fbbd407c07ef449c41f626ec76d88, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH SHADOWRECEP_OFF
+          UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+          _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 0
+      - keywords: ANISOTROPY BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH
+          SHADOWRECEP_OFF _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+          _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 0
+      - keywords: ANISOTROPY BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH
+          SHADOWRECEP_OFF UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH SHADOWRECEP_OFF _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS SHADOWRECEP_OFF _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH SHADOWRECEP_OFF _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH SHADOWRECEP_OFF
+          _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH SHADOWRECEP_OFF
+          _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH SHADOWRECEP_OFF
+          UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH SHADOWRECEP_OFF
+          _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH SHADOWRECEP_OFF
+          UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+          _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: CUSTOMLIGHT_OFF DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP_OFF _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: CSSTOMADDLIGHT CUSTOMLIGHT_OFF DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP_OFF
+          _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: CSSTOMADDLIGHT CUSTOMLIGHT_OFF DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP_OFF
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: CSSTOMADDLIGHT CUSTOMLIGHT_OFF DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP_OFF
+          _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: CSSTOMADDLIGHT CUSTOMLIGHT_OFF DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP_ON
+          _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: CSSTOMADDLIGHT CUSTOMLIGHT_OFF DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP_ON
+          _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ANISOTROPY BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH
+          SHADOWRECEP_OFF UNITY_HDR_ON _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+          _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: ANISOTROPY BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH
+          SHADOWRECEP_OFF _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+          _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: ANISOTROPY BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH
+          SHADOWRECEP_OFF UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+  - first: {fileID: 4800000, guid: e8dae4464d7d25741bac0db36ae37785, type: 3}
+    second:
+      variants:
+      - keywords: CUSTOMLIGHT_OFF DIRECTIONAL SHADOWRECEP_OFF _ADDITIONAL_LIGHTS
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 4800000, guid: 21736066eae879c46a962067f01fb0a8, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: 6abce0a6cce00bb45913634114e1c996, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _RIMLIGHTCENTERALPHA_ON
+        passType: 14
+      - keywords: _USE_RIMLIGHT_ON
+        passType: 14
+      - keywords: _USE_CUTOUT
+        passType: 14
+  - first: {fileID: 4800000, guid: d364e9c6aa6662341aaf5c6fca0e068d, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL MASKRENDER
+        passType: 13
+  - first: {fileID: 4800000, guid: ff8079a779e8b13408930afeebb6fb20, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _FOG_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+          _FOG_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _FOG_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _FOG_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _FOG_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 4800000, guid: 995792f71a95b4b4082be5e085504191, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: 522f03282fd79be47b306e2ef4b593fd, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: c786dcd879bd68846bb2b268d3ffaeb5, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: REFLECTION SHADOWRECEP
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTMAP_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTMAP_ON UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: CSSTOMADDLIGHT DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON
+        passType: 13
+      - keywords: CSSTOMADDLIGHT DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP CSSTOMADDLIGHT DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON
+        passType: 13
+      - keywords: ALPHACLIP CSSTOMADDLIGHT DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP _FOG_BETTER_ON
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL SHADOWRECEP _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH SHADOWRECEP _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH SHADOWRECEP _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH SHADOWRECEP UNITY_HDR_ON
+          _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH REFLECTION _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH REFLECTION UNITY_HDR_ON
+          _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTMAP_ON REFLECTION _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH REFLECTION _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTMAP_ON REFLECTION UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH REFLECTION SHADOWRECEP
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH REFLECTION SHADOWRECEP _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH REFLECTION SHADOWRECEP
+          UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH REFLECTION SHADOWRECEP _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL REFLECTION SHADOWRECEP _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTMAP_ON REFLECTION SHADOWRECEP _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH REFLECTION SHADOWRECEP _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTMAP_ON REFLECTION SHADOWRECEP _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH REFLECTION SHADOWRECEP
+          UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH SPECULARTOGGLE
+        passType: 13
+      - keywords: ALPHACLIP DIRECTIONAL LIGHTPROBE_SH SPECULARTOGGLE
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH REFLECTION SPECULARTOGGLE
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH REFLECTION SHADOWRECEP SPECULARTOGGLE
+        passType: 13
+      - keywords: ALPHACLIP CSSTOMADDLIGHT DIRECTIONAL LIGHTPROBE_SH RAIN_ON REFLECTION
+          SHADOWRECEP _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 4800000, guid: df8a1dd8e0ba0f54a9f893327c6f7c36, type: 3}
+    second:
+      variants:
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: DIRECTIONAL _FOG_BETTER_ON
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: ALPHACLIP BILLBOARD_FACE_CAMERA_POS CSSTOMADDLIGHT LIGHTPROBE_SH
+          SHADOWRECEP_OFF _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 13
+  - first: {fileID: 4800000, guid: 701a5b0b2a3c7824ca3a3e83e7e6ba21, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: 2f81b9aba749edd44979b75bbf400f7b, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 13
+      - keywords: DIRECTIONAL _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 13
+  - first: {fileID: 4800000, guid: fa95b0fb6983c0f40a152e6f9aa82bfb, type: 3}
+    second:
+      variants:
+      - keywords: _STRAIGHT_ALPHA_INPUT
+        passType: 0
+  - first: {fileID: 4800000, guid: 1e8a610c9e01c3648bac42585e5fc676, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _USE8NEIGHBOURHOOD_ON
+        passType: 8
+  - first: {fileID: 4800000, guid: 17c8535ceff15374ca2a76cff7c66e9f, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: UNITY_UI_CLIP_RECT
+        passType: 0
+  - first: {fileID: 4800000, guid: cfc2797d3042523448267b4a1452a68f, type: 3}
+    second:
+      variants:
+      - keywords: _ReceiveShadow
+        passType: 13
+  - first: {fileID: 4800000, guid: e7857e9d0c934dc4f83f270f8447b006, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 0
+      - keywords: _BLOOM_LQ
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _BLOOM_LQ _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: _BLOOM_LQ _TONEMAP_ACES
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _BLOOM_LQ
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _TONEMAP_ACES
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _BLOOM_LQ
+          _DEPTH_NO_MSAA _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS _TONEMAP_ACES
+        passType: 0
+  - first: {fileID: 4800000, guid: 5f1864addb451f54bae8c86d230f736e, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+          _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 0
+  - first: {fileID: 4800000, guid: 82994eedb08e33a46a7efc7fd91cfae7, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _VERTEXCOLORON_ON
+        passType: 13
+  - first: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    second:
+      variants:
+      - keywords: _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _FOG_BETTER_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+          _FOG_BETTER_ON _MAIN_LIGHT_SHADOWS
+        passType: 0
+  - first: {fileID: 4800000, guid: 25314e9ee0dc3ce47a9007635f9791f4, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: e59fd13fd3b5f544c8b494548fd4b2a6, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA
+        passType: 14
+  - first: {fileID: 4800000, guid: 77cfa04f893eb8745b6a454a3d51b43c, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0

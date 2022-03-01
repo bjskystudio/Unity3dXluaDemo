@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 6abce0a6cce00bb45913634114e1c996
+labels:
+- IsCommonAsset
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: shaders
+  assetBundleVariant: 

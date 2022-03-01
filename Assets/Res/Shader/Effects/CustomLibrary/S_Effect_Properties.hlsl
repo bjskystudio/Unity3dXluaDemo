@@ -1,0 +1,60 @@
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonMaterial.hlsl"
+
+   
+CBUFFER_START(UnityPerMaterial)
+float4 _TintColor;
+float4 _DissolveEdgeColor;
+float4 _DetailTextureColor;
+float _DissolveCtl;
+float _DissolveSoft_out;
+float _DissolveEdgeWidth;
+float _DissolveSpeed_XX;
+float _DissolveSpeed_YY;
+float _Distortion;
+float _DistortionSpeed_XX;
+float _DistortionSpeed_YY;
+float _DistortionPower;
+float _DissolveSoft_in;
+float _MainTexSpeed_XX;
+float _MainTexSpeed_YY;
+float _DistortionForMask;
+float _DistortionForDissolve;
+float _DiatortionForVertexOffset;
+float _SoftParticle;
+float _MaskRotator;
+float _MainTexRotator;
+float _DetailTextureStrength;
+float _DetailTextureSpeed_XX;
+float _DetailTextureSpeed_YY;
+float _DistortionForDetail;
+float _DetailTextureMode_lerpadd;
+float _DetailTextureLerp;
+float _DetailTextureRotator;
+float _DissolveByVertexColorA;
+float _VertexColorOn;
+float _MaskScale;
+float4 _MainTex_ST;
+float4 _Maskalphaa_ST;
+float4 _DissolveTexRR_ST;
+float4 _DetailTexture_ST;
+float4 _DistortionTexRR_ST;
+float _DissolveTexRotator;
+float _SoftNearFade;
+float _SoftFarFade;
+float _Factor;
+float _DetailTextureColorHDR;
+float _DissolveEdgeColorHDR;
+float _PreMultiply;
+float4 _FresnelColor;
+float _FresnelS;
+float _FresnelLerp;
+CBUFFER_END
+
+TEXTURE2D(_MainTex);                SAMPLER(sampler_MainTex);
+//TEXTURE2D(_CameraDepthTexture);     SAMPLER(sampler_CameraDepthTexture);
+TEXTURE2D(_Maskalphaa);             SAMPLER(sampler_Maskalphaa);
+TEXTURE2D(_DissolveTexRR);          SAMPLER(sampler_DissolveTexRR);
+TEXTURE2D(_DetailTexture);          SAMPLER(sampler_DetailTexture);
+TEXTURE2D(_DistortionTexRR);        SAMPLER(sampler_DistortionTexRR);   
+TEXTURE2D(_CameraDepthTexture);     SAMPLER(sampler_CameraDepthTexture);

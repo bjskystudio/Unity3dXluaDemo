@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8867180280582873514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d910eb17a1742c74c8667a65c496d906, type: 3}
+  m_Name: Distortion
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: Distortion
+    Event: 500
+    m_iRenderPassEventOffset: 1
+    filterSettings:
+      RenderQueueType: 1
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      PassNames:
+      - Distortion
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+--- !u!114 &-5549927150726382668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b940f3a887c5a408d3401e6231c6f7, type: 3}
+  m_Name: NewRainDropScreenFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  mSettings:
+    mRainDropScreenMaterial: {fileID: 0}
+    mRTScale: 1
+--- !u!114 &-1989382697014536705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b5222354ba5bf43b88cabf76d31cec, type: 3}
+  m_Name: NewRainDropsPassFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  mSettings:
+    mRenderEvent: 550
+    mRainDropSceneMat: {fileID: 0}
+    mCBName: RainDrops
+--- !u!114 &-1194694760457358337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b5222354ba5bf43b88cabf76d31cec, type: 3}
+  m_Name: NewRainDropSceneFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  mSettings:
+    mRenderEvent: 550
+    mRainDropSceneMat: {fileID: 0}
+    mCBName: RainDropScene
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afe11ff96a659e4fa23825fb0fdfb2e, type: 3}
+  m_Name: NPRPipeline_Renderer
+  m_EditorClassIdentifier: 
+  m_RendererFeatures:
+  - {fileID: -8867180280582873514}
+  - {fileID: 3818120825442498286}
+  - {fileID: 6055468848453157673}
+  - {fileID: -1194694760457358337}
+  - {fileID: -5549927150726382668}
+  m_RendererFeatureMap: 565e82e08372f184ee760556a9b0fc3429837e9cd5580954ff33ebf371976befb47ba843a9b2fab2
+  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  shaders:
+    blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    copyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    screenSpaceShadowPS: {fileID: 4800000, guid: 0f854b35a0cf61a429bd5dcfea30eddd,
+      type: 3}
+    samplingPS: {fileID: 4800000, guid: 04c410c9937594faa893a11dceb85f7e, type: 3}
+    fallbackErrorPS: {fileID: 4800000, guid: 6e51b70e55074df428526e278d926a0c, type: 3}
+  m_OpaqueLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_TransparentLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_DefaultStencilState:
+    overrideStencilState: 0
+    stencilReference: 0
+    stencilCompareFunction: 8
+    passOperation: 0
+    failOperation: 0
+    zFailOperation: 0
+  m_ShadowTransparentReceive: 1
+--- !u!114 &2939941421994997817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b5222354ba5bf43b88cabf76d31cec, type: 3}
+  m_Name: NewRainDropSceneFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  mSettings:
+    mRenderEvent: 550
+    mRainDropSceneMat: {fileID: 2100000, guid: 3dd59734973351c40aaf5bee82572da4, type: 2}
+    mCBName: RainDrops
+--- !u!114 &3818120825442498286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd2b32a1cd8f03468b52de7c4c9327c, type: 3}
+  m_Name: ParicleCloudFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  MSetting:
+    PassEvent: 450
+    CullCameraTag: MainCamera
+    MatCapSphereMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    LightMat: {fileID: 2100000, guid: 9a8877b3976ef8a4f809824a9246f3e1, type: 2}
+    EdgeMat: {fileID: 2100000, guid: d5c3a08d7bd8c264aae68387c6f24fbe, type: 2}
+--- !u!114 &6055468848453157673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d910eb17a1742c74c8667a65c496d906, type: 3}
+  m_Name: OverlayTMPFont
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: OverlayTMPFont
+    Event: 500
+    m_iRenderPassEventOffset: 2
+    filterSettings:
+      RenderQueueType: 1
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      PassNames:
+      - OverlayTMPFont
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+--- !u!114 &9200877605578444144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6a1e3174bfae647a73cfdcfc0fea90, type: 3}
+  m_Name: NewRainDropCameraLensFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  mSettings:
+    mRenderPassEvent: 500
+    mRainDropCameraLensBlurMaterial: {fileID: 2100000, guid: 7405e3bdd8590204187dec9f88a45f56,
+      type: 2}
+    mRainDropCameraLensMaterial: {fileID: 2100000, guid: faac67dbb67f406429c06b81195dc2d5,
+      type: 2}
+    mBlur: 0
+    mBlurDownSampleNum: 2
+    mBlurSpreadSize: 3
+    mBlurIterations: 3
+    mRTQuality: 3
