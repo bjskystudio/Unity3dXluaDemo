@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mat_dongyezuigao_0_hair
+  m_Shader: {fileID: 4800000, guid: 42a28a1abd63ef24b99fe1eda378e2cf, type: 3}
+  m_ShaderKeywords: ANISOTROPY CSSTOMADDLIGHT SHADOWRECEP_ON _METALLICSPECGLOSSMAP
+    _NORMALMAP
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2201
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 11a2a607a21329c4495b960ccd70720a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BeHitMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 32789c45b9f31364cb9570d328060028, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FogDisturbTex_Single:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LimMask:
+        m_Texture: {fileID: 2800000, guid: 7d7bfff6dead4dd4a9fef6e9758b0b99, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainCap:
+        m_Texture: {fileID: 2800000, guid: 90a6b0ba580ecb343b68acabdb4c248b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d8921c84002c00c4cb6d4a71df96bdf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: 221021fe9419ba341965651ff9997da0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectTexMain:
+        m_Texture: {fileID: 8900000, guid: d3277cd0ba45b3e4b9640461a1c6f3be, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectTexTow:
+        m_Texture: {fileID: 8900000, guid: d3277cd0ba45b3e4b9640461a1c6f3be, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SdsMap:
+        m_Texture: {fileID: 2800000, guid: 5a800a7c329105947b1f13a1f3ec47d4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - ANISOTROPY: 1
+    - CSSTOMADDLIGHT: 1
+    - SHADOWRECEP: 1
+    - _AOMulti: 1
+    - _AlphaClip: 0
+    - _AlphaCtrl: 1
+    - _BRoughness: 0.31
+    - _BeHitRimPower: 8
+    - _BeHitRimSmooth: 0.1
+    - _BeHitRimStrength: 1
+    - _BeHitRimThreshod: 0.5
+    - _BeHitStrength: 1
+    - _BeHitThreshodAdd: 0
+    - _BeHitThreshodReplace: 0
+    - _Blend: 0
+    - _BumpScale: 1
+    - _Cull: 2
+    - _CustomLightDirX: 0
+    - _CustomLightDirY: 0
+    - _CustomLightDirZ: 0
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _EmissSpecMulti: 0
+    - _EmissSpecThreshod: 0
+    - _EmissThreshod: 0
+    - _EnvironmentReflections: 1
+    - _FogDistDensity_Single: 1
+    - _FogDistIntensity_Single: 1
+    - _FogDistOffset_Single: 0
+    - _FogDisturbIntensity_Single: 0
+    - _FogDisturbSpeedX_Single: 0
+    - _FogDisturbSpeedY_Single: 0
+    - _FogHeightBase_Single: 0
+    - _FogHeightDensity_Single: 1
+    - _FogHeightDistDensity_Single: 0
+    - _FogHeightIntensity_Single: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _GradColOffset: 0
+    - _GradColSmooth: 1
+    - _GradColThreshod: 0
+    - _MatCapMulti: 1
+    - _MaxOutlineZOffset: 0
+    - _Metallic: 0
+    - _MetallicStrength: 0.033
+    - _Ncut: 0.7
+    - _OcclusionStrength: 1
+    - _OneShadowSmooth: 1
+    - _OneShadowThreshod: 0.182
+    - _OutlineIFSmooth: 0
+    - _OutlineOpen: 1
+    - _OutlineScale: 0.1
+    - _OutlineWidth: 0.005
+    - _OutlineZ: 1
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _ReflectMulti: 1
+    - _ReflectOffset: 1
+    - _RimSmooth: 0.29
+    - _RimThreshod: 0
+    - _RoughnessStrength: 0.92
+    - _Scale: 0.01
+    - _Smoothness: 0.587
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SpecularMullit: 1.98
+    - _SpecularSize: 1
+    - _SpecularThreshod: 55
+    - _Specularoffuse: 0.2
+    - _SrcBlend: 1
+    - _StencilComp: 8
+    - _StencilOp: 2
+    - _StencilReadMask: 255
+    - _StencilRef: 40
+    - _StencilWriteMask: 255
+    - _Surface: 0
+    - _TRoughness: 0.59
+    - _ThreeMatCapMulti: 1
+    - _TowShadowSmooth: 0.042
+    - _TowShadowThreshod: 0.42
+    - _TwoMatCapMulti: 1
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    - _ZWriteCtrl: 1
+    - _cull: 2
+    - _dstAlphaBlend: 0
+    - _dstBlend: 0
+    - _srcAlphaBlend: 1
+    - _srcBlend: 1
+    - _zTest: 4
+    m_Colors:
+    - _BaseColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+    - _BeHitColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BeHitRimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    - _EmissCol: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissSpecCol: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FogDistColor_Single: {r: 1, g: 1, b: 1, a: 1}
+    - _FogHeightColor_Single: {r: 1, g: 1, b: 1, a: 1}
+    - _GradColor1: {r: 1, g: 1, b: 1, a: 1}
+    - _GradColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _RimCol: {r: 0.34117648, g: 0.19215687, b: 0.29411766, a: 0}
+    - _RimFadeVector: {r: -1.43, g: 0.13, b: 0, a: 1}
+    - _ShadowCol: {r: 0.31132078, g: 0.24230155, b: 0.24230155, a: 1}
+    - _SpecCol: {r: 1, g: 0.6414856, b: 0.33490568, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+--- !u!114 &2485600572126371475
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
