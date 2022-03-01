@@ -1,0 +1,84 @@
+long	string	string	long[]	string	int[]	int	long[]
+唯一id	资源路径	名字	固定物件(功能中的自己在功能里初始化)	绑定的界面(为空打开主界面)	背景音乐	是否取消同步位置	相邻的场景ID
+sid	path	name	items	View	BgMusics	NotSync	NearbySid
+1	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	测试场景			1#2#3	0	1
+2	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	测试场景			1#2#3	0	1
+3	Scene/Battle_Streetscape/prefabs/Battle_Streetscape	创建角色			1#2#3	0	1
+10	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	测试场景			1#2#3	0	1
+11	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	测试场景			1#2#3	0	1
+12	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	测试场景1			1#2#3	0	1
+21	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	测试关卡场景区域1			1#2#3	0	1
+9002	Scene/Jianghu/prefabs/Jianghu	两只怪			1#2#3	0	1
+9001	Scene/Battle_Streetscape/prefabs/Battle_Streetscape	一只怪			1#2#3	0	1
+9003	Scene/Battle_Streetscape/prefabs/Battle_Streetscape	三只怪			1#2#3	0	1
+10001	Scene/Jisitading/prefabs/Jisitading	吉斯塔顶部			1#2#3	0	1
+10002	Scene/Nanzhendongqu/prefabs/nanzhendongquzhuzhaiqu_01	东区住宅区	1000209001#101		1#2#3	0	1
+10003	Scene/Nanzhendongquguangchang/prefabs/Shangyeguangchang	东区广场	1000309101#102		1#2#3	0	1
+10004	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	东区中央城	1000409001#1000409002#1000409003#1000409004		1#2#3	0	1
+10005	Scene/Jianghu/prefabs/Jianghu	交错之门	1000509001		1#2#3	0	1
+10006	Scene/Jianghu/prefabs/Jianghu	镇元斋道场	1000609001		1#2#3	0	1
+10007	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	佣兵组织基地	1000709001#1000709002		1#2#3	0	1
+10008	Scene/Battle_Streetscape/prefabs/Battle_Streetscape	佣兵组织基地废墟	1000809001		1#2#3	0	1
+10009	Scene/Jianghu/prefabs/Jianghu	安全屋			1#2#3	0	1
+10010	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	东区枢纽	1001009001#1001009002#1001009003		1#2#3	0	1
+10011	Scene/Nanzhendongqujiaowai/prefabs/Nanzhendongqujiaowai	东区郊外	1001109001#103		1#2#3	0	1
+10012	Scene/Senlin/prefabs/Senlin	北区东海岸	1001209001#1001209002		1#2#3	0	1
+10013	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	北区中央城	1001309001#1001309002#1001309003		1#2#3	0	1
+10014	Scene/Nanzhendongquguangchang/prefabs/Shangyeguangchang	北区广场	1001409001#105		1#2#3	0	1
+10015	Scene/Senlin/prefabs/Senlin	北区郊外	1001509001		1#2#3	0	1
+10016	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	北区枢纽	1001609001#1001609002#104		1#2#3	0	1
+30001	Scene/Jianghu/prefabs/Jianghu	生存试炼			1#2#3	0	1
+10018	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	时光秘境	1001809001		1#2#3	0	1
+30011	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	意志试炼			1#2#3	0	1
+10020	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	组队副本			1#2#3	0	1
+10021	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	黑色诺亚			1#2#3	0	1
+10022	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	研发室			1#2#3	0	1
+10023	Scene/Senlin/prefabs/Senlin	森林			1#2#3	0	1
+10024	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	复古东区枢纽	1002409501#1002409502		1#2#3	0	1
+10025	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	复古东区中央城	1002509501#1002509502#1002509503		1#2#3	0	1
+10026	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	通道			1#2#3	0	1
+10027	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	混乱时空			1#2#3	0	1
+10028	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	挑战者大厅	1002809001#1002809002		1#2#3	0	1
+10029	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	超时空竞技场			1#2#3	0	1
+10030	Scene/Nanzhendongqu/prefabs/nanzhendongquzhuzhaiqu_01	复古东区住宅区	1003009501		1#2#3	0	1
+10031	Scene/Nanzhendongqujiaowai/prefabs/Nanzhendongqujiaowai	复古东区郊外	1003109501		1#2#3	0	1
+20101	Scene/Nanzhendongqu/prefabs/nanzhendongquzhuzhaiqu_01	故事推图-东区住宅区-1个怪			1#2#3	0	1
+20102	Scene/Nanzhendongqu/prefabs/nanzhendongquzhuzhaiqu_01	故事推图-东区住宅区-2个怪			1#2#3	0	1
+20103	Scene/Nanzhendongqu/prefabs/nanzhendongquzhuzhaiqu_01	故事推图-东区住宅区-3个怪			1#2#3	0	1
+20201	Scene/Nanzhendongquguangchang/prefabs/Shangyeguangchang	故事推图-东区广场-1个怪			1#2#3	0	1
+20202	Scene/Nanzhendongquguangchang/prefabs/Shangyeguangchang	故事推图-东区广场-2个怪			1#2#3	0	1
+20203	Scene/Nanzhendongquguangchang/prefabs/Shangyeguangchang	故事推图-东区广场-3个怪			1#2#3	0	1
+20301	Scene/Senlin/prefabs/Senlin	故事推图-森林-1个怪			1#2#3	0	1
+20302	Scene/Senlin/prefabs/Senlin	故事推图-森林-2个怪			1#2#3	0	1
+20303	Scene/Senlin/prefabs/Senlin	故事推图-森林-3个怪			1#2#3	0	1
+20401	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	故事推图-通道-1个怪			1#2#3	0	1
+20402	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	故事推图-通道-2个怪			1#2#3	0	1
+20403	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	故事推图-通道-3个怪			1#2#3	0	1
+20501	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-研发室-1个怪			1#2#3	0	1
+20502	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-研发室-2个怪			1#2#3	0	1
+20503	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-研发室-3个怪			1#2#3	0	1
+20601	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-混乱时空-1个怪			1#2#3	0	1
+20602	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-混乱时空-2个怪			1#2#3	0	1
+20603	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-混乱时空-3个怪			1#2#3	0	1
+20701	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	故事推图-黑色诺亚-1个怪			1#2#3	0	1
+20702	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	故事推图-黑色诺亚-2个怪			1#2#3	0	1
+20703	Scene/Nanzhendongqushuniu/prefabs/Nanzhendongqushuniu	故事推图-黑色诺亚-3个怪			1#2#3	0	1
+20801	Scene/Battle_Streetscape/prefabs/Battle_Streetscape	故事推图-东区城郊-1个怪			1#2#3	0	1
+20802	Scene/Battle_Streetscape/prefabs/Battle_Streetscape	故事推图-东区城郊-2个怪			1#2#3	0	1
+20803	Scene/Battle_Streetscape/prefabs/Battle_Streetscape	故事推图-东区城郊-3个怪			1#2#3	0	1
+20901	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	故事推图-东区中央城-1个怪			1#2#3	0	1
+20902	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	故事推图-东区中央城-2个怪			1#2#3	0	1
+20903	Scene/Zhucheng_southeast_corner/prefabs/Zhucheng_southeast_corner	故事推图-东区中央城-3个怪			1#2#3	0	1
+21001	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-擂台-1个怪			1#2#3	0	1
+21002	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-擂台-2个怪			1#2#3	0	1
+21003	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	故事推图-擂台-3个怪			1#2#3	0	1
+21101	Scene/Jisitading/prefabs/Jisitading	故事推图-吉斯塔顶-1个怪			1#2#3	0	1
+21102	Scene/Jisitading/prefabs/Jisitading	故事推图-吉斯塔顶-2个怪			1#2#3	0	1
+21103	Scene/Jisitading/prefabs/Jisitading	故事推图-吉斯塔顶-3个怪			1#2#3	0	1
+30003	Scene/Jianghu/prefabs/Jianghu	生存试炼			1#2#3	0	1
+30004	Scene/Jianghu/prefabs/Jianghu	生存试炼			1#2#3	0	1
+30005	Scene/Jianghu/prefabs/Jianghu	生存试炼			1#2#3	0	1
+30006	Scene/Jianghu/prefabs/Jianghu	生存试炼			1#2#3	0	1
+30012	Scene/Dixiagedouchang/prefabs/Dixiagedouchang	意志试炼白虎			1#2#3	0	1
+30013	Scene/Jianghu/prefabs/Jianghu	意志试炼朱雀			1#2#3	0	1
+30014	Scene/Nanzhendongquguangchang/prefabs/Shangyeguangchang	意志试炼玄武			1#2#3	0	1

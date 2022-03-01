@@ -1,0 +1,32 @@
+int	black	string	bool	float	float
+Sid（修改影响功能）	音效说明	音频路径	是否同步加载	循环间隔时间(小于0不循环)	音量变化过渡时间
+Sid	Readme	Path	Sync	LoopInterval	TransitionTime
+1	登录背景音乐	Audio/BGM/BGM_DengLu		10	2
+2	场景1背景音乐	Audio/BGM/BGM_ChangJing_1		10	2
+3	副本1背景音乐	Audio/BGM/BGM_FuBen_1		10	2
+					
+20	界面打开	Audio/TongYong/JieMianDaKai		-1	
+21	界面关闭	Audio/TongYong/JiaMianGuanBi		-1	
+22	无效操作	Audio/TongYong/WuXiaoCaoZuo		-1	
+23	按钮点击	Audio/SimpleButton		-1	
+					
+50	新消息	Audio/GongNeng/XinXiaoXi		-1	
+51	新邮件	Audio/GongNeng/XinYouJian		-1	
+52	传送	Audio/GongNeng/ChuanSong		-1	
+53	宝箱	Audio/GongNeng/BaoXiang		-1	
+					
+101	场景BGM1	Audio/BGM/Mutually Exclusive Dichotomy		10	2
+102	场景BGM2	Audio/BGM/Cutting Edge		10	2
+103	场景BGM3	Audio/BGM/ESAKA!!		10	2
+104	场景BGM4	Audio/BGM/KD-0079+		10	2
+105	场景BGM5	Audio/BGM/nanjiu		10	2
+106	场景BGM6	Audio/BGM/Seoul Town		10	2
+107	场景BGM7	Audio/BGM/Windy Day		10	2
+108	场景BGM8	Audio/BGM/Mutually Exclusive Dichotomy		-1	
+109	场景BGM9	Audio/BGM/Cutting Edge		-1	
+110	场景BGM10	Audio/BGM/ESAKA!!		-1	
+111	场景BGM11	Audio/BGM/KD-0079+		-1	
+112	场景BGM12	Audio/BGM/nanjiu		-1	
+113	场景BGM13	Audio/BGM/Seoul Town		-1	
+114	场景BGM14	Audio/BGM/Windy Day		-1	
+115	场景BGM15	Audio/BGM/xingge3		10	2

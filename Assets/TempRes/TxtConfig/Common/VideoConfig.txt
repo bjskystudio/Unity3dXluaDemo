@@ -1,0 +1,10 @@
+int	string	string	string	bool	bool	float	int[]
+字段	名称	描述	视频资源路径	是否显示跳过按钮	是否循环	音量(0-1,-1跟随游戏系统音量)	分辨率
+Sid	Name	Desc	VideoPath	IsShowSkipBtn	IsLoop	Volume	Resolution
+1	启动CG		Video/startcg	true		-1	1280#720
+2	登录背景CG		Video/login		TRUE	-1	768#564
+3	创建角色成功		Video/createrolecg	true		-1	1280#720
+4	跳转地图CG	坐出租车	Video/login	true		-1	1280#720
+5	招募CG		Video/drawCard	true		-1	1280#720
+6	205契约CG		Video/Contract205			-1	1280#720
+7	创建角色前的CG		Video/jq00_00_select_p1			-1	1280#720
