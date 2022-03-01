@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FogBetter
+  m_Shader: {fileID: 4800000, guid: 8ecfb5c467bdb1c418b43edf2384c422, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortTex:
+        m_Texture: {fileID: 2800000, guid: f856037090340cb4b8ca144a475b272f, type: 3}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    - _DisturbTex:
+        m_Texture: {fileID: 2800000, guid: f856037090340cb4b8ca144a475b272f, type: 3}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FogDisturbTex_Single:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b5e27e7947ddac94fa502412c16f977a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DistortFactor: 0.97
+    - _DisturbIntensity: 0
+    - _DisturbSpeedX: 0.29
+    - _DisturbSpeedY: 0.34
+    - _DstBlend: 0
+    - _FogDensity: 0.0001
+    - _FogDistDensity: 0.21
+    - _FogDistDensity_Single: 1
+    - _FogDistIntensity: 3.5
+    - _FogDistIntensity_Single: 1
+    - _FogDistOffset_Single: 0
+    - _FogDistanceOffset: -21.1
+    - _FogDisturbIntensity_Single: 0
+    - _FogDisturbSpeedX_Single: 0
+    - _FogDisturbSpeedY_Single: 0
+    - _FogHeightBase_Single: 0
+    - _FogHeightDensity: 10.7
+    - _FogHeightDensity1: 0.0102
+    - _FogHeightDensity_Single: 1
+    - _FogHeightDistDensity_Single: 0
+    - _FogHeightIntensity: 1
+    - _FogHeightIntensity_Single: 1
+    - _FogHeightOffset: 18.9
+    - _FogIntensity: 100
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HeightStart: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FogColor: {r: 0, g: 1, b: 0.038461447, a: 1}
+    - _FogDistColor_Single: {r: 0.9150943, g: 0.16834284, b: 0.16834284, a: 1}
+    - _FogFarColor: {r: 0.5943396, g: 0.21026166, b: 0.3264012, a: 1}
+    - _FogHeightColor_Single: {r: 0, g: 0.9811321, b: 0.11423255, a: 1}
+    - _FogTopColor: {r: 0.23202206, g: 0.5183266, b: 0.6226415, a: 1}

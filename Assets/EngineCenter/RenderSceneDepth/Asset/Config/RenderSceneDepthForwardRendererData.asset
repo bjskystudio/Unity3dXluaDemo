@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3511775076404784345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1586458291c15f42b4cf0ea04ee43d6, type: 3}
+  m_Name: RenderSceneDepthPassFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  mSettings:
+    mRenderPassEvent: 300
+    mRenderSceneDepthMat: {fileID: 2100000, guid: f817009921ac92a41adae7df4425e8c4,
+      type: 2}
+    mRT: {fileID: 0}
+    mRTScale: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1506cfd6d5f7c0459ddb700674d7dc3, type: 3}
+  m_Name: RenderSceneDepthForwardRendererData
+  m_EditorClassIdentifier: 
+  m_RendererFeatures:
+  - {fileID: -3511775076404784345}
+  m_RendererFeatureMap: 2793d2972cab43cf
+  m_OpaqueLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
