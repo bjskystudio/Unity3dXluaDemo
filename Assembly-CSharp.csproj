@@ -104,6 +104,9 @@
     <Compile Include="Assets\EngineCenter\GPUInstancing\Scene\GPUSceneAsset.cs" />
     <Compile Include="Assets\EngineCenter\GPUInstancing\Scene\GPUSceneObjectData.cs" />
     <Compile Include="Assets\EngineCenter\Lightmap\LightMapSetting.cs" />
+    <Compile Include="Assets\EngineCenter\MirrorReflection\CMirrorReflection.cs" />
+    <Compile Include="Assets\EngineCenter\MirrorReflection\MirrorReflectionRenderer.cs" />
+    <Compile Include="Assets\EngineCenter\MirrorReflection\MirrorReflectionRendererData.cs" />
     <Compile Include="Assets\EngineCenter\NPR Pipeline\Runtime\AScriptableRenderer.cs" />
     <Compile Include="Assets\EngineCenter\NPR Pipeline\Runtime\AScriptableRendererFeature.cs" />
     <Compile Include="Assets\EngineCenter\NPR Pipeline\Runtime\CLights.cs" />
@@ -888,6 +891,7 @@
     <None Include="Assets\Res\Shader\Character\PBR\S_PBR_Character.shader" />
     <None Include="Assets\EngineCenter\FogBetter\Shader\FogBetter.hlsl" />
     <None Include="Assets\Res\Shader\Scene\Snk_Scene_Object_M.shader" />
+    <None Include="Assets\EngineCenter\MirrorReflection\MirrorReflection.shader" />
     <None Include="Assets\Res\Shader\Character\CustomLibrary\CustomAddLighting.hlsl" />
     <None Include="Assets\TempRes\TxtConfig\World\WorldConfig.txt" />
     <None Include="Assets\Res\Shader\Effects\Snk_FX_Distortion_RG.shader" />

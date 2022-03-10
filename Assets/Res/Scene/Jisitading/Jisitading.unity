@@ -6275,6 +6275,11 @@ PrefabInstance:
       propertyPath: mTargetCamera
       value: 
       objectReference: {fileID: 571235558}
+    - target: {fileID: 2261491544975743607, guid: fcdfe5607fffd064c80e2d0826274194,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b3eebdb745f3554dad1896f958912b1, type: 2}
     - target: {fileID: 4650561206933640124, guid: fcdfe5607fffd064c80e2d0826274194,
         type: 3}
       propertyPath: m_LocalPosition.x
